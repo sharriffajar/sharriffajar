@@ -18,10 +18,10 @@
 
 ### 🚀 Active Projects
 
-#### 1. 🌐 [NuanceNarrative] The N.N. Protocol
-- **Deskripsi:** Standar terbuka untuk *AI-Native Publishing* guna menghasilkan dokumen publikasi yang terverifikasi, *machine-readable*, dan bebas halusinasi.
-- **Komponen Utama:** Pipeline terintegrasi yang menggabungkan *Strict RAG Citation Matcher*, *Constrained Triples Extractor* (berbasis 12 predikat inti), serta *First-Class JSON-LD Generator* untuk AI crawler.
-- **Tech Stack:** Python, LLM, Qdrant Vector DB, Jinja2, JSON-LD.
+#### 1. 🌐 [NuanceNarrative] The N.N. Protocol v5.2.0
+- **Deskripsi:** Open-source framework berbasis arsitektur microkernel untuk ekstraksi Knowledge Graph multi-domain (Policy, Economy, Energy) dari dokumen publik dengan *Evidence-First Grounding*.
+- **Komponen Utama:** Core Engine (Hybrid Fuzzy-LLM), Pluggable Multi-Domain System (`IndonesianPolicyPlugin`, `IndonesianEconomyPlugin`, `IndonesianEnergyPlugin`), Predicate Quality Gate (Core12), Evidence-First Grounding (page index & verbatim quote), serta Stateless API Deployment.
+- **Tech Stack:** Python, FastAPI, LLM, pdfplumber, Qdrant Vector DB, JSON-LD / RDF / CSV.
 
 #### 2. ⚡ Lightweight 1D-CNN Edge AI for Inverter Fault Diagnosis (Skripsi)
 - **Deskripsi:** Sistem diagnosa kerusakan *Open-Circuit Fault* (OCF) real-time pada inverter satu-fasa berbasis *Lightweight 1D-CNN* pada edge device.
@@ -34,6 +34,7 @@
 
 **Languages & Frameworks**
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -53,10 +54,7 @@
 
 ### 📊 GitHub Activity & Stats
 
-<p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=YOUR_GITHUB_USERNAME&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_GITHUB_USERNAME&layout=compact&theme=tokyonight&hide=html,css"/>
-</p>
+
 
 <p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=YOUR_GITHUB_USERNAME&theme=tokyonight" />
