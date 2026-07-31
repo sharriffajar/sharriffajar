@@ -19,9 +19,9 @@
 ### 🚀 Active Projects
 
 #### 1. 🌐 [NuanceNarrative] The N.N. Protocol
-- **Deskripsi:** Standar terbuka untuk *AI-Native Policy Publishing* guna menghasilkan dokumen kebijakan publik yang terverifikasi, *machine-readable*, dan bebas halusinasi.
+- **Deskripsi:** Standar terbuka untuk *AI-Native Publishing* guna menghasilkan dokumen publikasi yang terverifikasi, *machine-readable*, dan bebas halusinasi.
 - **Komponen Utama:** Pipeline terintegrasi yang menggabungkan *Strict RAG Citation Matcher*, *Constrained Triples Extractor* (berbasis 12 predikat inti), serta *First-Class JSON-LD Generator* untuk AI crawler.
-- **Tech Stack:** Python, Zhipu AI (GLM-4-Flash & Embeddings), Qdrant Vector DB, Jinja2, JSON-LD.
+- **Tech Stack:** Python, LLM, Qdrant Vector DB, Jinja2, JSON-LD.
 
 #### 2. ⚡ Neuromorphic Edge AI for Inverter Fault Diagnosis (Skripsi)
 - **Deskripsi:** Sistem diagnosa kerusakan *Open-Circuit Fault* (OCF) real-time pada inverter satu-fasa berbasis komputasi neuromorfik.
