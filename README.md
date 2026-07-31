@@ -9,9 +9,9 @@
 </p>
 
 <p align="center">
-  <a href="https://novelby.me"><img src="https://img.shields.io/badge/Portfolio-novelby.me-10B981?style=for-the-badge&logo=globe&logoColor=white" /></a>
+  <a href="https://novelby.com"><img src="https://img.shields.io/badge/Portfolio-novelby.me-10B981?style=for-the-badge&logo=globe&logoColor=white" /></a>
   <a href="https://medium.com"><img src="https://img.shields.io/badge/Medium-Blogger_Community-000000?style=for-the-badge&logo=medium&logoColor=white" /></a>
-  <a href="mailto:sharrif.faqih@example.com"><img src="https://img.shields.io/badge/Gmail-Contact_Me-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+  <a href="mailto:sharriffajar@gmail.com"><img src="https://img.shields.io/badge/Gmail-Contact_Me-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
 </p>
 
 ---
