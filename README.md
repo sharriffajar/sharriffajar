@@ -11,7 +11,7 @@
 <p align="center">
   <a href="mailto:sharriffajar@gmail.com"><img src="https://img.shields.io/badge/📧_Email-sharriffajar@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
   <a href="https://github.com/sharriffajar"><img src="https://img.shields.io/badge/GitHub-sharriffajar-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
-  <a href="linkedin.com/in/sharrif-faqih-fajarudin-64aa96247"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+  <a href="linkedin.com/in/sharrif-faqih-fajarudin-64aa96247/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
   
 </p>
 
@@ -168,7 +168,7 @@ Pipeline: Signal Acquisition → Preprocessing → 1D-CNN Training →
 <p align="center">
   <a href="mailto:sharriffajar@gmail.com"><img src="https://img.shields.io/badge/📧_Email-sharriffajar@gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white" /></a>
   <a href="https://github.com/sharriffajar"><img src="https://img.shields.io/badge/🐙_GitHub-sharriffajar-181717?style=flat-square&logo=github&logoColor=white" /></a>
-  <a href="linkedin.com/in/sharrif-faqih-fajarudin-64aa96247"><img src="https://img.shields.io/badge/💼_LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" /></a>
+  <a href="linkedin.com/in/sharrif-faqih-fajarudin-64aa96247/"><img src="https://img.shields.io/badge/💼_LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" /></a>
 </p>
 
 ---
