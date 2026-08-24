@@ -3,13 +3,18 @@
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono:wght@400;700&size=15&pause=600&color=00FF00&background=000000&center=true&vCenter=true&width=750&lines=$+cat+about.txt;%E2%96%B6+Name.....:+Sharrif+Fajar;%E2%96%B6+Role.....:+Electrical+Engineering+Student+%40+UNTAN;%E2%96%B6+Focus....:+Edge+AI+%26+TinyML+Developer;$+echo+%22Building+%3C200KB+AI+models%22;$+neofetch" />
 </p>
 
-
-
 <p align="center">
   <a href="mailto:sharriffajar@gmail.com"><img src="https://img.shields.io/badge/📧_Email-sharriffajar@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
   <a href="https://github.com/sharriffajar"><img src="https://img.shields.io/badge/GitHub-sharriffajar-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
-  <a href="linkedin.com/in/sharrif-faqih-fajarudin-64aa96247/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-  
+  <a href="https://linkedin.com/in/sharrif-faqih-fajarudin-64aa96247/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+</p>
+
+---
+
+## 📊 Quick Stats
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sharriffajar&background=000000&border=00FF00&stroke=00FF00&ring=00FF00&fire=00FF00&currStreakLabel=00FF00&sideLabels=00FF00&sideNums=00FF00&dates=00FF00&hide_border=true" />
 </p>
 
 ---
@@ -23,14 +28,41 @@ Passionate about **democratizing AI for edge devices** and **renewable energy re
 **Research Focus:**
 - 🔬 Open-Circuit Fault Detection for Solar PV Inverters
 - 📚 Privacy-First Local RAG Systems for Document Intelligence
-- 🕸️ Knowledge Graph Extraction from Public Documents
+- 🕸️ Knowledge Graph Extraction & Schema.org JSON-LD Generation
 
 ---
 
 ## 🚀 Featured Projects
 
-### 1. 🌐 [Notebook-LocalLM-Studio](https://github.com/sharriffajar/Notebook-LocalLM-Studio) — *Active Development*
-<!-- TODO: Ganti dengan link repo yang benar setelah di-push -->
+### 🧬 [CorpusLD](https://github.com/sharriffajar/CorpusLD) — *Enterprise Knowledge Graph + Neural RAG Studio*
+
+| **Aspect** | **Details** |
+|------------|-------------|
+| **Type** | Multi-Agent Semantic Ingestion & JSON-LD Extraction Platform |
+| **Target** | Unstructured PDF → Schema.org Compliant Knowledge Graph |
+| **Innovation** | 5-Agent Pipeline + Adversarial KG Reasoning + Precision RAG |
+
+```text
+Pipeline: PDF Upload → 3-Tier Parser (LlamaParse→Unstructured→PyPDF) → 
+         5-Agent Extraction → Schema.org JSON-LD (100% Validator Compliant) → 
+         Qdrant Vector DB → Neural Chat with Evidence Citation
+```
+
+**Tech Stack:** `Python` · `FastAPI` · `Qdrant` · `IBM Granite Embedding` · `Ollama` · `Schema.org JSON-LD`
+
+**Key Features:**
+- 🤖 **5-Agent Stepped RAG Pipeline** (Metadata → Outline → Metrics → Tables → Citations)
+- 🌐 **100% Schema.org & Google Rich Results Compliant** (0 Errors, 0 Warnings)
+- 🛡️ **Adversarial Knowledge Graph Reasoning** (Antonym/Negation/Numerical Conflict Detection)
+- 💬 **Neural Chat Studio** with evidence citation: `📄 Doc.pdf (Page X)` + `📊 Table: Doc.pdf (Page Y)`
+- ⚡ **Zero Cold-Start Ollama** + BYOK Support (Gemini, Groq, OpenAI, DeepSeek)
+- 🔒 **Privacy First** — Local storage only, API keys in browser localStorage only
+
+**Status:** ✅ Released v2.0 | MIT Licensed
+
+---
+
+### 🌐 [Notebook-LocalLM-Studio](https://github.com/sharriffajar/Notebook-LocalLM-Studio) — *Active Development*
 
 | **Aspect** | **Details** |
 |------------|-------------|
@@ -54,7 +86,7 @@ Pipeline: PDF Upload → Tiered Parsing (LlamaParse→Unstructured→pypdf) →
 
 ---
 
-### 2. ⚡ [Lightweight 1D-CNN Edge AI for Inverter Fault Diagnosis](https://github.com/sharriffajar/Lightweight-1D-CNN-Edge-AI-for-Inverter-Fault-Diagnosis) — *Thesis Project*
+### ⚡ [Lightweight 1D-CNN Edge AI for Inverter Fault Diagnosis](https://github.com/sharriffajar/Lightweight-1D-CNN-Edge-AI-for-Inverter-Fault-Diagnosis) — *Thesis Project*
 
 | **Aspect** | **Details** |
 |------------|-------------|
@@ -76,7 +108,7 @@ Pipeline: Signal Acquisition → Preprocessing → 1D-CNN Training →
 
 ---
 
-### 3. 🧠 [NuanceNarrative] The N.N. Protocol v5.2.0 *(Coming Soon)*
+### 🧠 [NuanceNarrative] The N.N. Protocol v5.2.0 *(Coming Soon)*
 
 | **Aspect** | **Details** |
 |------------|-------------|
@@ -116,6 +148,7 @@ Pipeline: Signal Acquisition → Preprocessing → 1D-CNN Training →
 
 ![Qdrant](https://img.shields.io/badge/Qdrant-D31F58?style=flat-square&logo=qdrant&logoColor=white)
 ![JSON-LD](https://img.shields.io/badge/JSON--LD-005A9C?style=flat-square&logo=json&logoColor=white)
+![Schema.org](https://img.shields.io/badge/Schema.org-1ED962?style=flat-square&logo=json&logoColor=black)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
 
 ### **Embedded & IoT**
@@ -132,8 +165,6 @@ Pipeline: Signal Acquisition → Preprocessing → 1D-CNN Training →
 
 ---
 
-
-
 ## 🎯 Current Focus
 
 ```
@@ -149,12 +180,10 @@ Pipeline: Signal Acquisition → Preprocessing → 1D-CNN Training →
 │     └─ PyTest suite implementation                          │
 │                                                             │
 │  🧠 Knowledge Graph Framework                               │
+│     ├─ CorpusLD v2.1 (Docker + CI/CD)                       │
 │     └─ NuanceNarrative public release                       │
 └─────────────────────────────────────────────────────────────┘
 ```
-
-
-
 
 ---
 
@@ -165,10 +194,8 @@ Pipeline: Signal Acquisition → Preprocessing → 1D-CNN Training →
 <p align="center">
   <a href="mailto:sharriffajar@gmail.com"><img src="https://img.shields.io/badge/📧_Email-sharriffajar@gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white" /></a>
   <a href="https://github.com/sharriffajar"><img src="https://img.shields.io/badge/🐙_GitHub-sharriffajar-181717?style=flat-square&logo=github&logoColor=white" /></a>
-  <a href="linkedin.com/in/sharrif-faqih-fajarudin-64aa96247/"><img src="https://img.shields.io/badge/💼_LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" /></a>
+  <a href="https://linkedin.com/in/sharrif-faqih-fajarudin-64aa96247/"><img src="https://img.shields.io/badge/💼_LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" /></a>
 </p>
-
----
 
 <p align="center">
   <i>"Democratizing AI × Lightweight Edge Intelligence × Verifiable Knowledge"</i>
