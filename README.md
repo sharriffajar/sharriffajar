@@ -1,8 +1,5 @@
 <p align="center">
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:0d1117,100:000000&height=280&section=header&text=%3E_sharrif_fajar&fontSize=58&fontColor=00FF00&animation=blink&fontAlign=left&fontAlignY=42&desc=root@edge-ai-dev:~$+whoami&descSize=17&descColor=00FF00&descAlign=left&descAlignY=72" />
-</p>
-
-<p align="center">
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono:wght@400;700&size=15&pause=600&color=00FF00&background=000000&center=true&vCenter=true&width=750&lines=$+cat+about.txt;%E2%96%B6+Name.....:+Sharrif+Fajar;%E2%96%B6+Role.....:+Electrical+Engineering+Student+%40+UNTAN;%E2%96%B6+Focus....:+Edge+AI+%26+TinyML+Developer;$+echo+%22Building+%3C200KB+AI+models%22;$+neofetch" />
 </p>
 
