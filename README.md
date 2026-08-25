@@ -106,23 +106,6 @@ Pipeline: Signal Acquisition → Preprocessing → 1D-CNN Training →
 
 **Status:** 🧪 Proof-of-concept validated | 🔜 Physical dataset acquisition pending
 
----
-
-### 🧠 [NuanceNarrative] The N.N. Protocol v5.2.0 *(Coming Soon)*
-
-| **Aspect** | **Details** |
-|------------|-------------|
-| **Type** | Knowledge Graph Extraction Framework |
-| **Target** | Multi-domain policy/economy/energy intelligence |
-| **Innovation** | Microkernel architecture + Evidence-First Grounding |
-
-**Tech Stack:** `Python` · `FastAPI` · `LLM` · `Qdrant` · `JSON-LD/RDF`
-
-**Key Components:**
-- Core Engine (Hybrid Fuzzy-LLM)
-- Pluggable Domain Plugins (`IndonesianPolicyPlugin`, `IndonesianEnergyPlugin`)
-- Predicate Quality Gate (Core12)
-- Stateless API Deployment
 
 ---
 
@@ -180,8 +163,8 @@ Pipeline: Signal Acquisition → Preprocessing → 1D-CNN Training →
 │     └─ PyTest suite implementation                          │
 │                                                             │
 │  🧠 Knowledge Graph Framework                               │
-│     ├─ CorpusLD v2.1 (Docker + CI/CD)                       │
-│     └─ NuanceNarrative public release                       │
+│     └─ CorpusLD v2.1 (Docker + CI/CD)                       │
+│                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
