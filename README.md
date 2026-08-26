@@ -52,7 +52,7 @@ Pipeline: PDF Upload → 3-Tier Parser (LlamaParse→Unstructured→PyPDF) →
 
 **Key Features:**
 - 🤖 **5-Agent Stepped RAG Pipeline** (Metadata → Outline → Metrics → Tables → Citations)
-- 🌐 **100% Schema.org & Google Rich Results Compliant** (0 Errors, 0 Warnings)
+- 🌐 **100% Schema.org & Google Rich Results Compliant** (0 critical error, optional warning)
 - 🛡️ **Adversarial Knowledge Graph Reasoning** (Antonym/Negation/Numerical Conflict Detection)
 - 💬 **Neural Chat Studio** with evidence citation: `📄 Doc.pdf (Page X)` + `📊 Table: Doc.pdf (Page Y)`
 - ⚡ **Zero Cold-Start Ollama** + BYOK Support (Gemini, Groq, OpenAI, DeepSeek)
