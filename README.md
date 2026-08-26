@@ -58,7 +58,7 @@ Pipeline: PDF Upload → 3-Tier Parser (LlamaParse→Unstructured→PyPDF) →
 - ⚡ **Zero Cold-Start Ollama** + BYOK Support (Gemini, Groq, OpenAI, DeepSeek)
 - 🔒 **Privacy First** — Local storage only, API keys in browser localStorage only
 
-**Status:** ✅ Released v2.0 | MIT Licensed
+**Status:** ✅ Released v2.0 | Apache-2.0 Licensed
 
 ---
 
