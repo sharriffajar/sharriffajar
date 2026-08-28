@@ -91,21 +91,22 @@ Pipeline: PDF Upload → Tiered Parsing (LlamaParse→Unstructured→pypdf) →
 
 | **Aspect** | **Details** |
 |------------|-------------|
-| **Type** | TinyML / Embedded AI System |
-| **Target** | Real-time OCF detection on ESP32-S3 |
-| **Innovation** | INT8 Quantized CNN (<15k params, <200KB model) |
+| **Type** | TinyML / Embedded AI Fault Diagnosis System |
+| **Target** | Real-time Open-Circuit Fault (OCF) detection on ESP32-S3 |
+| **Model Specs** | INT8 Quantized 1D-CNN (21.5 KB, ~14.7k params, ~8.4 ms latency) |
+| **Fault Classes** | 6 Classes: Healthy, S1_Open, S2_Open, S3_Open, S4_Open, Multi_Fault |
 
 ```text
-Pipeline: Signal Acquisition → Preprocessing → 1D-CNN Training → 
-         INT8 Quantization → TFLite Micro → ESP32-S3 Deployment → 
-         Cloud Monitoring via Thinger.io
+Pipeline: generate_dataset.py (128-sample window) → train_model.py (1D-CNN) → 
+         quantize_export.py (INT8 TFLite ~21.5KB) → TFLite Micro on ESP32-S3 → 
+         IoT Telemetry via Thinger.io
 ```
 
 **Tech Stack:** `ESP32-S3` · `TensorFlow/Keras` · `TFLite Micro` · `C/C++` · `Thinger.io`
 
 **Paper:** *"Democratizing AIoT for Renewable Energy Reliability: A Lightweight CNN and ESP32-S3-Based Inverter Fault Detection System"*
 
-**Status:** 🧪 Proof-of-concept validated | 🔜 Physical dataset acquisition pending
+**Status:** 🧪 Proof-of-concept pipeline validated | 🔜 Physical lab testbed acquisition scheduled
 
 
 ---

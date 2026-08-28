@@ -343,9 +343,12 @@
             <!-- Oscilloscope Interactive Controls -->
             <div class="scope-controls">
               <div class="scope-btn-group" role="group" aria-label="Inverter Operating Condition Selection">
-                <button class="scope-mode-btn active" data-mode="normal" id="btn-scope-normal">Normal</button>
-                <button class="scope-mode-btn" data-mode="fault-s1" id="btn-scope-s1">S1 Open Fault</button>
-                <button class="scope-mode-btn" data-mode="fault-s3" id="btn-scope-s3">S3 Open Fault</button>
+                <button class="scope-mode-btn active" data-mode="normal" id="btn-scope-normal">Healthy (Normal)</button>
+                <button class="scope-mode-btn" data-mode="fault-s1" id="btn-scope-s1">S1 Open (Upper A)</button>
+                <button class="scope-mode-btn" data-mode="fault-s2" id="btn-scope-s2">S2 Open (Lower A)</button>
+                <button class="scope-mode-btn" data-mode="fault-s3" id="btn-scope-s3">S3 Open (Upper B)</button>
+                <button class="scope-mode-btn" data-mode="fault-s4" id="btn-scope-s4">S4 Open (Lower B)</button>
+                <button class="scope-mode-btn" data-mode="fault-multi" id="btn-scope-multi">Multi Fault</button>
               </div>
 
               <div class="scope-slider-group">
@@ -650,20 +653,20 @@
                   <table class="tech-specs-table">
                     <tbody>
                       <tr>
-                        <th>Target Model Size</th>
-                        <td>&lt; 200 KB (INT8 Quantized, &lt;15k parameters)</td>
+                        <th>Model Size (INT8)</th>
+                        <td>21.5 KB quantized (&lt;15k params, TFLite Micro)</td>
+                      </tr>
+                      <tr>
+                        <th>Input Window &amp; Classes</th>
+                        <td>128 samples / window &bull; 6 Fault Classes (S1-S4 + Multi)</td>
                       </tr>
                       <tr>
                         <th>RAM Footprint</th>
-                        <td>&lt; 100 KB RAM on ESP32-S3</td>
+                        <td>&lt; 100 KB RAM Tensor Arena on ESP32-S3</td>
                       </tr>
                       <tr>
                         <th>Inference Latency</th>
-                        <td>&lt; 500 ms (Edge Real-Time)</td>
-                      </tr>
-                      <tr>
-                        <th>Application Target</th>
-                        <td>Cost-effective residential and small-business solar PV systems</td>
+                        <td>~8.4 ms on 240 MHz Xtensa LX7 dual-core</td>
                       </tr>
                     </tbody>
                   </table>
@@ -862,12 +865,14 @@
                 <h4 class="col-heading">Test Signal Parameters (Single-Phase Full Bridge)</h4>
 
                 <div class="control-field">
-                  <label for="tinyml-fault-type" class="field-label">Inverter Switch Condition:</label>
+                  <label for="tinyml-fault-type" class="field-label">Inverter Switch Condition (6 Classes):</label>
                   <select id="tinyml-fault-type" class="custom-select">
-                    <option value="normal">Normal Operation (All Switches Healthy)</option>
-                    <option value="s1-fault">S1 Open-Circuit Fault (Positive Half-Cycle Clipped)</option>
-                    <option value="s3-fault">S3 Open-Circuit Fault (Negative Half-Cycle Clipped)</option>
-                    <option value="s1-s2-fault">S1 &amp; S2 Dual Open-Circuit Fault</option>
+                    <option value="Healthy">Class 0: Healthy (Balanced Sinusoidal Current)</option>
+                    <option value="S1_Open">Class 1: S1_Open (Leg A Top Switch - Pos. Attenuated *0.18)</option>
+                    <option value="S2_Open">Class 2: S2_Open (Leg A Bottom Switch - Neg. Attenuated *0.18)</option>
+                    <option value="S3_Open">Class 3: S3_Open (Leg B Top Switch - Phase +60°, Pos. *0.22)</option>
+                    <option value="S4_Open">Class 4: S4_Open (Leg B Bottom Switch - Phase +60°, Neg. *0.22)</option>
+                    <option value="Multi_Fault">Class 5: Multi_Fault (Simultaneous Multi-Switch Chaos)</option>
                   </select>
                 </div>
 
@@ -881,7 +886,7 @@
 
                 <div class="control-field">
                   <label for="tinyml-noise-slider" class="field-label">
-                    <span>Harmonic Noise Level (SNR):</span>
+                    <span>Signal-to-Noise Ratio (SNR):</span>
                     <span id="snr-val" class="val-display">35 dB</span>
                   </label>
                   <input type="range" id="tinyml-noise-slider" min="15" max="50" value="35" step="1" class="custom-range" aria-label="Noise SNR level">
@@ -895,56 +900,76 @@
 
               <!-- Results Column -->
               <div class="tinyml-results-col">
-                <h4 class="col-heading">Edge 1D-CNN Classification Output (TFLite Micro)</h4>
+                <h4 class="col-heading">Edge 1D-CNN Classification Output (6-Class Softmax)</h4>
 
                 <div class="inference-verdict-box" id="inference-verdict-box">
                   <div class="verdict-status-icon" id="verdict-icon">✓</div>
                   <div class="verdict-details">
                     <span class="verdict-label">Detected Status:</span>
-                    <strong class="verdict-text" id="verdict-text">NORMAL OPERATION</strong>
+                    <strong class="verdict-text" id="verdict-text">CLASS 0: HEALTHY</strong>
                     <span class="verdict-sub" id="verdict-sub">Inverter AC waveform normal &amp; balanced</span>
                   </div>
                 </div>
 
-                <!-- Probability Bars -->
+                <!-- 6-Class Probability Bars -->
                 <div class="prob-bar-list">
                   <div class="prob-bar-item">
                     <div class="prob-header">
-                      <span>Class 0: Normal</span>
-                      <span id="prob-normal-val" class="prob-val">98.4%</span>
+                      <span>Class 0: Healthy</span>
+                      <span id="prob-0-val" class="prob-val">98.4%</span>
                     </div>
                     <div class="prob-track">
-                      <div class="prob-fill fill-normal" id="prob-normal-fill" style="width: 98.4%;"></div>
+                      <div class="prob-fill fill-normal" id="prob-0-fill" style="width: 98.4%;"></div>
                     </div>
                   </div>
 
                   <div class="prob-bar-item">
                     <div class="prob-header">
-                      <span>Class 1: S1 Open Fault</span>
-                      <span id="prob-s1-val" class="prob-val">1.2%</span>
+                      <span>Class 1: S1_Open</span>
+                      <span id="prob-1-val" class="prob-val">0.6%</span>
                     </div>
                     <div class="prob-track">
-                      <div class="prob-fill fill-fault" id="prob-s1-fill" style="width: 1.2%;"></div>
+                      <div class="prob-fill fill-fault" id="prob-1-fill" style="width: 0.6%;"></div>
                     </div>
                   </div>
 
                   <div class="prob-bar-item">
                     <div class="prob-header">
-                      <span>Class 2: S3 Open Fault</span>
-                      <span id="prob-s3-val" class="prob-val">0.3%</span>
+                      <span>Class 2: S2_Open</span>
+                      <span id="prob-2-val" class="prob-val">0.4%</span>
                     </div>
                     <div class="prob-track">
-                      <div class="prob-fill fill-fault" id="prob-s3-fill" style="width: 0.3%;"></div>
+                      <div class="prob-fill fill-fault" id="prob-2-fill" style="width: 0.4%;"></div>
                     </div>
                   </div>
 
                   <div class="prob-bar-item">
                     <div class="prob-header">
-                      <span>Class 3: Dual Fault</span>
-                      <span id="prob-dual-val" class="prob-val">0.1%</span>
+                      <span>Class 3: S3_Open</span>
+                      <span id="prob-3-val" class="prob-val">0.3%</span>
                     </div>
                     <div class="prob-track">
-                      <div class="prob-fill fill-fault" id="prob-dual-fill" style="width: 0.1%;"></div>
+                      <div class="prob-fill fill-fault" id="prob-3-fill" style="width: 0.3%;"></div>
+                    </div>
+                  </div>
+
+                  <div class="prob-bar-item">
+                    <div class="prob-header">
+                      <span>Class 4: S4_Open</span>
+                      <span id="prob-4-val" class="prob-val">0.2%</span>
+                    </div>
+                    <div class="prob-track">
+                      <div class="prob-fill fill-fault" id="prob-4-fill" style="width: 0.2%;"></div>
+                    </div>
+                  </div>
+
+                  <div class="prob-bar-item">
+                    <div class="prob-header">
+                      <span>Class 5: Multi_Fault</span>
+                      <span id="prob-5-val" class="prob-val">0.1%</span>
+                    </div>
+                    <div class="prob-track">
+                      <div class="prob-fill fill-fault" id="prob-5-fill" style="width: 0.1%;"></div>
                     </div>
                   </div>
                 </div>
@@ -953,19 +978,19 @@
                 <div class="hw-benchmark-strip">
                   <div class="bench-item">
                     <span class="b-lbl">Latency</span>
-                    <span class="b-val" id="bench-lat">42.8 ms</span>
+                    <span class="b-val" id="bench-lat">8.4 ms</span>
                   </div>
                   <div class="bench-item">
-                    <span class="b-lbl">Flash Usage</span>
-                    <span class="b-val">142 KB</span>
+                    <span class="b-lbl">Model INT8</span>
+                    <span class="b-val">21.5 KB</span>
                   </div>
                   <div class="bench-item">
-                    <span class="b-lbl">SRAM Arena</span>
-                    <span class="b-val">38 KB</span>
+                    <span class="b-lbl">Window N</span>
+                    <span class="b-val">128 Samples</span>
                   </div>
                   <div class="bench-item">
-                    <span class="b-lbl">Core Target</span>
-                    <span class="b-val">ESP32-S3 (240MHz)</span>
+                    <span class="b-lbl">Hardware</span>
+                    <span class="b-val">ESP32-S3</span>
                   </div>
                 </div>
               </div>

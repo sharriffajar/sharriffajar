@@ -196,18 +196,17 @@
       ctx.clearRect(0, 0, w, h);
       drawGrid(w, h);
 
-      // Waveform Mathematical Simulation
+      // Waveform Mathematical Simulation matching generate_dataset.py
       ctx.lineWidth = 2.5;
       ctx.beginPath();
 
       const centerY = h / 2;
       const amplitude = h * 0.36;
       const frequency = 0.022; // Simulated 50 Hz on screen width
-      const noiseAmp = (state.scopeNoise / 100) * (amplitude * 0.35);
 
-      let lineColor = '#10b981'; // Green for normal
-      if (state.scopeMode === 'fault-s1' || state.scopeMode === 'fault-s3') {
-        lineColor = '#f43f5e'; // Red for fault
+      let lineColor = '#10b981'; // Green for normal / healthy
+      if (state.scopeMode !== 'normal') {
+        lineColor = '#f43f5e'; // Rose for fault anomaly
       }
 
       ctx.strokeStyle = lineColor;
@@ -216,25 +215,38 @@
 
       for (let x = 0; x < w; x++) {
         const t = (x + time) * frequency;
-        let yVal = Math.sin(t);
+        let yVal = 0.0;
 
-        // Harmonic noise perturbation
-        if (state.scopeNoise > 0) {
-          const harmonic = Math.sin(t * 3) * 0.15 + (Math.random() - 0.5) * 0.1;
-          yVal += harmonic * (state.scopeNoise / 100);
+        // Exact signal generation formulas from generate_dataset.py
+        if (state.scopeMode === 'normal') {
+          // Class 0: Healthy -> sin(t) + 0.05*sin(3t)
+          yVal = Math.sin(t) + 0.05 * Math.sin(3 * t);
+        } else if (state.scopeMode === 'fault-s1') {
+          // Class 1: S1_Open (Leg A Top Switch) -> signal[signal > 0] *= 0.18
+          yVal = Math.sin(t);
+          if (yVal > 0) yVal *= 0.18;
+        } else if (state.scopeMode === 'fault-s2') {
+          // Class 2: S2_Open (Leg A Bottom Switch) -> signal[signal < 0] *= 0.18
+          yVal = Math.sin(t);
+          if (yVal < 0) yVal *= 0.18;
+        } else if (state.scopeMode === 'fault-s3') {
+          // Class 3: S3_Open (Leg B Top Switch) -> sin(t + pi/3); signal[signal > 0] *= 0.22
+          const tShift = t + Math.PI / 3;
+          yVal = Math.sin(tShift);
+          if (yVal > 0) yVal *= 0.22;
+        } else if (state.scopeMode === 'fault-s4') {
+          // Class 4: S4_Open (Leg B Bottom Switch) -> sin(t + pi/3); signal[signal < 0] *= 0.22
+          const tShift = t + Math.PI / 3;
+          yVal = Math.sin(tShift);
+          if (yVal < 0) yVal *= 0.22;
+        } else if (state.scopeMode === 'fault-multi') {
+          // Class 5: Multi_Fault -> 0.5*sin(t) + 0.3*sin(3t) + 0.2*sin(5t) + 0.15*noise
+          yVal = 0.5 * Math.sin(t) + 0.30 * Math.sin(3 * t) + 0.20 * Math.sin(5 * t) + (Math.random() - 0.5) * 0.25;
         }
 
-        // Fault Conditions Simulation
-        if (state.scopeMode === 'fault-s1') {
-          // S1 Open Circuit Fault: positive half-cycle is clipped / missing
-          if (yVal > 0) {
-            yVal = yVal * 0.08;
-          }
-        } else if (state.scopeMode === 'fault-s3') {
-          // S3 Open Circuit Fault: negative half-cycle is clipped / missing
-          if (yVal < 0) {
-            yVal = yVal * 0.08;
-          }
+        // Noise slider perturbation
+        if (state.scopeNoise > 0) {
+          yVal += ((Math.random() - 0.5) * 0.3) * (state.scopeNoise / 100);
         }
 
         const y = centerY - yVal * amplitude;
@@ -247,7 +259,7 @@
       }
 
       ctx.stroke();
-      ctx.shadowBlur = 0; // reset
+      ctx.shadowBlur = 0;
 
       time += 1.8;
       animationFrameId = requestAnimationFrame(render);
@@ -255,33 +267,40 @@
 
     render();
 
-    // Mode Buttons
+    // Mode Buttons for all 6 Inverter Operating Conditions
     const modeBtns = document.querySelectorAll('.scope-mode-btn');
     const modeLabel = document.getElementById('scope-mode-label');
     const thdLabel = document.getElementById('scope-thd-label');
+
+    const modeMetadata = {
+      'normal': { label: 'Class 0: Healthy (Sinusoidal)', thd: '< 2.1%', sound: 'success', toast: null },
+      'fault-s1': { label: 'Class 1: S1_Open (Upper A)', thd: '48.6% (Anomaly)', sound: 'fault', toast: 'Class 1: S1 Open-Circuit Fault injected (Leg A Top Switch).' },
+      'fault-s2': { label: 'Class 2: S2_Open (Lower A)', thd: '48.2% (Anomaly)', sound: 'fault', toast: 'Class 2: S2 Open-Circuit Fault injected (Leg A Bottom Switch).' },
+      'fault-s3': { label: 'Class 3: S3_Open (Upper B)', thd: '52.4% (Anomaly)', sound: 'fault', toast: 'Class 3: S3 Open-Circuit Fault injected (Leg B Top Switch, +60°).' },
+      'fault-s4': { label: 'Class 4: S4_Open (Lower B)', thd: '51.9% (Anomaly)', sound: 'fault', toast: 'Class 4: S4 Open-Circuit Fault injected (Leg B Bottom Switch, +60°).' },
+      'fault-multi': { label: 'Class 5: Multi_Fault (Cascade)', thd: '84.7% (Severe)', sound: 'fault', toast: 'Class 5: Multi-Switch Open-Circuit Cascade Fault injected.' }
+    };
 
     modeBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         modeBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        const mode = btn.getAttribute('data-mode');
+        const mode = btn.getAttribute('data-mode') || 'normal';
         state.scopeMode = mode;
 
-        if (mode === 'normal') {
-          modeLabel.textContent = 'Normal (Sinusoidal)';
-          thdLabel.textContent = '< 2.1%';
+        const meta = modeMetadata[mode] || modeMetadata['normal'];
+        if (modeLabel) modeLabel.textContent = meta.label;
+        if (thdLabel) thdLabel.textContent = meta.thd;
+
+        if (meta.sound === 'success') {
           playSuccessSound();
-        } else if (mode === 'fault-s1') {
-          modeLabel.textContent = 'S1 Open Fault (Pos. Clipped)';
-          thdLabel.textContent = '48.6% (Anomaly)';
+        } else {
           playFaultAlertSound();
-          showToast('S1 Open-Circuit Fault injected into AC current signal.', 'error');
-        } else if (mode === 'fault-s3') {
-          modeLabel.textContent = 'S3 Open Fault (Neg. Clipped)';
-          thdLabel.textContent = '49.2% (Anomaly)';
-          playFaultAlertSound();
-          showToast('S3 Open-Circuit Fault injected into AC current signal.', 'error');
+        }
+
+        if (meta.toast) {
+          showToast(meta.toast, 'error');
         }
       });
     });
@@ -527,85 +546,73 @@
     }
 
     function runInference() {
-      const fault = faultSelect ? faultSelect.value : 'normal';
-      const load = loadSlider ? parseFloat(loadSlider.value) : 5;
+      const fault = faultSelect ? faultSelect.value : 'Healthy';
+      const load = loadSlider ? parseFloat(loadSlider.value) : 5.0;
       const snr = noiseSlider ? parseInt(noiseSlider.value, 10) : 35;
 
-      // Simulated classification probability calculations
-      let pNormal = 0.0;
-      let pS1 = 0.0;
-      let pS3 = 0.0;
-      let pDual = 0.0;
+      const classIndexMap = {
+        'Healthy': 0,
+        'S1_Open': 1,
+        'S2_Open': 2,
+        'S3_Open': 3,
+        'S4_Open': 4,
+        'Multi_Fault': 5
+      };
 
-      if (fault === 'normal') {
-        pNormal = 98.2 - (50 - snr) * 0.15;
-        pS1 = 1.0 + (50 - snr) * 0.06;
-        pS3 = 0.6 + (50 - snr) * 0.05;
-        pDual = 0.2 + (50 - snr) * 0.04;
-      } else if (fault === 's1-fault') {
-        pS1 = 97.4 - (50 - snr) * 0.12;
-        pNormal = 1.6 + (50 - snr) * 0.06;
-        pS3 = 0.7 + (50 - snr) * 0.04;
-        pDual = 0.3 + (50 - snr) * 0.02;
-      } else if (fault === 's3-fault') {
-        pS3 = 96.9 - (50 - snr) * 0.14;
-        pNormal = 1.8 + (50 - snr) * 0.07;
-        pS1 = 0.9 + (50 - snr) * 0.04;
-        pDual = 0.4 + (50 - snr) * 0.03;
-      } else if (fault === 's1-s2-fault') {
-        pDual = 95.8 - (50 - snr) * 0.18;
-        pS1 = 2.4 + (50 - snr) * 0.08;
-        pS3 = 1.2 + (50 - snr) * 0.06;
-        pNormal = 0.6 + (50 - snr) * 0.04;
+      const activeIdx = classIndexMap[fault] !== undefined ? classIndexMap[fault] : 0;
+      const noisePenalty = (50 - snr) * 0.003;
+
+      // Realistic 6-class softmax probabilities calculation
+      const rawProbs = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
+      rawProbs[activeIdx] = Math.max(0.70, 0.985 - noisePenalty * 2.5);
+
+      for (let i = 0; i < 6; i++) {
+        if (i !== activeIdx) {
+          rawProbs[i] = 0.003 + noisePenalty * 0.5 + Math.random() * 0.004;
+        }
       }
 
-      // Normalize to sum ~100
-      const sum = pNormal + pS1 + pS3 + pDual;
-      pNormal = (pNormal / sum) * 100;
-      pS1 = (pS1 / sum) * 100;
-      pS3 = (pS3 / sum) * 100;
-      pDual = (pDual / sum) * 100;
+      // Softmax normalization
+      const sum = rawProbs.reduce((acc, val) => acc + val, 0);
+      const normalizedProbs = rawProbs.map(p => (p / sum) * 100);
 
-      // Update UI Bars
-      const normFill = document.getElementById('prob-normal-fill');
-      const s1Fill = document.getElementById('prob-s1-fill');
-      const s3Fill = document.getElementById('prob-s3-fill');
-      const dualFill = document.getElementById('prob-dual-fill');
+      // Update 6 UI Bars
+      for (let i = 0; i < 6; i++) {
+        const fillEl = document.getElementById(`prob-${i}-fill`);
+        const valEl = document.getElementById(`prob-${i}-val`);
+        if (fillEl) fillEl.style.width = `${normalizedProbs[i].toFixed(1)}%`;
+        if (valEl) valEl.textContent = `${normalizedProbs[i].toFixed(1)}%`;
+      }
 
-      const normVal = document.getElementById('prob-normal-val');
-      const s1Val = document.getElementById('prob-s1-val');
-      const s3Val = document.getElementById('prob-s3-val');
-      const dualVal = document.getElementById('prob-dual-val');
-
-      if (normFill) normFill.style.width = `${pNormal.toFixed(1)}%`;
-      if (s1Fill) s1Fill.style.width = `${pS1.toFixed(1)}%`;
-      if (s3Fill) s3Fill.style.width = `${pS3.toFixed(1)}%`;
-      if (dualFill) dualFill.style.width = `${pDual.toFixed(1)}%`;
-
-      if (normVal) normVal.textContent = `${pNormal.toFixed(1)}%`;
-      if (s1Val) s1Val.textContent = `${pS1.toFixed(1)}%`;
-      if (s3Val) s3Val.textContent = `${pS3.toFixed(1)}%`;
-      if (dualVal) dualVal.textContent = `${pDual.toFixed(1)}%`;
+      // Benchmark Latency (~8.4 ms ± 0.5 ms on ESP32-S3 @ 240 MHz)
+      const simulatedLatency = (8.2 + Math.random() * 0.6).toFixed(1);
+      const latEl = document.getElementById('bench-lat');
+      if (latEl) latEl.textContent = `${simulatedLatency} ms`;
 
       // Update Verdict Box
       const iconEl = document.getElementById('verdict-icon');
       const textEl = document.getElementById('verdict-text');
       const subEl = document.getElementById('verdict-sub');
-      const latEl = document.getElementById('bench-lat');
 
-      const simulatedLatency = (41.5 + Math.random() * 2.5).toFixed(1);
-      if (latEl) latEl.textContent = `${simulatedLatency} ms`;
+      const classDescriptions = [
+        'Balanced 50Hz sinusoidal current, nominal operation',
+        'Leg A Top-Switch Open-Circuit: Positive half-cycle clipped (*0.18)',
+        'Leg A Bottom-Switch Open-Circuit: Negative half-cycle clipped (*0.18)',
+        'Leg B Top-Switch Open-Circuit: Phase lag +60° with positive clipping (*0.22)',
+        'Leg B Bottom-Switch Open-Circuit: Phase lag +60° with negative clipping (*0.22)',
+        'Multi-Switch Cascade Anomaly: Severe 3rd/5th harmonic distortion + noise'
+      ];
 
-      if (fault === 'normal') {
+      if (activeIdx === 0) {
         if (iconEl) {
           iconEl.className = 'verdict-status-icon';
           iconEl.textContent = '✓';
         }
         if (textEl) {
           textEl.className = 'verdict-text';
-          textEl.textContent = 'NORMAL OPERATION';
+          textEl.textContent = 'CLASS 0: HEALTHY';
         }
-        if (subEl) subEl.textContent = `Inverter operates normally at ${load.toFixed(1)}A RMS (Inference: ${simulatedLatency}ms)`;
+        if (subEl) subEl.textContent = `Inverter operates normally at ${load.toFixed(1)}A RMS (Inference: ${simulatedLatency} ms)`;
         playSuccessSound();
       } else {
         if (iconEl) {
@@ -614,9 +621,9 @@
         }
         if (textEl) {
           textEl.className = 'verdict-text fault';
-          textEl.textContent = fault.toUpperCase().replace('-', ' ') + ' DETECTED';
+          textEl.textContent = `CLASS ${activeIdx}: ${fault} DETECTED`;
         }
-        if (subEl) subEl.textContent = `AC current waveform anomaly detected by 1D-CNN INT8 (ESP32-S3: ${simulatedLatency}ms)`;
+        if (subEl) subEl.textContent = `${classDescriptions[activeIdx]} (ESP32-S3: ${simulatedLatency} ms)`;
         playFaultAlertSound();
       }
     }
@@ -880,10 +887,12 @@ Type project name for detailed specifications.
 - Repository: https://github.com/sharriffajar/CorpusLD
       `,
       'fault-sim': () => `
-<span class="prompt-sys">1D-CNN ESP32-S3 FAULT DETECTOR:</span>
-- Model: INT8 Quantized 1D-CNN (<15k parameters, <200KB model size)
-- SRAM: <100KB Arena | Latency: ~42.8ms at 240MHz core clock
-- Status: Proof-of-concept pipeline validated
+<span class="prompt-sys">1D-CNN ESP32-S3 FAULT DETECTOR (6 CLASSES):</span>
+- Pipeline: generate_dataset.py -> train_model.py -> quantize_export.py
+- Model: INT8 Quantized 1D-CNN (21.5 KB, ~14.7k params)
+- Classes: Healthy, S1_Open, S2_Open, S3_Open, S4_Open, Multi_Fault
+- Memory: <100 KB Tensor Arena | Latency: ~8.4 ms at 240 MHz Xtensa LX7
+- Status: Proof-of-concept pipeline validated (Simulink/Lab dataset pending)
 - Repository: https://github.com/sharriffajar/Lightweight-1D-CNN-Edge-AI-for-Inverter-Fault-Diagnosis
       `,
       locallm: () => `
