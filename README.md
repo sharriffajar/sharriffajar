@@ -4,9 +4,10 @@
 </p>
 
 <p align="center">
+  <a href="https://sharriffajar.pages.dev/"><img src="https://img.shields.io/badge/🌐_Website-sharriffajar.pages.dev-00FF00?style=for-the-badge&logo=googlechrome&logoColor=black" /></a>
   <a href="mailto:sharriffajar@gmail.com"><img src="https://img.shields.io/badge/📧_Email-sharriffajar@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
   <a href="https://github.com/sharriffajar"><img src="https://img.shields.io/badge/GitHub-sharriffajar-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
-  <a href="https://linkedin.com/in/sharrif-faqih-fajarudin-64aa96247/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+  <a href="https://www.linkedin.com/in/sharriffajar"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
 </p>
 
 ---
@@ -175,9 +176,10 @@ Pipeline: Signal Acquisition → Preprocessing → 1D-CNN Training →
 > 💡 **Open to collaborations** on: Edge AI, TinyML, Renewable Energy monitoring, Knowledge Graphs, and Privacy-First AI systems
 
 <p align="center">
+  <a href="https://sharriffajar.pages.dev/"><img src="https://img.shields.io/badge/🌐_Website-sharriffajar.pages.dev-00FF00?style=flat-square&logo=googlechrome&logoColor=black" /></a>
   <a href="mailto:sharriffajar@gmail.com"><img src="https://img.shields.io/badge/📧_Email-sharriffajar@gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white" /></a>
   <a href="https://github.com/sharriffajar"><img src="https://img.shields.io/badge/🐙_GitHub-sharriffajar-181717?style=flat-square&logo=github&logoColor=white" /></a>
-  <a href="https://linkedin.com/in/sharrif-faqih-fajarudin-64aa96247/"><img src="https://img.shields.io/badge/💼_LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" /></a>
+  <a href="https://www.linkedin.com/in/sharriffajar"><img src="https://img.shields.io/badge/💼_LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" /></a>
 </p>
 
 <p align="center">
