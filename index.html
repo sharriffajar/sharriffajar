@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive Engineering & Research Portfolio of Sharrif Faqih Fajarudin. Focused on TinyML (ESP32-S3), Privacy-First Local Neural RAG, and Schema.org Knowledge Graphs.">
+  <meta name="author" content="Sharrif Faqih Fajarudin">
+  <meta name="theme-color" content="#080b11">
+  <title>Sharrif Faqih Fajarudin | Edge AI &amp; Semantic Systems</title>
+
+  <!-- Open Graph / Social Sharing Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sharrif Fajar : Edge &amp; Semantic Lab">
+  <meta property="og:title" content="Sharrif Faqih Fajarudin | Edge AI &amp; Semantic Systems">
+  <meta property="og:description" content="Interactive Engineering &amp; Research Portfolio: TinyML (ESP32-S3), Local Neural RAG, and Schema.org Knowledge Graphs.">
+  <meta property="og:url" content="https://github.com/sharriffajar">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sharrif Faqih Fajarudin | Edge AI &amp; Semantic Systems">
+  <meta name="twitter:description" content="Democratizing AI for resource-constrained edge hardware and grounded semantic intelligence.">
+
+  <!-- Google Fonts: Plus Jakarta Sans, Space Grotesk, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Comprehensive Schema.org Linked Data (@graph) -->
+  <script type="application/ld+json" id="portfolio-jsonld-schema">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://github.com/sharriffajar#profilepage",
+        "url": "https://github.com/sharriffajar",
+        "name": "Sharrif Faqih Fajarudin : Edge AI, TinyML & Semantic Systems Portfolio",
+        "description": "Interactive portfolio and research profile of Sharrif Faqih Fajarudin, focusing on TinyML (ESP32-S3), Local Neural RAG Systems, and Schema.org JSON-LD Knowledge Graphs.",
+        "inLanguage": ["en-US", "id-ID"],
+        "mainEntity": {
+          "@id": "https://github.com/sharriffajar#person"
+        },
+        "isPartOf": {
+          "@id": "https://github.com/sharriffajar#website"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://github.com/sharriffajar#website",
+        "url": "https://github.com/sharriffajar",
+        "name": "Sharrif Fajar : Edge & Semantic Engineering Lab",
+        "publisher": {
+          "@id": "https://github.com/sharriffajar#person"
+        },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://github.com/sharriffajar#person",
+        "name": "Sharrif Faqih Fajarudin",
+        "alternateName": "sharriffajar",
+        "jobTitle": "Electrical Engineering Student & AI Systems Researcher",
+        "description": "Researcher passionate about democratizing AI for resource-constrained edge devices (<200KB models, <100KB RAM) and enterprise Schema.org Knowledge Graphs.",
+        "email": "mailto:sharrifff880@gmail.com",
+        "url": "https://github.com/sharriffajar",
+        "sameAs": [
+          "https://github.com/sharriffajar",
+          "https://www.linkedin.com/in/sharriffajar"
+        ],
+        "affiliation": {
+          "@id": "https://untan.ac.id#organization"
+        },
+        "alumniOf": {
+          "@id": "https://untan.ac.id#organization"
+        },
+        "knowsAbout": [
+          "TinyML",
+          "ESP32-S3 Microcontroller",
+          "TensorFlow Lite for Microcontrollers",
+          "INT8 Quantization",
+          "Open-Circuit Fault Detection",
+          "Photovoltaic Inverter Reliability",
+          "Neural Retrieval-Augmented Generation (RAG)",
+          "Small Language Models (Qwen 2.5 1.5B)",
+          "Schema.org JSON-LD Knowledge Graphs",
+          "Vector Databases (Qdrant)",
+          "FastAPI",
+          "Python",
+          "C++ Embedded"
+        ]
+      },
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://untan.ac.id#organization",
+        "name": "Universitas Tanjungpura",
+        "alternateName": "UNTAN",
+        "url": "https://untan.ac.id",
+        "department": {
+          "@type": "Organization",
+          "name": "Department of Electrical Engineering, Faculty of Engineering"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Pontianak",
+          "addressRegion": "West Kalimantan",
+          "addressCountry": "ID"
+        }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://github.com/sharriffajar/CorpusLD#software",
+        "name": "CorpusLD",
+        "alternateName": "Corpus + Linked Data",
+        "description": "Enterprise Multi-Agent Semantic Ingestion and Schema.org JSON-LD Knowledge Graph Extraction Platform.",
+        "codeRepository": "https://github.com/sharriffajar/CorpusLD",
+        "programmingLanguage": ["Python", "FastAPI"],
+        "runtimePlatform": "Python 3.10+, Qdrant Vector DB, Ollama SLM",
+        "license": "https://spdx.org/licenses/Apache-2.0.html",
+        "version": "2.0.0",
+        "author": {
+          "@id": "https://github.com/sharriffajar#person"
+        },
+        "keywords": [
+          "Knowledge Graph",
+          "Schema.org",
+          "JSON-LD",
+          "Multi-Agent RAG",
+          "Qdrant",
+          "Adversarial Reasoning"
+        ]
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://github.com/sharriffajar/Notebook-LocalLM-Studio#software",
+        "name": "Notebook-LocalLM-Studio",
+        "description": "Edge-Optimized and Privacy-First Local RAG System for Multi-Document PDF Intelligence with strict citations and ~2GB RAM target.",
+        "codeRepository": "https://github.com/sharriffajar/Notebook-LocalLM-Studio",
+        "programmingLanguage": ["Python", "Streamlit"],
+        "runtimePlatform": "Ollama, Qwen 2.5 1.5B Q5_K_M, Qdrant Local Client",
+        "license": "https://spdx.org/licenses/MIT.html",
+        "author": {
+          "@id": "https://github.com/sharriffajar#person"
+        },
+        "keywords": [
+          "Local RAG",
+          "Privacy-First",
+          "Qwen 2.5",
+          "Qdrant",
+          "Streamlit",
+          "Multi-Document Citations"
+        ]
+      },
+      {
+        "@type": ["SoftwareSourceCode", "ScholarlyArticle"],
+        "@id": "https://github.com/sharriffajar/Lightweight-1D-CNN-Edge-AI-for-Inverter-Fault-Diagnosis#thesis",
+        "name": "Lightweight 1D-CNN Edge AI for Inverter Fault Diagnosis",
+        "description": "Open-Circuit Fault Detection for Single-Phase Solar PV Inverters using a Lightweight 1D-CNN and TinyML deployed directly to ESP32-S3 microcontroller (<200KB model, <100KB RAM).",
+        "codeRepository": "https://github.com/sharriffajar/Lightweight-1D-CNN-Edge-AI-for-Inverter-Fault-Diagnosis",
+        "programmingLanguage": ["C++", "Python", "TensorFlow", "TFLite Micro"],
+        "runtimePlatform": "ESP32-S3 (240MHz Xtensa Dual-Core)",
+        "license": "https://spdx.org/licenses/MIT.html",
+        "author": {
+          "@id": "https://github.com/sharriffajar#person"
+        },
+        "educationalLevel": "Undergraduate Thesis",
+        "keywords": [
+          "TinyML",
+          "ESP32-S3",
+          "1D-CNN",
+          "Inverter Fault Detection",
+          "Renewable Energy",
+          "Solar PV",
+          "INT8 Quantization"
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Background Ambient Glow & Grid -->
+  <div class="bg-grid-layer" aria-hidden="true"></div>
+  <div class="bg-glow-orb bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow-orb bg-glow-2" aria-hidden="true"></div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="header-container">
+      <a href="#overview" class="brand-badge" aria-label="Sharrif Fajar Home">
+        <span class="brand-glyph">&lt;SF/&gt;</span>
+        <div class="brand-text">
+          <span class="brand-name">Sharrif Fajar</span>
+          <span class="brand-sub">Edge AI &amp; Semantic Lab</span>
+        </div>
+      </a>
+
+      <!-- System Status Telemetry Pill -->
+      <div class="telemetry-pill" title="Research Lab Location: Pontianak, Indonesia (UTC+7 / WIB)">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span class="telemetry-tag">UNTAN</span>
+        <span class="telemetry-sep" aria-hidden="true">&bull;</span>
+        <span class="telemetry-time" id="telemetry-time">UTC+7 (WIB)</span>
+      </div>
+
+      <!-- Main Navigation -->
+      <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#overview" class="nav-link active">Overview</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#interactive-lab" class="nav-link">Interactive Lab</a></li>
+          <li><a href="#tech-stack" class="nav-link">Tech Radar</a></li>
+          <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
+          <li><a href="#terminal-section" class="nav-link">CLI</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Utility Controls -->
+      <div class="header-controls">
+        <button id="sfx-toggle-btn" class="control-btn" aria-label="Toggle Web Audio Sound Effects" title="Toggle UI Sound">
+          <span class="btn-icon" id="sfx-icon">🔊</span>
+          <span class="btn-tooltip">SFX: On</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="control-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+          <span class="btn-icon" id="theme-icon">🌙</span>
+          <span class="btn-tooltip">Theme</span>
+        </button>
+
+        <a href="https://github.com/sharriffajar" target="_blank" rel="noopener noreferrer" class="cta-header-btn" aria-label="Visit Sharrif Fajar's GitHub Profile">
+          <span>GitHub</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobile-menu-btn" class="mobile-toggle-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Open Navigation Menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section" id="overview" aria-labelledby="hero-title">
+      <div class="section-container hero-grid">
+        <div class="hero-content">
+          <div class="academic-badge">
+            <span class="badge-icon">🎓</span>
+            <span>Electrical Engineering, Universitas Tanjungpura (UNTAN)</span>
+          </div>
+
+          <h1 id="hero-title" class="hero-heading">
+            Democratizing <span class="gradient-text">Edge AI</span> &amp; Grounded <span class="gradient-text-alt">Semantic RAG</span>
+          </h1>
+
+          <p class="hero-description">
+            Building lightweight machine learning pipelines for resource-constrained hardware (&lt;200KB model, &lt;100KB RAM) alongside privacy-first local Retrieval-Augmented Generation architectures with verifiable citations and Schema.org Linked Data.
+          </p>
+
+          <!-- Core Research Pillars -->
+          <div class="research-pillars">
+            <div class="pillar-card">
+              <div class="pillar-header">
+                <span class="pillar-icon">⚡</span>
+                <span class="pillar-tag">TinyML &amp; Renewables</span>
+              </div>
+              <p class="pillar-title">Inverter Fault Diagnosis</p>
+              <span class="pillar-detail">ESP32-S3 INT8 1D-CNN</span>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-header">
+                <span class="pillar-icon">📚</span>
+                <span class="pillar-tag">Privacy-First</span>
+              </div>
+              <p class="pillar-title">Local Document RAG</p>
+              <span class="pillar-detail">~2GB RAM Footprint</span>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-header">
+                <span class="pillar-icon">🕸️</span>
+                <span class="pillar-tag">Semantic Web</span>
+              </div>
+              <p class="pillar-title">Knowledge Graph Studio</p>
+              <span class="pillar-detail">Schema.org JSON-LD</span>
+            </div>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-actions">
+            <a href="#interactive-lab" class="btn-primary">
+              <span>Launch Interactive Lab</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </a>
+            <a href="#projects" class="btn-secondary">
+              <span>Explore Projects</span>
+            </a>
+            <a href="mailto:sharrifff880@gmail.com" class="btn-outline">
+              <span>Get in Touch</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Telemetry & Interactive Waveform Oscilloscope -->
+        <div class="hero-telemetry-panel">
+          <div class="telemetry-card">
+            <div class="card-header-bar">
+              <div class="terminal-dots" aria-hidden="true">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="card-header-title">LIVE TELEMETRY: Inverter Waveform Monitor</span>
+              <span class="live-indicator"><span class="blink-dot"></span> 50 Hz</span>
+            </div>
+
+            <div class="oscilloscope-wrapper">
+              <canvas id="oscilloscope-canvas" width="600" height="260" aria-label="Inverter AC Current Sinusoidal Waveform Chart"></canvas>
+              <div class="scope-overlay-stats">
+                <div class="stat-badge">
+                  <span class="stat-label">Mode:</span>
+                  <span class="stat-value" id="scope-mode-label">Normal (Sinusoidal)</span>
+                </div>
+                <div class="stat-badge">
+                  <span class="stat-label">Frequency:</span>
+                  <span class="stat-value" id="scope-freq-label">50.0 Hz</span>
+                </div>
+                <div class="stat-badge">
+                  <span class="stat-label">THD Sim:</span>
+                  <span class="stat-value" id="scope-thd-label">&lt; 2.1%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Oscilloscope Interactive Controls -->
+            <div class="scope-controls">
+              <div class="scope-btn-group" role="group" aria-label="Inverter Operating Condition Selection">
+                <button class="scope-mode-btn active" data-mode="normal" id="btn-scope-normal">Normal</button>
+                <button class="scope-mode-btn" data-mode="fault-s1" id="btn-scope-s1">S1 Open Fault</button>
+                <button class="scope-mode-btn" data-mode="fault-s3" id="btn-scope-s3">S3 Open Fault</button>
+              </div>
+
+              <div class="scope-slider-group">
+                <label for="scope-noise-slider" class="slider-label">
+                  <span>Harmonic Noise:</span>
+                  <span id="noise-val">0%</span>
+                </label>
+                <input type="range" id="scope-noise-slider" min="0" max="100" value="0" step="5" class="custom-range" aria-label="Harmonic noise level">
+              </div>
+            </div>
+
+            <div class="card-footer-info">
+              <span class="info-icon">⚡</span>
+              <span>ESP32-S3 TinyML Pipeline: AC current is acquired and quantized to INT8 for real-time anomaly detection.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep-Dive Featured Projects Section -->
+    <section class="section-wrapper" id="projects" aria-labelledby="projects-heading">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-eyebrow">
+            <span class="eyebrow-tag">Open Source &amp; Research</span>
+          </div>
+          <h2 id="projects-heading" class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">
+            System engineering architectures designed for computational efficiency, modularity, and scientific transparency.
+          </p>
+        </div>
+
+        <div class="projects-vertical-stack">
+
+          <!-- PROJECT 1: CorpusLD -->
+          <article class="project-workbench-card" id="project-corpusld">
+            <div class="workbench-grid">
+              <div class="workbench-details">
+                <div class="workbench-meta">
+                  <span class="project-category-tag tag-purple">Knowledge Graph &amp; Neural RAG</span>
+                  <span class="project-version-tag">v2.0 Released</span>
+                  <span class="project-license-tag">Apache-2.0</span>
+                </div>
+
+                <h3 class="workbench-title">
+                  <a href="https://github.com/sharriffajar/CorpusLD" target="_blank" rel="noopener noreferrer">
+                    CorpusLD
+                  </a>
+                </h3>
+                <p class="workbench-tagline">
+                  Enterprise Knowledge Graph + Multi-Agent Neural RAG Studio
+                </p>
+
+                <p class="workbench-desc">
+                  An academic knowledge partner transforming unstructured PDF documents into Schema.org JSON-LD Knowledge Graphs that achieve 100% compliance on validator.schema.org and pass Google Rich Results tests.
+                </p>
+
+                <!-- Key Technical Specifications -->
+                <div class="tech-specs-table-wrapper">
+                  <table class="tech-specs-table">
+                    <tbody>
+                      <tr>
+                        <th>Parser Pipeline</th>
+                        <td>4-Tier Fallback (LlamaParse &rarr; Unstructured &rarr; PyPDF &rarr; Stateful Table Stitcher)</td>
+                      </tr>
+                      <tr>
+                        <th>Multi-Agent Core</th>
+                        <td>5-Agent Stepped RAG (Metadata, Outline, Metrics, UniversalTable, Citations)</td>
+                      </tr>
+                      <tr>
+                        <th>Adversarial KG</th>
+                        <td>Automated conflict detection for antonyms, negations, and numerical boundaries</td>
+                      </tr>
+                      <tr>
+                        <th>Precision Citations</th>
+                        <td>Dual Page Identity (machine PDF index + human printed page numbers like "Hal. 205")</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Stack Pills -->
+                <div class="tech-pill-list">
+                  <span class="tech-pill">Python</span>
+                  <span class="tech-pill">FastAPI</span>
+                  <span class="tech-pill">Qdrant Vector DB</span>
+                  <span class="tech-pill">IBM Granite Embedding</span>
+                  <span class="tech-pill">Ollama</span>
+                  <span class="tech-pill">Schema.org JSON-LD</span>
+                </div>
+
+                <!-- Action Links -->
+                <div class="workbench-actions">
+                  <a href="https://github.com/sharriffajar/CorpusLD" target="_blank" rel="noopener noreferrer" class="btn-card-primary">
+                    <span>View GitHub Repository</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                  <button class="btn-card-secondary" data-jump-lab="corpusld" id="btn-jump-corpusld">
+                    <span>Launch Agent Visualizer</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Interactive Visual Mini-Preview for CorpusLD -->
+              <div class="workbench-interactive-preview">
+                <div class="preview-container">
+                  <div class="preview-header">
+                    <span class="preview-title">Pipeline Architecture Map</span>
+                    <span class="badge-status-ok">100% Schema.org</span>
+                  </div>
+
+                  <div class="pipeline-diagram-flow">
+                    <div class="flow-step">
+                      <div class="step-num">01</div>
+                      <div class="step-box">
+                        <span class="step-name">PDF Ingestion</span>
+                        <span class="step-detail">4-Tier Hybrid Parser</span>
+                      </div>
+                    </div>
+                    <div class="flow-arrow">&darr;</div>
+                    <div class="flow-step">
+                      <div class="step-num">02</div>
+                      <div class="step-box highlight-box">
+                        <span class="step-name">5-Agent Extraction</span>
+                        <span class="step-detail">Stateful Table Stitcher</span>
+                      </div>
+                    </div>
+                    <div class="flow-arrow">&darr;</div>
+                    <div class="flow-step">
+                      <div class="step-num">03</div>
+                      <div class="step-box">
+                        <span class="step-name">Adversarial Reasoning</span>
+                        <span class="step-detail">Conflict Detection &amp; Audit</span>
+                      </div>
+                    </div>
+                    <div class="flow-arrow">&darr;</div>
+                    <div class="flow-step">
+                      <div class="step-num">04</div>
+                      <div class="step-box">
+                        <span class="step-name">Schema.org JSON-LD</span>
+                        <span class="step-detail">Google Rich Results Ready</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="preview-footer-quote">
+                    <em>"Don't just extract knowledge. Partner with it."</em>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: Notebook-LocalLM-Studio -->
+          <article class="project-workbench-card" id="project-notebook-locallm">
+            <div class="workbench-grid">
+              <div class="workbench-details">
+                <div class="workbench-meta">
+                  <span class="project-category-tag tag-cyan">Privacy-First Local RAG</span>
+                  <span class="project-version-tag">Active Development</span>
+                  <span class="project-license-tag">MIT License</span>
+                </div>
+
+                <h3 class="workbench-title">
+                  <a href="https://github.com/sharriffajar/Notebook-LocalLM-Studio" target="_blank" rel="noopener noreferrer">
+                    Notebook-LocalLM-Studio
+                  </a>
+                </h3>
+                <p class="workbench-tagline">
+                  Edge-Optimized &amp; Self-Reflective Local RAG for Multi-Document Intelligence
+                </p>
+
+                <p class="workbench-desc">
+                  An enterprise-grade, offline Retrieval-Augmented Generation workspace engineered to process, synthesize, and answer queries across multiple PDF documents locally within a strict ~2GB RAM target.
+                </p>
+
+                <!-- Key Technical Specifications -->
+                <div class="tech-specs-table-wrapper">
+                  <table class="tech-specs-table">
+                    <tbody>
+                      <tr>
+                        <th>SLM Core</th>
+                        <td>Qwen 2.5 1.5B Instruct (Q5_K_M Quantization ~1.2GB) via Ollama</td>
+                      </tr>
+                      <tr>
+                        <th>Embedding Engine</th>
+                        <td>paraphrase-multilingual-MiniLM-L12-v2 (384-dim dense vectors)</td>
+                      </tr>
+                      <tr>
+                        <th>Hybrid Re-Search</th>
+                        <td>Deterministic heuristic table evaluator &rarr; Secondary Targeted Query</td>
+                      </tr>
+                      <tr>
+                        <th>Citation Guardrails</th>
+                        <td>Strict multi-document evidence citations [Doc.pdf | Page X] preventing hallucinations</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Stack Pills -->
+                <div class="tech-pill-list">
+                  <span class="tech-pill">Python</span>
+                  <span class="tech-pill">Streamlit</span>
+                  <span class="tech-pill">Qdrant</span>
+                  <span class="tech-pill">Ollama</span>
+                  <span class="tech-pill">Qwen 2.5 1.5B</span>
+                  <span class="tech-pill">MiniLM-L12-v2</span>
+                  <span class="tech-pill">pypdf</span>
+                </div>
+
+                <!-- Action Links -->
+                <div class="workbench-actions">
+                  <a href="https://github.com/sharriffajar/Notebook-LocalLM-Studio" target="_blank" rel="noopener noreferrer" class="btn-card-primary">
+                    <span>View GitHub Repository</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                  <button class="btn-card-secondary" data-jump-lab="locallm" id="btn-jump-locallm">
+                    <span>Simulate 2-Pass Retrieval</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Interactive RAM Allocation Graph Preview -->
+              <div class="workbench-interactive-preview">
+                <div class="preview-container">
+                  <div class="preview-header">
+                    <span class="preview-title">Target Memory Footprint (~2GB RAM)</span>
+                    <span class="badge-status-accent">Zero OOM</span>
+                  </div>
+
+                  <div class="ram-allocation-chart">
+                    <div class="ram-bar-container">
+                      <div class="ram-segment seg-model" style="width: 58%;" title="Qwen 2.5 1.5B (Q5_K_M): ~1.2GB">
+                        <span>Model 1.2GB</span>
+                      </div>
+                      <div class="ram-segment seg-vectordb" style="width: 15%;" title="Qdrant Local Client: ~250MB">
+                        <span>DB 250MB</span>
+                      </div>
+                      <div class="ram-segment seg-app" style="width: 17%;" title="Embedding &amp; App Buffer: ~350MB">
+                        <span>App 350MB</span>
+                      </div>
+                      <div class="ram-segment seg-headroom" style="width: 10%;" title="System Headroom: ~200MB">
+                        <span>Free</span>
+                      </div>
+                    </div>
+
+                    <div class="ram-legend-grid">
+                      <div class="legend-item"><span class="legend-dot dot-model"></span> Qwen 2.5 1.5B Q5_K_M (~1.2GB)</div>
+                      <div class="legend-item"><span class="legend-dot dot-vectordb"></span> Qdrant Local Vector Client (~250MB)</div>
+                      <div class="legend-item"><span class="legend-dot dot-app"></span> Multilingual Embedding &amp; Buffer (~350MB)</div>
+                      <div class="legend-item"><span class="legend-dot dot-headroom"></span> System Headroom (~200MB)</div>
+                    </div>
+                  </div>
+
+                  <div class="preview-footer-note">
+                    <span class="note-badge">Optimization</span>
+                    <span>Zero CPU thermal throttling on standard laptops without discrete GPU.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: TinyML Inverter Fault Detector -->
+          <article class="project-workbench-card" id="project-tinyml-inverter">
+            <div class="workbench-grid">
+              <div class="workbench-details">
+                <div class="workbench-meta">
+                  <span class="project-category-tag tag-emerald">TinyML &amp; Edge Hardware</span>
+                  <span class="project-version-tag">Thesis Project</span>
+                  <span class="project-license-tag">MIT License</span>
+                </div>
+
+                <h3 class="workbench-title">
+                  <a href="https://github.com/sharriffajar/Lightweight-1D-CNN-Edge-AI-for-Inverter-Fault-Diagnosis" target="_blank" rel="noopener noreferrer">
+                    Lightweight 1D-CNN Edge AI for Inverter Fault Diagnosis
+                  </a>
+                </h3>
+                <p class="workbench-tagline">
+                  Real-time Open-Circuit Fault Detection on ESP32-S3 for Solar PV Inverters
+                </p>
+
+                <p class="workbench-desc">
+                  An embedded fault diagnosis system for single-phase full-bridge inverters powered by a lightweight 1D-CNN running directly on the ESP32-S3 without cloud or GPU dependencies.
+                </p>
+
+                <!-- Transparency Note on Scientific Stage -->
+                <div class="scientific-honesty-box">
+                  <div class="honesty-header">
+                    <span class="honesty-icon">🔬</span>
+                    <span class="honesty-title">Research Stage &amp; Scientific Transparency:</span>
+                  </div>
+                  <p class="honesty-text">
+                    End-to-end pipeline (acquisition &rarr; training &rarr; INT8 quantization &rarr; TFLite Micro &rarr; ESP32-S3) is validated. Physical hardware testbed dataset acquisition is the next scheduled milestone.
+                  </p>
+                </div>
+
+                <!-- Specs -->
+                <div class="tech-specs-table-wrapper">
+                  <table class="tech-specs-table">
+                    <tbody>
+                      <tr>
+                        <th>Target Model Size</th>
+                        <td>&lt; 200 KB (INT8 Quantized, &lt;15k parameters)</td>
+                      </tr>
+                      <tr>
+                        <th>RAM Footprint</th>
+                        <td>&lt; 100 KB RAM on ESP32-S3</td>
+                      </tr>
+                      <tr>
+                        <th>Inference Latency</th>
+                        <td>&lt; 500 ms (Edge Real-Time)</td>
+                      </tr>
+                      <tr>
+                        <th>Application Target</th>
+                        <td>Cost-effective residential and small-business solar PV systems</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Stack Pills -->
+                <div class="tech-pill-list">
+                  <span class="tech-pill">ESP32-S3</span>
+                  <span class="tech-pill">TensorFlow</span>
+                  <span class="tech-pill">TFLite Micro</span>
+                  <span class="tech-pill">INT8 Quantization</span>
+                  <span class="tech-pill">C / C++</span>
+                  <span class="tech-pill">Thinger.io IoT</span>
+                </div>
+
+                <!-- Action Links -->
+                <div class="workbench-actions">
+                  <a href="https://github.com/sharriffajar/Lightweight-1D-CNN-Edge-AI-for-Inverter-Fault-Diagnosis" target="_blank" rel="noopener noreferrer" class="btn-card-primary">
+                    <span>View GitHub Repository</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                  <button class="btn-card-secondary" data-jump-lab="tinyml" id="btn-jump-tinyml">
+                    <span>Open INT8 Classifier Simulator</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Interactive Hardware Architecture Box -->
+              <div class="workbench-interactive-preview">
+                <div class="preview-container">
+                  <div class="preview-header">
+                    <span class="preview-title">Deployment Topology</span>
+                    <span class="badge-status-ok">TFLite Micro</span>
+                  </div>
+
+                  <div class="esp-topology-diagram">
+                    <div class="topo-node topo-inverter">
+                      <span class="topo-icon">☀️</span>
+                      <span class="topo-label">PV Inverter</span>
+                      <span class="topo-sub">Full-Bridge AC</span>
+                    </div>
+                    <div class="topo-wire">&rarr; [Current Sensor] &rarr;</div>
+                    <div class="topo-node topo-esp">
+                      <span class="topo-icon">📟</span>
+                      <span class="topo-label">ESP32-S3</span>
+                      <span class="topo-sub">1D-CNN INT8 Core</span>
+                    </div>
+                    <div class="topo-wire">&rarr; [WiFi / Telemetry] &rarr;</div>
+                    <div class="topo-node topo-cloud">
+                      <span class="topo-icon">📊</span>
+                      <span class="topo-label">Monitoring</span>
+                      <span class="topo-sub">Thinger.io Dashboard</span>
+                    </div>
+                  </div>
+
+                  <div class="edge-metrics-badge-grid">
+                    <div class="metric-mini-card">
+                      <span class="metric-m-label">Model Size</span>
+                      <span class="metric-m-val">&lt; 200 KB</span>
+                    </div>
+                    <div class="metric-mini-card">
+                      <span class="metric-m-label">RAM Usage</span>
+                      <span class="metric-m-val">&lt; 100 KB</span>
+                    </div>
+                    <div class="metric-mini-card">
+                      <span class="metric-m-label">Target Savings</span>
+                      <span class="metric-m-val">~85% Cheaper</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Engineering Lab Section -->
+    <section class="section-wrapper bg-subtle" id="interactive-lab" aria-labelledby="lab-heading">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-eyebrow">
+            <span class="eyebrow-tag">Hands-On System Simulation</span>
+          </div>
+          <h2 id="lab-heading" class="section-title">Interactive Engineering Lab</h2>
+          <p class="section-subtitle">
+            Directly test multi-agent RAG pipelines, schema generation, and real-time edge inverter fault detection in your browser.
+          </p>
+        </div>
+
+        <!-- Interactive Lab Tabs -->
+        <div class="lab-tab-nav" role="tablist" aria-label="Engineering Simulator Tabs">
+          <button class="lab-tab-btn active" role="tab" aria-selected="true" aria-controls="tab-pane-agent" id="tab-btn-agent">
+            <span class="tab-icon">🤖</span>
+            <span>CorpusLD: 5-Agent Pipeline</span>
+          </button>
+          <button class="lab-tab-btn" role="tab" aria-selected="false" aria-controls="tab-pane-tinyml" id="tab-btn-tinyml">
+            <span class="tab-icon">⚡</span>
+            <span>ESP32-S3: 1D-CNN Fault Classifier</span>
+          </button>
+          <button class="lab-tab-btn" role="tab" aria-selected="false" aria-controls="tab-pane-rag" id="tab-btn-rag">
+            <span class="tab-icon">🔍</span>
+            <span>LocalLM: 2-Pass RAG Studio</span>
+          </button>
+        </div>
+
+        <!-- LAB PANE 1: CorpusLD 5-Agent Visualizer -->
+        <div class="lab-tab-pane active" id="tab-pane-agent" role="tabpanel" aria-labelledby="tab-btn-agent">
+          <div class="lab-workbench-box">
+            <div class="workbench-bar">
+              <span class="bar-title">CorpusLD Semantic Engine : Multi-Agent Step Simulator</span>
+              <span class="bar-status">Agent State Machine : Active</span>
+            </div>
+
+            <div class="agent-sim-layout">
+              <!-- Left Agent Step Selector -->
+              <div class="agent-step-list" role="tablist" aria-label="Extraction Agent Steps">
+                <button class="agent-step-item active" data-agent="1" id="agent-btn-1">
+                  <div class="step-badge">A1</div>
+                  <div class="step-info">
+                    <span class="step-title">Cover &amp; Metadata Agent</span>
+                    <span class="step-sub">DOI, Affiliation, Authors, @type</span>
+                  </div>
+                </button>
+
+                <button class="agent-step-item" data-agent="2" id="agent-btn-2">
+                  <div class="step-badge">A2</div>
+                  <div class="step-info">
+                    <span class="step-title">Structural Outline Agent</span>
+                    <span class="step-sub">Chapter Hierarchy &amp; Page Ranges</span>
+                  </div>
+                </button>
+
+                <button class="agent-step-item" data-agent="3" id="agent-btn-3">
+                  <div class="step-badge">A3</div>
+                  <div class="step-info">
+                    <span class="step-title">Quantitative Metrics Agent</span>
+                    <span class="step-sub">Unit Text, Values, Page Locators</span>
+                  </div>
+                </button>
+
+                <button class="agent-step-item" data-agent="4" id="agent-btn-4">
+                  <div class="step-badge">A4</div>
+                  <div class="step-info">
+                    <span class="step-title">Deterministic Table Engine</span>
+                    <span class="step-sub">UniversalTable Matrix in 0.001s</span>
+                  </div>
+                </button>
+
+                <button class="agent-step-item" data-agent="5" id="agent-btn-5">
+                  <div class="step-badge">A5</div>
+                  <div class="step-info">
+                    <span class="step-title">Citation Extractor Agent</span>
+                    <span class="step-sub">IEEE &amp; Harvard Reference State Machine</span>
+                  </div>
+                </button>
+              </div>
+
+              <!-- Right Live Agent Output & JSON-LD Inspector -->
+              <div class="agent-output-viewer">
+                <div class="viewer-header">
+                  <div class="viewer-meta">
+                    <span class="active-agent-label" id="agent-current-label">Agent 1: Cover &amp; Metadata Extractor</span>
+                    <span class="exec-time-pill" id="agent-exec-time">Execution: 0.003s</span>
+                  </div>
+                  <button class="btn-copy-code" id="copy-jsonld-btn" aria-label="Copy Schema.org JSON-LD">
+                    <span id="copy-text">Copy JSON-LD</span>
+                  </button>
+                </div>
+
+                <div class="code-container">
+                  <pre><code id="agent-output-code" class="code-block json">/* Loading Agent Output... */</code></pre>
+                </div>
+
+                <div class="validator-compliance-badge">
+                  <span class="check-icon">✓</span>
+                  <span>Schema.org Compliance: <strong>100% Passed</strong> (0 Critical Errors, Google Rich Results Ready)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LAB PANE 2: TinyML 1D-CNN Inverter Classifier Simulator -->
+        <div class="lab-tab-pane" id="tab-pane-tinyml" role="tabpanel" aria-labelledby="tab-btn-tinyml" hidden>
+          <div class="lab-workbench-box">
+            <div class="workbench-bar">
+              <span class="bar-title">ESP32-S3 TinyML INT8 Inference Simulator</span>
+              <span class="bar-status">Firmware Loop: 200 Hz Sampling</span>
+            </div>
+
+            <div class="tinyml-sim-grid">
+              <!-- Controls Column -->
+              <div class="tinyml-controls-col">
+                <h4 class="col-heading">Test Signal Parameters (Single-Phase Full Bridge)</h4>
+
+                <div class="control-field">
+                  <label for="tinyml-fault-type" class="field-label">Inverter Switch Condition:</label>
+                  <select id="tinyml-fault-type" class="custom-select">
+                    <option value="normal">Normal Operation (All Switches Healthy)</option>
+                    <option value="s1-fault">S1 Open-Circuit Fault (Positive Half-Cycle Clipped)</option>
+                    <option value="s3-fault">S3 Open-Circuit Fault (Negative Half-Cycle Clipped)</option>
+                    <option value="s1-s2-fault">S1 &amp; S2 Dual Open-Circuit Fault</option>
+                  </select>
+                </div>
+
+                <div class="control-field">
+                  <label for="tinyml-load-slider" class="field-label">
+                    <span>Nominal Load Current (RMS):</span>
+                    <span id="load-val" class="val-display">5.0 A</span>
+                  </label>
+                  <input type="range" id="tinyml-load-slider" min="1" max="15" value="5" step="0.5" class="custom-range" aria-label="Nominal load current">
+                </div>
+
+                <div class="control-field">
+                  <label for="tinyml-noise-slider" class="field-label">
+                    <span>Harmonic Noise Level (SNR):</span>
+                    <span id="snr-val" class="val-display">35 dB</span>
+                  </label>
+                  <input type="range" id="tinyml-noise-slider" min="15" max="50" value="35" step="1" class="custom-range" aria-label="Noise SNR level">
+                </div>
+
+                <button id="run-inference-btn" class="btn-run-inference">
+                  <span>Run ESP32-S3 INT8 Inference</span>
+                  <span class="btn-kbd-hint">&crarr; Run</span>
+                </button>
+              </div>
+
+              <!-- Results Column -->
+              <div class="tinyml-results-col">
+                <h4 class="col-heading">Edge 1D-CNN Classification Output (TFLite Micro)</h4>
+
+                <div class="inference-verdict-box" id="inference-verdict-box">
+                  <div class="verdict-status-icon" id="verdict-icon">✓</div>
+                  <div class="verdict-details">
+                    <span class="verdict-label">Detected Status:</span>
+                    <strong class="verdict-text" id="verdict-text">NORMAL OPERATION</strong>
+                    <span class="verdict-sub" id="verdict-sub">Inverter AC waveform normal &amp; balanced</span>
+                  </div>
+                </div>
+
+                <!-- Probability Bars -->
+                <div class="prob-bar-list">
+                  <div class="prob-bar-item">
+                    <div class="prob-header">
+                      <span>Class 0: Normal</span>
+                      <span id="prob-normal-val" class="prob-val">98.4%</span>
+                    </div>
+                    <div class="prob-track">
+                      <div class="prob-fill fill-normal" id="prob-normal-fill" style="width: 98.4%;"></div>
+                    </div>
+                  </div>
+
+                  <div class="prob-bar-item">
+                    <div class="prob-header">
+                      <span>Class 1: S1 Open Fault</span>
+                      <span id="prob-s1-val" class="prob-val">1.2%</span>
+                    </div>
+                    <div class="prob-track">
+                      <div class="prob-fill fill-fault" id="prob-s1-fill" style="width: 1.2%;"></div>
+                    </div>
+                  </div>
+
+                  <div class="prob-bar-item">
+                    <div class="prob-header">
+                      <span>Class 2: S3 Open Fault</span>
+                      <span id="prob-s3-val" class="prob-val">0.3%</span>
+                    </div>
+                    <div class="prob-track">
+                      <div class="prob-fill fill-fault" id="prob-s3-fill" style="width: 0.3%;"></div>
+                    </div>
+                  </div>
+
+                  <div class="prob-bar-item">
+                    <div class="prob-header">
+                      <span>Class 3: Dual Fault</span>
+                      <span id="prob-dual-val" class="prob-val">0.1%</span>
+                    </div>
+                    <div class="prob-track">
+                      <div class="prob-fill fill-fault" id="prob-dual-fill" style="width: 0.1%;"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Microcontroller Benchmark Telemetry -->
+                <div class="hw-benchmark-strip">
+                  <div class="bench-item">
+                    <span class="b-lbl">Latency</span>
+                    <span class="b-val" id="bench-lat">42.8 ms</span>
+                  </div>
+                  <div class="bench-item">
+                    <span class="b-lbl">Flash Usage</span>
+                    <span class="b-val">142 KB</span>
+                  </div>
+                  <div class="bench-item">
+                    <span class="b-lbl">SRAM Arena</span>
+                    <span class="b-val">38 KB</span>
+                  </div>
+                  <div class="bench-item">
+                    <span class="b-lbl">Core Target</span>
+                    <span class="b-val">ESP32-S3 (240MHz)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LAB PANE 3: LocalLM 2-Pass RAG Studio Simulator -->
+        <div class="lab-tab-pane" id="tab-pane-rag" role="tabpanel" aria-labelledby="tab-btn-rag" hidden>
+          <div class="lab-workbench-box">
+            <div class="workbench-bar">
+              <span class="bar-title">Notebook-LocalLM-Studio : 2-Pass Hybrid Retrieval Simulator</span>
+              <span class="bar-status">Engine: Qdrant Local + Qwen 2.5 1.5B</span>
+            </div>
+
+            <div class="rag-sim-layout">
+              <div class="rag-query-box">
+                <label for="rag-sample-query" class="field-label">Choose Sample Research Query:</label>
+                <div class="query-preset-btns">
+                  <button class="preset-btn active" data-query="inverter-efficiency">"What is the inverter efficiency at 80% load and harmonic THD?"</button>
+                  <button class="preset-btn" data-query="rag-benchmark">"What are the target RAM footprint and quantized model specifications?"</button>
+                  <button class="preset-btn" data-query="schema-compliance">"How is Schema.org JSON-LD compliance validated?"</button>
+                </div>
+              </div>
+
+              <!-- Visual Flow of the 2-Pass Execution -->
+              <div class="rag-execution-timeline">
+                <div class="timeline-step passed" id="rag-step-1">
+                  <div class="step-indicator">1</div>
+                  <div class="step-desc">
+                    <strong>Pass 1: Semantic MiniLM Embedding</strong>
+                    <span>384-dim dense vector search on Qdrant collection</span>
+                  </div>
+                </div>
+
+                <div class="timeline-step passed" id="rag-step-2">
+                  <div class="step-indicator">2</div>
+                  <div class="step-desc">
+                    <strong>Heuristic Table &amp; Metric Evaluator</strong>
+                    <span id="rag-heuristic-status">Tabular requirement detected: TRUE &rarr; Trigger Pass 2</span>
+                  </div>
+                </div>
+
+                <div class="timeline-step passed" id="rag-step-3">
+                  <div class="step-indicator">3</div>
+                  <div class="step-desc">
+                    <strong>Pass 2: Fast Re-Search Query</strong>
+                    <span>Targeted retrieval on structured LlamaParse table chunks</span>
+                  </div>
+                </div>
+
+                <div class="timeline-step passed" id="rag-step-4">
+                  <div class="step-indicator">4</div>
+                  <div class="step-desc">
+                    <strong>Synthesis with Strict Citations</strong>
+                    <span>Qwen 2.5 1.5B inference bound to page-level citations</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RAG Response Output with Citations -->
+              <div class="rag-response-card">
+                <div class="resp-header">
+                  <span class="resp-label">Model Response (Grounded Evidence Response):</span>
+                  <span class="badge-zero-hallucination">Zero Hallucination Guardrail</span>
+                </div>
+                <div class="resp-body" id="rag-response-content">
+                  <p>Based on empirical benchmark data, inverter efficiency at 80% load reaches <strong>97.2%</strong> with a Total Harmonic Distortion (THD) of <strong>1.85%</strong> at 50 Hz fundamental frequency <span class="citation-pill" title="Document: Inverter_Test_Report.pdf, Page: 14">[Inverter_Test_Report.pdf | Page 14]</span>.</p>
+                  
+                  <div class="table-evidence-box">
+                    <div class="evidence-title">Extracted Tabular Evidence (Pass 2 LlamaParse):</div>
+                    <table class="evidence-mini-table">
+                      <thead>
+                        <tr>
+                          <th>Load (%)</th>
+                          <th>Efficiency (%)</th>
+                          <th>THD Current (%)</th>
+                          <th>Loss (W)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>50%</td>
+                          <td>96.4%</td>
+                          <td>2.40%</td>
+                          <td>18.2 W</td>
+                        </tr>
+                        <tr class="highlight-row">
+                          <td>80%</td>
+                          <td>97.2%</td>
+                          <td>1.85%</td>
+                          <td>22.4 W</td>
+                        </tr>
+                        <tr>
+                          <td>100%</td>
+                          <td>96.8%</td>
+                          <td>2.10%</td>
+                          <td>32.0 W</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Technical Skill Radar & Matrix Section -->
+    <section class="section-wrapper" id="tech-stack" aria-labelledby="skills-heading">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-eyebrow">
+            <span class="eyebrow-tag">Core Competencies</span>
+          </div>
+          <h2 id="skills-heading" class="section-title">Technical Radar &amp; Stack</h2>
+          <p class="section-subtitle">
+            Practical, battle-tested expertise across embedded TinyML, vector retrieval systems, and semantic web engineering.
+          </p>
+        </div>
+
+        <div class="skills-category-grid">
+          <!-- Category 1: Embedded & TinyML -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="cat-icon-box">⚡</div>
+              <div>
+                <h3 class="cat-title">Embedded &amp; TinyML</h3>
+                <span class="cat-subtitle">Edge Intelligence &amp; IoT</span>
+              </div>
+            </div>
+
+            <ul class="skill-badge-list">
+              <li class="skill-item">
+                <span class="skill-name">ESP32-S3 Microcontroller</span>
+                <span class="skill-tag-level">Advanced</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">TFLite Micro &amp; INT8 Quantization</span>
+                <span class="skill-tag-level">Advanced</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">1D-CNN Signal Processing</span>
+                <span class="skill-tag-level">Core Focus</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">C / C++ Embedded &amp; Arduino</span>
+                <span class="skill-tag-level">Proficient</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Thinger.io Cloud Telemetry</span>
+                <span class="skill-tag-level">Proficient</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 2: Neural RAG & SLM -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="cat-icon-box">🧠</div>
+              <div>
+                <h3 class="cat-title">Neural RAG &amp; SLM</h3>
+                <span class="cat-subtitle">Small Language Models &amp; Vectors</span>
+              </div>
+            </div>
+
+            <ul class="skill-badge-list">
+              <li class="skill-item">
+                <span class="skill-name">Qdrant Vector Database</span>
+                <span class="skill-tag-level">Advanced</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Ollama Offline SLM Inference</span>
+                <span class="skill-tag-level">Advanced</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Qwen 2.5 / MiniLM Embedding</span>
+                <span class="skill-tag-level">Advanced</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Multi-Agent RAG Orchestration</span>
+                <span class="skill-tag-level">Architect</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Stateful Table Stitching</span>
+                <span class="skill-tag-level">Proprietary</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 3: Semantic Web & Backend -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="cat-icon-box">🕸️</div>
+              <div>
+                <h3 class="cat-title">Semantic Web &amp; API</h3>
+                <span class="cat-subtitle">Knowledge Graphs &amp; Systems</span>
+              </div>
+            </div>
+
+            <ul class="skill-badge-list">
+              <li class="skill-item">
+                <span class="skill-name">Schema.org &amp; JSON-LD</span>
+                <span class="skill-tag-level">Expert 100%</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Python 3.10+ &amp; FastAPI</span>
+                <span class="skill-tag-level">Advanced</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Streamlit Interactive UI</span>
+                <span class="skill-tag-level">Advanced</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">TypeScript / JavaScript</span>
+                <span class="skill-tag-level">Intermediate</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">LlamaParse &amp; Unstructured</span>
+                <span class="skill-tag-level">Proficient</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 4: DevOps & Research Methods -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="cat-icon-box">⚙️</div>
+              <div>
+                <h3 class="cat-title">Tooling &amp; Research</h3>
+                <span class="cat-subtitle">Workflows &amp; Benchmarking</span>
+              </div>
+            </div>
+
+            <ul class="skill-badge-list">
+              <li class="skill-item">
+                <span class="skill-name">Git &amp; GitHub Version Control</span>
+                <span class="skill-tag-level">Daily Driver</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Docker &amp; Containerization</span>
+                <span class="skill-tag-level">Working</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">VS Code / Linux CLI</span>
+                <span class="skill-tag-level">Advanced</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Scientific Writing &amp; IEEE Format</span>
+                <span class="skill-tag-level">Academic</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">PyTest &amp; RAGAS Framework</span>
+                <span class="skill-tag-level">Roadmap</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Roadmap Section -->
+    <section class="section-wrapper bg-subtle" id="roadmap" aria-labelledby="roadmap-heading">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-eyebrow">
+            <span class="eyebrow-tag">Timeline &amp; Execution</span>
+          </div>
+          <h2 id="roadmap-heading" class="section-title">Research Roadmap 2026 - 2027</h2>
+          <p class="section-subtitle">
+            Structured roadmap covering undergraduate thesis execution, scientific publication, and open-source productionization.
+          </p>
+        </div>
+
+        <div class="roadmap-timeline">
+          <!-- Roadmap Item 1 -->
+          <div class="roadmap-item completed">
+            <div class="roadmap-badge">Phase 1</div>
+            <div class="roadmap-card">
+              <div class="roadmap-date">Q1 - Q3 2026</div>
+              <h3 class="roadmap-title">Architecture &amp; End-to-End Pipeline Validation</h3>
+              <p class="roadmap-desc">
+                Completed 1D-CNN INT8 pipeline for ESP32-S3, released CorpusLD v2.0 with 100% Schema.org compliance, and built Notebook-LocalLM-Studio sub-2GB RAM workspace.
+              </p>
+              <div class="roadmap-tags">
+                <span class="tag-done">✓ CorpusLD v2.0</span>
+                <span class="tag-done">✓ INT8 TFLite Micro Pipeline</span>
+                <span class="tag-done">✓ 2-Pass Retrieval Engine</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Roadmap Item 2 -->
+          <div class="roadmap-item active">
+            <div class="roadmap-badge">Phase 2</div>
+            <div class="roadmap-card">
+              <div class="roadmap-date">Q4 2026 : Current Focus</div>
+              <h3 class="roadmap-title">Thesis Completion &amp; Physical Dataset Acquisition</h3>
+              <p class="roadmap-desc">
+                Physical Open-Circuit Fault dataset acquisition on laboratory hardware testbed / physical circuit simulations, robustness validation, and scientific paper submission.
+              </p>
+              <div class="roadmap-tags">
+                <span class="tag-current">&bull; Hardware Testbed Acquisition</span>
+                <span class="tag-current">&bull; Scientific Paper Finalization</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Roadmap Item 3 -->
+          <div class="roadmap-item upcoming">
+            <div class="roadmap-badge">Phase 3</div>
+            <div class="roadmap-card">
+              <div class="roadmap-date">2027 : Planned</div>
+              <h3 class="roadmap-title">RAG Productionization &amp; CorpusLD v2.1</h3>
+              <p class="roadmap-desc">
+                Production-grade Docker containerization, automated benchmarking with RAGAS evaluation harness, PyTest suite, and CI/CD pipelines.
+              </p>
+              <div class="roadmap-tags">
+                <span class="tag-future">&bull; Docker Deployment</span>
+                <span class="tag-future">&bull; RAGAS Benchmarking Suite</span>
+                <span class="tag-future">&bull; CorpusLD v2.1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Mini-CLI Terminal Section -->
+    <section class="section-wrapper" id="terminal-section" aria-labelledby="cli-heading">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-eyebrow">
+            <span class="eyebrow-tag">Interactive Terminal</span>
+          </div>
+          <h2 id="cli-heading" class="section-title">Developer Console &amp; CLI</h2>
+          <p class="section-subtitle">
+            Type interactive shell commands to explore projects, trigger system simulators, or inspect live linked data.
+          </p>
+        </div>
+
+        <div class="terminal-window" id="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="terminal-title">sharriffajar@untan-edge-lab: ~ (bash / web-cli)</span>
+            <span class="terminal-hint">Type <code>help</code> for available commands</span>
+          </div>
+
+          <div class="terminal-body" id="terminal-body" tabindex="0" role="region" aria-label="Interactive Terminal Output">
+            <div class="terminal-line banner-line">
+              <span class="prompt-sys">SYS:</span> Welcome to Sharrif Faqih Fajarudin's Interactive Engineering Console.
+            </div>
+            <div class="terminal-line info-line">
+              <span class="prompt-sys">INFO:</span> Type <code>help</code> to view available commands.
+            </div>
+            <div id="terminal-history"></div>
+          </div>
+
+          <form id="terminal-form" class="terminal-input-row" autocomplete="off">
+            <label for="terminal-input" class="prompt-symbol">sharrif@edge:~$</label>
+            <input type="text" id="terminal-input" class="terminal-input" placeholder="type command here (e.g. help, projects, fault-sim, schema)..." spellcheck="false" aria-label="Terminal Command Input">
+            <button type="submit" class="terminal-submit-btn" aria-label="Submit Command">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Connect Section -->
+    <section class="section-wrapper bg-subtle" id="contact" aria-labelledby="contact-heading">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-eyebrow">
+            <span class="eyebrow-tag">Get in Touch</span>
+          </div>
+          <h2 id="contact-heading" class="section-title">Collaboration &amp; Contact</h2>
+          <p class="section-subtitle">
+            Open to research collaborations, open-source initiatives, TinyML implementations, or AI engineering opportunities.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left Info Cards -->
+          <div class="contact-info-panel">
+            <div class="contact-card">
+              <div class="contact-icon">📧</div>
+              <div class="contact-card-content">
+                <span class="contact-label">Direct Email</span>
+                <span class="contact-val" id="email-address">sharrifff880@gmail.com</span>
+                <div class="contact-actions">
+                  <a href="mailto:sharrifff880@gmail.com" class="btn-contact-action">Open Email Client</a>
+                  <button class="btn-contact-action" id="copy-email-btn" aria-label="Copy Email Address">Copy Email</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">🐙</div>
+              <div class="contact-card-content">
+                <span class="contact-label">GitHub Profile</span>
+                <span class="contact-val">github.com/sharriffajar</span>
+                <div class="contact-actions">
+                  <a href="https://github.com/sharriffajar" target="_blank" rel="noopener noreferrer" class="btn-contact-action">Visit GitHub</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">💼</div>
+              <div class="contact-card-content">
+                <span class="contact-label">LinkedIn Profile</span>
+                <span class="contact-val">linkedin.com/in/sharriffajar</span>
+                <div class="contact-actions">
+                  <a href="https://www.linkedin.com/in/sharriffajar" target="_blank" rel="noopener noreferrer" class="btn-contact-action">Connect on LinkedIn</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">🏛️</div>
+              <div class="contact-card-content">
+                <span class="contact-label">Academic Affiliation</span>
+                <span class="contact-val">Universitas Tanjungpura (UNTAN), Pontianak, Indonesia</span>
+                <div class="contact-actions">
+                  <a href="https://untan.ac.id" target="_blank" rel="noopener noreferrer" class="btn-contact-action">UNTAN Website</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Interactive Direct Message Form -->
+          <div class="contact-form-panel">
+            <div class="form-wrapper">
+              <h3 class="form-title">Send a Message</h3>
+              <p class="form-subtitle">This form will automatically format and open your email client.</p>
+
+              <form id="contact-form" class="direct-contact-form" novalidate>
+                <div class="form-group">
+                  <label for="sender-name">Your Name:</label>
+                  <input type="text" id="sender-name" class="form-input" placeholder="e.g. Dr. Hendra / Sarah" required>
+                  <span class="field-error" id="name-error" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="sender-email">Your Email:</label>
+                  <input type="email" id="sender-email" class="form-input" placeholder="e.g. colleague@example.com" required>
+                  <span class="field-error" id="email-error" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="sender-topic">Discussion Topic:</label>
+                  <select id="sender-topic" class="form-input">
+                    <option value="TinyML &amp; Edge Hardware">TinyML &amp; Edge Hardware (ESP32-S3)</option>
+                    <option value="Neural RAG &amp; Knowledge Graphs">Neural RAG &amp; Knowledge Graphs (CorpusLD)</option>
+                    <option value="Renewable Energy Research Collaboration">Renewable Energy Research Collaboration</option>
+                    <option value="Engineering &amp; Career Opportunities">Engineering &amp; Career Opportunities</option>
+                    <option value="Other">Other Technical Inquiry</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="sender-message">Message:</label>
+                  <textarea id="sender-message" class="form-input form-textarea" rows="4" placeholder="Write your ideas or inquiries here..." required></textarea>
+                  <span class="field-error" id="message-error" aria-live="polite"></span>
+                </div>
+
+                <button type="submit" class="btn-submit-message" id="submit-msg-btn">
+                  <span>Send Message via Mailto</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+
+                <div id="form-feedback-alert" class="form-alert" role="alert" hidden></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <span class="footer-brand">Sharrif Faqih Fajarudin</span>
+        <span class="footer-motto">"Democratizing AI &times; Lightweight Edge Intelligence &times; Verifiable Knowledge"</span>
+      </div>
+      <div class="footer-center">
+        <span>&copy; 2026 Sharrif Fajar. Engineered with intentional craft and zero AI slop.</span>
+      </div>
+      <div class="footer-right">
+        <button id="btn-open-schema-modal" class="btn-schema-pill" aria-haspopup="dialog" aria-label="Open Live Schema.org JSON-LD Graph">
+          <span>🕸️ Live JSON-LD Graph</span>
+        </button>
+        <a href="#overview" class="back-to-top-btn" aria-label="Back to top of page">
+          <span>&uarr; Back to Top</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Live Schema.org JSON-LD Modal Dialog -->
+  <dialog id="schema-graph-modal" class="schema-modal" aria-labelledby="schema-modal-title">
+    <div class="schema-modal-box">
+      <div class="schema-modal-header">
+        <div class="schema-modal-title-group">
+          <span class="modal-icon">🕸️</span>
+          <div>
+            <h3 id="schema-modal-title" class="modal-title">Live Schema.org Linked Data Graph</h3>
+            <span class="modal-sub">Structured Knowledge Graph Implementation of this Page</span>
+          </div>
+        </div>
+        <button id="btn-close-schema-modal" class="btn-modal-close" aria-label="Close Schema Dialog">&times;</button>
+      </div>
+
+      <div class="schema-modal-body">
+        <div class="schema-graph-summary">
+          <span class="badge-status-ok">100% Schema.org Valid</span>
+          <span class="badge-status-accent">@graph : 7 Linked Entities</span>
+        </div>
+        <pre class="schema-code-viewer"><code id="modal-jsonld-code" class="code-block json">/* Loading Live Linked Data... */</code></pre>
+      </div>
+
+      <div class="schema-modal-footer">
+        <button id="btn-modal-copy-jsonld" class="btn-modal-action primary">
+          <span>Copy Graph JSON-LD</span>
+        </button>
+        <a href="https://validator.schema.org/" target="_blank" rel="noopener noreferrer" class="btn-modal-action outline">
+          <span>Open validator.schema.org</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
