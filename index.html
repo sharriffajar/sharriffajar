@@ -38,7 +38,9 @@
         "@id": "https://sharriffajar.pages.dev/#profilepage",
         "url": "https://sharriffajar.pages.dev/",
         "name": "Sharrif Faqih Fajarudin : Edge AI, TinyML & Semantic Systems Portfolio",
+        "headline": "Sharrif Faqih Fajarudin : Edge AI, TinyML & Semantic Systems Portfolio",
         "description": "Interactive portfolio and research profile of Sharrif Faqih Fajarudin, focusing on TinyML (ESP32-S3), Local Neural RAG Systems, and Schema.org JSON-LD Knowledge Graphs.",
+        "image": "https://sharriffajar.pages.dev/og-image.png",
         "inLanguage": ["en-US", "id-ID"],
         "mainEntity": {
           "@id": "https://sharriffajar.pages.dev/#person"
@@ -66,6 +68,7 @@
         "description": "Researcher passionate about democratizing AI for resource-constrained edge devices (<200KB models, <100KB RAM) and enterprise Schema.org Knowledge Graphs.",
         "email": "mailto:sharrifff880@gmail.com",
         "url": "https://sharriffajar.pages.dev/",
+        "image": "https://sharriffajar.pages.dev/og-image.png",
         "sameAs": [
           "https://sharriffajar.pages.dev/",
           "https://github.com/sharriffajar",
@@ -76,6 +79,14 @@
         },
         "alumniOf": {
           "@id": "https://untan.ac.id#organization"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Jl. Prof. Dr. H. Hadari Nawawi",
+          "addressLocality": "Pontianak",
+          "addressRegion": "West Kalimantan",
+          "postalCode": "78124",
+          "addressCountry": "ID"
         },
         "knowsAbout": [
           "TinyML",
@@ -99,14 +110,17 @@
         "name": "Universitas Tanjungpura",
         "alternateName": "UNTAN",
         "url": "https://untan.ac.id",
+        "logo": "https://untan.ac.id",
         "department": {
           "@type": "Organization",
           "name": "Department of Electrical Engineering, Faculty of Engineering"
         },
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "Jl. Prof. Dr. H. Hadari Nawawi",
           "addressLocality": "Pontianak",
           "addressRegion": "West Kalimantan",
+          "postalCode": "78124",
           "addressCountry": "ID"
         }
       },
@@ -115,14 +129,19 @@
         "@id": "https://github.com/sharriffajar/CorpusLD#software",
         "name": "CorpusLD",
         "alternateName": "Corpus + Linked Data",
+        "headline": "CorpusLD: Multi-Agent Semantic Ingestion and Schema.org JSON-LD Knowledge Graph Extraction",
         "description": "Enterprise Multi-Agent Semantic Ingestion and Schema.org JSON-LD Knowledge Graph Extraction Platform.",
+        "image": "https://sharriffajar.pages.dev/og-image.png",
         "codeRepository": "https://github.com/sharriffajar/CorpusLD",
         "programmingLanguage": ["Python", "FastAPI"],
         "runtimePlatform": "Python 3.10+, Qdrant Vector DB, Ollama SLM",
         "license": "https://spdx.org/licenses/Apache-2.0.html",
         "version": "2.0.0",
         "author": {
-          "@id": "https://github.com/sharriffajar#person"
+          "@type": "Person",
+          "@id": "https://sharriffajar.pages.dev/#person",
+          "name": "Sharrif Faqih Fajarudin",
+          "url": "https://sharriffajar.pages.dev/"
         },
         "keywords": [
           "Knowledge Graph",
@@ -137,13 +156,18 @@
         "@type": "SoftwareSourceCode",
         "@id": "https://github.com/sharriffajar/Notebook-LocalLM-Studio#software",
         "name": "Notebook-LocalLM-Studio",
+        "headline": "Notebook-LocalLM-Studio: Privacy-First Local Neural RAG Workspace",
         "description": "Edge-Optimized and Privacy-First Local RAG System for Multi-Document PDF Intelligence with strict citations and ~2GB RAM target.",
+        "image": "https://sharriffajar.pages.dev/og-image.png",
         "codeRepository": "https://github.com/sharriffajar/Notebook-LocalLM-Studio",
         "programmingLanguage": ["Python", "Streamlit"],
         "runtimePlatform": "Ollama, Qwen 2.5 1.5B Q5_K_M, Qdrant Local Client",
         "license": "https://spdx.org/licenses/MIT.html",
         "author": {
-          "@id": "https://github.com/sharriffajar#person"
+          "@type": "Person",
+          "@id": "https://sharriffajar.pages.dev/#person",
+          "name": "Sharrif Faqih Fajarudin",
+          "url": "https://sharriffajar.pages.dev/"
         },
         "keywords": [
           "Local RAG",
@@ -158,13 +182,27 @@
         "@type": ["SoftwareSourceCode", "ScholarlyArticle"],
         "@id": "https://github.com/sharriffajar/Lightweight-1D-CNN-Edge-AI-for-Inverter-Fault-Diagnosis#thesis",
         "name": "Lightweight 1D-CNN Edge AI for Inverter Fault Diagnosis",
+        "headline": "Democratizing AIoT for Renewable Energy Reliability: A Lightweight CNN and ESP32-S3-Based Inverter Fault Detection System",
         "description": "Open-Circuit Fault Detection for Single-Phase Solar PV Inverters using a Lightweight 1D-CNN and TinyML deployed directly to ESP32-S3 microcontroller (<200KB model, <100KB RAM).",
+        "image": "https://sharriffajar.pages.dev/og-image.png",
+        "datePublished": "2026-08-20",
+        "dateModified": "2026-08-28",
+        "mainEntityOfPage": "https://github.com/sharriffajar/Lightweight-1D-CNN-Edge-AI-for-Inverter-Fault-Diagnosis",
         "codeRepository": "https://github.com/sharriffajar/Lightweight-1D-CNN-Edge-AI-for-Inverter-Fault-Diagnosis",
         "programmingLanguage": ["C++", "Python", "TensorFlow", "TFLite Micro"],
         "runtimePlatform": "ESP32-S3 (240MHz Xtensa Dual-Core)",
         "license": "https://spdx.org/licenses/MIT.html",
+        "publisher": {
+          "@type": "EducationalOrganization",
+          "@id": "https://untan.ac.id#organization",
+          "name": "Universitas Tanjungpura",
+          "url": "https://untan.ac.id"
+        },
         "author": {
-          "@id": "https://github.com/sharriffajar#person"
+          "@type": "Person",
+          "@id": "https://sharriffajar.pages.dev/#person",
+          "name": "Sharrif Faqih Fajarudin",
+          "url": "https://sharriffajar.pages.dev/"
         },
         "educationalLevel": "Undergraduate Thesis",
         "keywords": [
