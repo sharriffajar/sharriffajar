@@ -35,31 +35,46 @@ Passionate about **democratizing AI for edge devices** and **renewable energy re
 
 ## 🚀 Featured Projects
 
-### 🧬 [CorpusLD](https://github.com/sharriffajar/CorpusLD) — *Enterprise Knowledge Graph + Neural RAG Studio*
+### 🧬 [CorpusLD](https://github.com/sharriffajar/CorpusLD) — *Dual-Layer Academic Linked Data & Knowledge Graph Studio*
+
+[![PyPI](https://img.shields.io/badge/PyPI-v3.0.0-blue.svg?style=flat-square&logo=pypi)](https://github.com/sharriffajar/CorpusLD)
+[![Tests](https://img.shields.io/badge/Unit%20Tests-109%20Passed-success.svg?style=flat-square)](https://github.com/sharriffajar/CorpusLD)
+[![Schema.org](https://img.shields.io/badge/Schema.org-100%25%20Compliant-success.svg?style=flat-square&logo=w3c)](https://schema.org/)
+[![W3C RDF](https://img.shields.io/badge/W3C%20RDF-Turtle%20.ttl-blue.svg?style=flat-square&logo=w3c)](https://www.w3.org/TR/turtle/)
+[![Neo4j](https://img.shields.io/badge/Neo4j-Cypher%20Export-008CC1.svg?style=flat-square&logo=neo4j)](https://neo4j.com/)
+[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg?style=flat-square)](https://github.com/sharriffajar/CorpusLD)
 
 | **Aspect** | **Details** |
 |------------|-------------|
-| **Type** | Multi-Agent Semantic Ingestion & JSON-LD Extraction Platform |
-| **Target** | Unstructured PDF → Schema.org Compliant Knowledge Graph |
-| **Innovation** | 5-Agent Pipeline + Adversarial KG Reasoning + Precision RAG |
+| **Type** | Dual-Layer Academic Linked Data Extraction Engine & Deep Knowledge Graph Studio |
+| **Target** | Unstructured Scientific Papers, Technical Reports & Patents → Schema.org JSON-LD, RDF Turtle, Neo4j Cypher |
+| **Innovation** | 4-Tier Hybrid Parser + 5-Agent Map-Reduce + Live Authority Resolvers (ROR v2 / Wikidata / MeSH / Crossref) |
 
 ```text
-Pipeline: PDF Upload → 3-Tier Parser (LlamaParse→Unstructured→PyPDF) → 
-         5-Agent Extraction → Schema.org JSON-LD (100% Validator Compliant) → 
-         Qdrant Vector DB → Neural Chat with Evidence Citation
+Layer 1 (Ingestion & Extraction Engine):
+  PDF Upload → 4-Tier Hybrid Parser (PyPDF→LlamaParse→Unstructured→Table Stitcher) → 
+  5-Agent Map-Reduce Pipeline (Metadata, Outline, Metrics, UniversalTable, Citations) → 
+  Universal Unit Ontology Normalization (SI, Biomedical, Energy, Compound)
+
+Layer 2 (Semantic Graph & Linked Data Layer):
+  Live Authority Resolvers (ROR v2 Registry, Wikidata QID, MeSH, Crossref & OpenAlex DOI) → 
+  Adversarial KG Conflict Detection & Graph Health Analysis → 
+  Multi-Format Semantic Export (Schema.org JSON-LD, W3C Turtle .ttl, Neo4j Cypher .cql, BibTeX, RIS, CSL-JSON)
 ```
 
-**Tech Stack:** `Python` · `FastAPI` · `Qdrant` · `IBM Granite Embedding` · `Ollama` · `Schema.org JSON-LD`
+**Tech Stack:** `Python 3.10+` · `FastAPI 3.0` · `W3C RDF Turtle` · `Neo4j Cypher` · `Crossref & OpenAlex REST` · `ROR v2` · `Qdrant` · `IBM Granite Embedding` · `Ollama / Gemini / Groq`
 
 **Key Features:**
-- 🤖 **5-Agent Stepped RAG Pipeline** (Metadata → Outline → Metrics → Tables → Citations)
-- 🌐 **100% Schema.org & Google Rich Results Compliant** (0 critical error, optional warning)
-- 🛡️ **Adversarial Knowledge Graph Reasoning** (Antonym/Negation/Numerical Conflict Detection)
-- 💬 **Neural Chat Studio** with evidence citation: `📄 Doc.pdf (Page X)` + `📊 Table: Doc.pdf (Page Y)`
-- ⚡ **Zero Cold-Start Ollama** + BYOK Support (Gemini, Groq, OpenAI, DeepSeek)
-- 🔒 **Privacy First** — Local storage only, API keys in browser localStorage only
+- 🤖 **5-Agent Map-Reduce Pipeline** with automated running header/footer stripping & cross-page table stitching.
+- 🏛️ **Live Domain Authority Linker** (Dynamic ROR v2 lookup for global research institutions + canonical Wikidata QID & MeSH URIs in `sameAs`).
+- 📄 **Live DOI Reconciliation Engine** (Crossref Works API & OpenAlex REST API resolving missing DOIs, journal containers, and citation metrics).
+- 🧪 **Universal Unit Ontology** (Standardized conversion & boundary validation for SI, Biomedical, Energy, and Compound units).
+- 📦 **Multi-Format Semantic Exports** (Schema.org JSON-LD, W3C RDF Turtle `.ttl`, Neo4j Cypher `.cql`, BibTeX `.bib`, RIS `.ris`, CSL-JSON, Google Scholar Meta).
+- ⚡ **Dynamic Cost & Complexity Router** (Heuristic document complexity tiering across Gemini 2.5 Pro/Flash, Groq LLaMA 3.3 70B, and local Ollama).
+- 🛡️ **Enterprise Security Hardened** (SSRF loopback protection, strict path traversal defense, API Key/Bearer auth, and DOM XSS sanitization).
+- 📊 **109 Automated Tests Passed** across evaluated multi-domain ground-truth benchmarks.
 
-**Status:** ✅ Released v2.0 | Apache-2.0 Licensed
+**Status:** ✅ Released v3.0.0 (Open-Core & PyPI Package) | Apache-2.0 Licensed
 
 ---
 
@@ -132,8 +147,10 @@ Pipeline: generate_dataset.py (128-sample window) → train_model.py (1D-CNN) �
 ### **Data & Semantic Web**
 
 ![Qdrant](https://img.shields.io/badge/Qdrant-D31F58?style=flat-square&logo=qdrant&logoColor=white)
-![JSON-LD](https://img.shields.io/badge/JSON--LD-005A9C?style=flat-square&logo=json&logoColor=white)
 ![Schema.org](https://img.shields.io/badge/Schema.org-1ED962?style=flat-square&logo=json&logoColor=black)
+![JSON-LD](https://img.shields.io/badge/JSON--LD-005A9C?style=flat-square&logo=json&logoColor=white)
+![W3C RDF](https://img.shields.io/badge/W3C_RDF-Turtle_.ttl-blue?style=flat-square&logo=w3c&logoColor=white)
+![Neo4j](https://img.shields.io/badge/Neo4j-Cypher-008CC1?style=flat-square&logo=neo4j&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
 
 ### **Embedded & IoT**
@@ -154,18 +171,18 @@ Pipeline: generate_dataset.py (128-sample window) → train_model.py (1D-CNN) �
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  Q4 2026 - 2027 Roadmap                                     │
+│  Current & 2027 Roadmap                                     │
 ├─────────────────────────────────────────────────────────────┤
 │  🔬 Thesis Completion                                       │
 │     └─ Physical dataset acquisition for OCF detection       │
 │                                                             │
-│  📚 RAG System Productionization                            │
-│     ├─ Docker containerization                              │
-│     ├─ RAGAS evaluation harness                             │
-│     └─ PyTest suite implementation                          │
+│  🧠 Knowledge Graph & Linked Data Framework                 │
+│     ├─ CorpusLD v3.0 Released (Dual-Layer, ROR, Neo4j, TTL) │
+│     └─ Enterprise SLA & Institutional Journal OJS Plugins   │
 │                                                             │
-│  🧠 Knowledge Graph Framework                               │
-│     └─ CorpusLD v2.1 (Docker + CI/CD)                       │
+│  📚 Local RAG Workspace                                     │
+│     ├─ Notebook-LocalLM-Studio sub-2GB RAM optimization     │
+│     └─ Docker containerization & RAGAS evaluation harness   │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
