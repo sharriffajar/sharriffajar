@@ -1453,6 +1453,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .viewer-meta {
@@ -1477,6 +1479,49 @@ body {
   border-radius: var(--radius-sm);
 }
 
+.viewer-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+}
+
+.format-switcher-tabs {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--bg-base);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+  gap: 2px;
+}
+
+.format-tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-height: 28px;
+}
+
+.format-tab-btn:hover {
+  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.format-tab-btn.active {
+  background-color: var(--accent-purple-subtle);
+  color: #c4b5fd;
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  font-weight: 700;
+}
+
 .btn-copy-code {
   background-color: var(--bg-surface-elevated);
   border: 1px solid var(--border-subtle);
@@ -1484,7 +1529,7 @@ body {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   padding: 0.375rem 0.75rem;
-  min-height: 36px;
+  min-height: 32px;
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -1493,6 +1538,12 @@ body {
 .btn-copy-code:hover {
   color: var(--text-primary);
   border-color: var(--accent-emerald);
+}
+
+.btn-copy-code:focus-visible,
+.format-tab-btn:focus-visible {
+  outline: 2px solid var(--accent-emerald);
+  outline-offset: 2px;
 }
 
 .code-container {
@@ -1509,6 +1560,18 @@ body {
   line-height: 1.5;
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+.code-block.turtle {
+  color: #67e8f9;
+}
+
+.code-block.cypher {
+  color: #a7f3d0;
+}
+
+.code-block.bibtex {
+  color: #fed7aa;
 }
 
 .validator-compliance-badge {
