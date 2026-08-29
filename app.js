@@ -317,10 +317,10 @@
     }
   }
 
-  // --- 5. CORPUSLD 5-AGENT PIPELINE SIMULATOR ---
+  // --- 5. CORPUSLD v3.0 DUAL-LAYER SIMULATOR ---
   const agentData = {
     1: {
-      name: "Agent 1: Cover Page & Metadata Extractor",
+      name: "Agent 1: Cover & Metadata Extractor + Authority Resolver",
       exec: "0.003s",
       jsonld: {
         "@context": "https://schema.org",
@@ -336,15 +336,56 @@
               "@type": "EducationalOrganization",
               "name": "Universitas Tanjungpura",
               "department": "Department of Electrical Engineering",
-              "location": "Pontianak, Indonesia"
+              "location": "Pontianak, Indonesia",
+              "sameAs": "https://ror.org/03y0g0g54"
             }
           }
         ],
         "datePublished": "2026-08-20",
         "genre": "Undergraduate Thesis",
         "inLanguage": "en-US",
-        "keywords": ["TinyML", "ESP32-S3", "Solar PV Inverter", "Open-Circuit Fault", "1D-CNN"]
-      }
+        "keywords": ["TinyML", "ESP32-S3", "Solar PV Inverter", "Open-Circuit Fault", "1D-CNN"],
+        "sameAs": [
+          "https://ror.org/03y0g0g54",
+          "https://www.wikidata.org/wiki/Q193135"
+        ]
+      },
+      ttl: `@prefix schema: <https://schema.org/> .
+@prefix ror: <https://ror.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:doi:10.1109/TSTE.2026.319028> a schema:ScholarlyArticle, schema:Thesis ;
+    schema:name "Democratizing AIoT for Renewable Energy: A Lightweight 1D-CNN on ESP32-S3" ;
+    schema:datePublished "2026-08-20"^^xsd:date ;
+    schema:inLanguage "en-US" ;
+    schema:author [
+        a schema:Person ;
+        schema:name "Sharrif Faqih Fajarudin" ;
+        schema:affiliation [
+            a schema:EducationalOrganization ;
+            schema:name "Universitas Tanjungpura" ;
+            schema:sameAs <https://ror.org/03y0g0g54>
+        ]
+    ] ;
+    schema:sameAs <https://www.wikidata.org/wiki/Q193135> .`,
+      cypher: `// CorpusLD Neo4j Graph Export: Metadata & Institution Node
+MERGE (doc:Document {doi: "10.1109/TSTE.2026.319028"})
+SET doc.title = "Democratizing AIoT for Renewable Energy: A Lightweight 1D-CNN on ESP32-S3",
+    doc.date = "2026-08-20",
+    doc.type = "ScholarlyArticle"
+MERGE (a:Author {name: "Sharrif Faqih Fajarudin"})
+MERGE (inst:Organization {name: "Universitas Tanjungpura", ror: "https://ror.org/03y0g0g54"})
+MERGE (a)-[:AUTHORED]->(doc)
+MERGE (a)-[:AFFILIATED_WITH]->(inst);`,
+      bibtex: `@article{fajarudin2026democratizing,
+  title     = {Democratizing AIoT for Renewable Energy: A Lightweight 1D-CNN on ESP32-S3},
+  author    = {Fajarudin, Sharrif Faqih},
+  journal   = {IEEE Transactions on Sustainable Energy},
+  year      = {2026},
+  doi       = {10.1109/TSTE.2026.319028},
+  publisher = {IEEE},
+  note      = {Extracted by CorpusLD v3.0 with ROR Authority Linker}
+}`
     },
     2: {
       name: "Agent 2: Structural Outline & Heading Hierarchy",
@@ -384,21 +425,49 @@
             "pageEnd": 84
           }
         ]
-      }
+      },
+      ttl: `@prefix schema: <https://schema.org/> .
+
+<urn:doi:10.1109/TSTE.2026.319028#outline> a schema:ItemList ;
+    schema:name "Document Chapter Structure" ;
+    schema:itemListElement [
+        a schema:Chapter ;
+        schema:position 1 ;
+        schema:name "Chapter I: Introduction & PV Fault Detection Urgency" ;
+        schema:pageStart 1 ;
+        schema:pageEnd 12
+    ], [
+        a schema:Chapter ;
+        schema:position 2 ;
+        schema:name "Chapter II: Full-Bridge Inverter Topologies & Harmonic Analysis" ;
+        schema:pageStart 13 ;
+        schema:pageEnd 34
+    ] .`,
+      cypher: `// CorpusLD Neo4j Graph Export: Document Structure
+MATCH (doc:Document {doi: "10.1109/TSTE.2026.319028"})
+MERGE (c1:Section {title: "Chapter I: Introduction", position: 1, pageStart: 1, pageEnd: 12})
+MERGE (c2:Section {title: "Chapter II: Inverter Topologies", position: 2, pageStart: 13, pageEnd: 34})
+MERGE (doc)-[:HAS_SECTION]->(c1)
+MERGE (doc)-[:HAS_SECTION]->(c2);`,
+      bibtex: `% Document structural hierarchy parsed into 4 chapters & 84 pages
+% Processed by CorpusLD Outline Agent`
     },
     3: {
-      name: "Agent 3: Quantitative Metrics & Parameters",
+      name: "Agent 3: Universal Unit Ontology & Parameter Normalization",
       exec: "0.003s",
       jsonld: {
         "@context": "https://schema.org",
         "@type": "Observation",
         "observationSubject": "ESP32-S3 TinyML Hardware Performance",
+        "unitOntology": "Universal-SI-Bio-Energy-v3",
         "measuredProperty": [
           {
             "@type": "PropertyValue",
             "name": "Model Size (INT8 Quantized)",
             "value": 142.4,
             "unitText": "Kilobytes",
+            "unitCode": "2P",
+            "canonicalUnit": "kB",
             "pageNumber": 62
           },
           {
@@ -406,6 +475,8 @@
             "name": "SRAM Tensor Arena Footprint",
             "value": 38.2,
             "unitText": "Kilobytes",
+            "unitCode": "2P",
+            "canonicalUnit": "kB",
             "pageNumber": 64
           },
           {
@@ -413,6 +484,8 @@
             "name": "Edge Inference Latency (Single Window)",
             "value": 42.8,
             "unitText": "Milliseconds",
+            "unitCode": "C26",
+            "canonicalUnit": "ms",
             "pageNumber": 68
           },
           {
@@ -420,10 +493,38 @@
             "name": "Parameter Count",
             "value": 14820,
             "unitText": "Weights",
+            "canonicalUnit": "weights",
             "pageNumber": 54
           }
         ]
-      }
+      },
+      ttl: `@prefix schema: <https://schema.org/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+<urn:doi:10.1109/TSTE.2026.319028#observation-1> a schema:Observation ;
+    schema:observationSubject "ESP32-S3 TinyML Hardware Performance" ;
+    schema:measuredProperty [
+        a schema:PropertyValue ;
+        schema:name "Model Size (INT8)" ;
+        schema:value 142.4 ;
+        schema:unitText "Kilobytes" ;
+        schema:unitCode "2P"
+    ], [
+        a schema:PropertyValue ;
+        schema:name "Edge Inference Latency" ;
+        schema:value 42.8 ;
+        schema:unitText "Milliseconds" ;
+        schema:unitCode "C26"
+    ] .`,
+      cypher: `// CorpusLD Neo4j Graph Export: Calibrated Metric Observations
+MATCH (doc:Document {doi: "10.1109/TSTE.2026.319028"})
+MERGE (m1:Metric {name: "Model Size (INT8)", value: 142.4, unit: "kB", page: 62})
+MERGE (m2:Metric {name: "Inference Latency", value: 42.8, unit: "ms", page: 68})
+MERGE (doc)-[:REPORTS_METRIC]->(m1)
+MERGE (doc)-[:REPORTS_METRIC]->(m2);`,
+      bibtex: `% Quantitative Metric Observations: 4 calibrated properties verified
+% Standardized via CorpusLD Universal Unit Ontology`
     },
     4: {
       name: "Agent 4: Deterministic UniversalTable Matrix",
@@ -441,15 +542,27 @@
           {"Load": "80%", "Current_RMS": "4.00 A", "THD": "1.85%", "Efficiency": "97.2%"},
           {"Load": "100%", "Current_RMS": "5.00 A", "THD": "2.10%", "Efficiency": "96.8%"}
         ]
-      }
+      },
+      ttl: `@prefix schema: <https://schema.org/> .
+
+<urn:doi:10.1109/TSTE.2026.319028#table-4-2> a schema:Table ;
+    schema:name "Table 4.2: Inverter Load Benchmark & Efficiency Profile" ;
+    schema:pageNumber "Page 71" ;
+    schema:encodingFormat "application/json" .`,
+      cypher: `// CorpusLD Neo4j Graph Export: Tabular Entity
+MATCH (doc:Document {doi: "10.1109/TSTE.2026.319028"})
+MERGE (t:Table {name: "Table 4.2: Inverter Load Benchmark", page: 71, rows: 4, cols: 4})
+MERGE (doc)-[:CONTAINS_TABLE]->(t);`,
+      bibtex: `% Deterministic Table Matrix: Table 4.2 (4 rows, 4 columns)
+% Processed in 0.001s via CorpusLD UniversalTable Engine`
     },
     5: {
-      name: "Agent 5: Universal Scientific Citation Extractor",
+      name: "Agent 5: Live Citation Extractor & Crossref Reconciliation",
       exec: "0.004s",
       jsonld: {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "Deterministic Reference State Machine",
+        "name": "Reconciled Citation Registry",
         "itemListElement": [
           {
             "@type": "ScholarlyArticle",
@@ -458,7 +571,11 @@
             "name": "Fault Diagnosis in Grid-Connected Photovoltaic Inverters Using Machine Learning",
             "author": "M. A. S. Rahman et al.",
             "publicationYear": 2024,
-            "url": "https://doi.org/10.1109/TIE.2024.102938"
+            "doi": "10.1109/TIE.2024.102938",
+            "url": "https://doi.org/10.1109/TIE.2024.102938",
+            "journal": "IEEE Transactions on Industrial Electronics",
+            "citedByCount": 42,
+            "reconciledVia": "Crossref Works REST API"
           },
           {
             "@type": "ScholarlyArticle",
@@ -467,12 +584,37 @@
             "name": "TinyML: Machine Learning on Extremely Low-Power Embedded Devices",
             "author": "C. R. Warden and D. Situnayake",
             "publicationYear": 2020,
-            "publisher": "O'Reilly Media"
+            "publisher": "O'Reilly Media",
+            "reconciledVia": "OpenAlex REST API"
           }
         ]
-      }
+      },
+      ttl: `@prefix schema: <https://schema.org/> .
+
+<urn:doi:10.1109/TSTE.2026.319028> schema:citation <https://doi.org/10.1109/TIE.2024.102938> .
+
+<https://doi.org/10.1109/TIE.2024.102938> a schema:ScholarlyArticle ;
+    schema:name "Fault Diagnosis in Grid-Connected Photovoltaic Inverters Using Machine Learning" ;
+    schema:author "M. A. S. Rahman et al." ;
+    schema:datePublished "2024" ;
+    schema:publisher "IEEE" .`,
+      cypher: `// CorpusLD Neo4j Graph Export: Citation Network & DOI Links
+MATCH (doc:Document {doi: "10.1109/TSTE.2026.319028"})
+MERGE (ref1:Document {doi: "10.1109/TIE.2024.102938", title: "Fault Diagnosis in Grid-Connected PV Inverters", citations: 42})
+MERGE (doc)-[:CITES {format: "IEEE [1]"}]->(ref1);`,
+      bibtex: `@article{rahman2024fault,
+  title     = {Fault Diagnosis in Grid-Connected Photovoltaic Inverters Using Machine Learning},
+  author    = {Rahman, M. A. S. and others},
+  journal   = {IEEE Transactions on Industrial Electronics},
+  year      = {2024},
+  doi       = {10.1109/TIE.2024.102938},
+  publisher = {IEEE}
+}`
     }
   };
+
+  // State format selector for CorpusLD
+  state.activeFormat = 'jsonld';
 
   function updateAgentViewer(step) {
     state.activeAgentStep = step;
@@ -482,11 +624,31 @@
     const labelEl = document.getElementById('agent-current-label');
     const timeEl = document.getElementById('agent-exec-time');
     const codeEl = document.getElementById('agent-output-code');
+    const copyText = document.getElementById('copy-text');
 
     if (labelEl) labelEl.textContent = data.name;
     if (timeEl) timeEl.textContent = `Execution: ${data.exec}`;
+    
     if (codeEl) {
-      codeEl.textContent = JSON.stringify(data.jsonld, null, 2);
+      const activeFmt = state.activeFormat || 'jsonld';
+      if (activeFmt === 'jsonld') {
+        codeEl.className = 'code-block json';
+        codeEl.textContent = JSON.stringify(data.jsonld, null, 2);
+      } else if (activeFmt === 'ttl') {
+        codeEl.className = 'code-block turtle';
+        codeEl.textContent = data.ttl || '';
+      } else if (activeFmt === 'cypher') {
+        codeEl.className = 'code-block cypher';
+        codeEl.textContent = data.cypher || '';
+      } else if (activeFmt === 'bibtex') {
+        codeEl.className = 'code-block bibtex';
+        codeEl.textContent = data.bibtex || '';
+      }
+    }
+
+    if (copyText) {
+      const fmtName = (state.activeFormat || 'jsonld').toUpperCase();
+      copyText.textContent = `Copy ${fmtName}`;
     }
   }
 
@@ -503,20 +665,41 @@
       });
     });
 
-    // Copy JSON-LD Button
+    // Format Switcher Tabs (JSON-LD, Turtle, Cypher, BibTeX)
+    const formatBtns = document.querySelectorAll('.format-tab-btn');
+    formatBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        formatBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        state.activeFormat = btn.getAttribute('data-format') || 'jsonld';
+        updateAgentViewer(state.activeAgentStep || 1);
+        playClickSound();
+      });
+    });
+
+    // Copy Button
     const copyBtn = document.getElementById('copy-jsonld-btn');
     if (copyBtn) {
       copyBtn.addEventListener('click', () => {
-        const data = agentData[state.activeAgentStep];
-        if (data && navigator.clipboard) {
-          navigator.clipboard.writeText(JSON.stringify(data.jsonld, null, 2))
-            .then(() => {
-              showToast('Schema.org JSON-LD copied to clipboard!', 'success');
-            })
-            .catch(() => {
-              showToast('Failed to copy to clipboard', 'error');
-            });
+        const data = agentData[state.activeAgentStep || 1];
+        if (!data || !navigator.clipboard) return;
+
+        const activeFmt = state.activeFormat || 'jsonld';
+        let textToCopy = '';
+        if (activeFmt === 'jsonld') {
+          textToCopy = JSON.stringify(data.jsonld, null, 2);
+        } else {
+          textToCopy = data[activeFmt] || '';
         }
+
+        navigator.clipboard.writeText(textToCopy)
+          .then(() => {
+            showToast(`${activeFmt.toUpperCase()} copied to clipboard!`, 'success');
+          })
+          .catch(() => {
+            showToast('Failed to copy to clipboard', 'error');
+          });
       });
     }
 
@@ -874,16 +1057,22 @@ Motto       : "Democratizing AI x Lightweight Edge Intelligence x Verifiable Kno
       `,
       projects: () => `
 <span class="prompt-sys">FEATURED RESEARCH PROJECTS:</span>
-1. [CorpusLD]            : Multi-Agent Semantic Ingestion + Schema.org JSON-LD (v2.0)
+1. [CorpusLD]            : Dual-Layer Linked Data Engine & Knowledge Graph Studio (v3.0.0)
 2. [Notebook-LocalLM]    : Privacy-First Local RAG Workspace (~2GB RAM target)
 3. [1D-CNN Inverter AI]  : TinyML Open-Circuit Fault Detector on ESP32-S3 (<200KB model)
 Type project name for detailed specifications.
       `,
       corpusld: () => `
-<span class="prompt-sys">CORPUSLD v2.0 (Apache-2.0):</span>
-- 4-Tier Hybrid Parser (LlamaParse -> Unstructured -> PyPDF)
-- 5-Agent Stepped RAG Pipeline (Metadata, Outline, Metrics, Table, Citations)
-- 100% Validator Schema.org & Google Rich Results Ready
+<span class="prompt-sys">CORPUSLD v3.0.0 (Apache-2.0 / PyPI Package):</span>
+- Dual-Layer Architecture: Ingestion & 5-Agent Map-Reduce + Semantic Graph Lake
+- 4-Tier Hybrid Parser: PyPDF -> LlamaParse -> Unstructured -> Stateful Table Stitcher
+- Live Authority Resolvers: Dynamic ROR v2 Registry, Wikidata QID & MeSH URIs in sameAs
+- Live DOI Reconciliation: Crossref Works API & OpenAlex REST API
+- Universal Unit Ontology: SI, Biomedical, Energy & Compound Units Normalization
+- Multi-Format Exports: Schema.org JSON-LD, W3C RDF Turtle (.ttl), Neo4j Cypher (.cql), BibTeX (.bib), RIS, CSL-JSON
+- Enterprise Security: SSRF Loopback Defense, Path Traversal Protection, Auth Middleware
+- QA & Benchmarks: 109 Unit Tests Passed (100% pass rate across multi-domain papers)
+- Headless CLI: python cli.py extract "sample.pdf" --output "graph.jsonld"
 - Repository: https://github.com/sharriffajar/CorpusLD
       `,
       'fault-sim': () => `
@@ -906,14 +1095,14 @@ Type project name for detailed specifications.
 <span class="prompt-sys">TECHNICAL RADAR:</span>
 - Embedded & TinyML : ESP32-S3, TFLite Micro, INT8, C/C++, Arduino, Thinger.io
 - Neural & SLM     : Qdrant, Ollama, Qwen 2.5, MiniLM, RAG Pipeline
-- Data & Semantic  : Schema.org, JSON-LD, Python, FastAPI, Streamlit
-- DevOps & Tools   : Git, Docker, VS Code, IEEE Scientific Documentation
+- Data & Semantic  : Schema.org, JSON-LD, W3C RDF Turtle, Neo4j Cypher, ROR v2, Crossref, Python, FastAPI
+- DevOps & Tools   : Git, Docker, PyPI, PyTest (109 tests), VS Code, IEEE Scientific Documentation
       `,
       roadmap: () => `
 <span class="prompt-sys">ROADMAP 2026 - 2027:</span>
-[Q1-Q3 2026] Done: 1D-CNN INT8 Pipeline, CorpusLD v2.0, LocalLM Studio
+[Q1-Q3 2026] Done: 1D-CNN INT8 Pipeline, CorpusLD v3.0 (Released), LocalLM Studio
 [Q4 2026]    Focus: Physical laboratory testbed dataset acquisition & paper submission
-[2027]       Planned: Docker deployment, RAGAS automated benchmarking, CorpusLD v2.1
+[2027]       Planned: Institutional Journal OJS Plugins, Enterprise Neo4j GraphRAG, Docker CI/CD
       `,
       contact: () => `
 <span class="prompt-sys">CONTACT & VERIFIED LINKS:</span>
