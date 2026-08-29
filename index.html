@@ -130,14 +130,14 @@
         "@id": "https://github.com/sharriffajar/CorpusLD#software",
         "name": "CorpusLD",
         "alternateName": "Corpus + Linked Data",
-        "headline": "CorpusLD: Multi-Agent Semantic Ingestion and Schema.org JSON-LD Knowledge Graph Extraction",
-        "description": "Enterprise Multi-Agent Semantic Ingestion and Schema.org JSON-LD Knowledge Graph Extraction Platform.",
+        "headline": "CorpusLD: Dual-Layer Academic Linked Data Extraction Engine & Knowledge Graph Studio",
+        "description": "Dual-Layer Academic Linked Data Extraction Engine transforming scientific papers, technical reports, and patents into W3C Schema.org JSON-LD, RDF Turtle, Neo4j Cypher, and Google Scholar metadata with live ROR and Crossref authority linking.",
         "image": "https://sharriffajar.pages.dev/og-image.png",
         "codeRepository": "https://github.com/sharriffajar/CorpusLD",
         "programmingLanguage": ["Python", "FastAPI"],
-        "runtimePlatform": "Python 3.10+, Qdrant Vector DB, Ollama SLM",
+        "runtimePlatform": "Python 3.10+, FastAPI 3.0, Qdrant Vector DB, Ollama, ROR v2 REST, Crossref, OpenAlex",
         "license": "https://spdx.org/licenses/Apache-2.0.html",
-        "version": "2.0.0",
+        "version": "3.0.0",
         "author": {
           "@type": "Person",
           "@id": "https://sharriffajar.pages.dev/#person",
@@ -148,9 +148,13 @@
           "Knowledge Graph",
           "Schema.org",
           "JSON-LD",
-          "Multi-Agent RAG",
-          "Qdrant",
-          "Adversarial Reasoning"
+          "W3C RDF Turtle",
+          "Neo4j Cypher",
+          "ROR Registry",
+          "Crossref DOI",
+          "OpenAlex",
+          "Universal Unit Ontology",
+          "Multi-Agent RAG"
         ]
       },
       {
@@ -428,8 +432,8 @@
             <div class="workbench-grid">
               <div class="workbench-details">
                 <div class="workbench-meta">
-                  <span class="project-category-tag tag-purple">Knowledge Graph &amp; Neural RAG</span>
-                  <span class="project-version-tag">v2.0 Released</span>
+                  <span class="project-category-tag tag-purple">Linked Data &amp; Knowledge Graph</span>
+                  <span class="project-version-tag">v3.0.0 Released</span>
                   <span class="project-license-tag">Apache-2.0</span>
                 </div>
 
@@ -439,11 +443,11 @@
                   </a>
                 </h3>
                 <p class="workbench-tagline">
-                  Enterprise Knowledge Graph + Multi-Agent Neural RAG Studio
+                  Dual-Layer Academic Linked Data Engine &amp; Deep Knowledge Graph Studio
                 </p>
 
                 <p class="workbench-desc">
-                  An academic knowledge partner transforming unstructured PDF documents into Schema.org JSON-LD Knowledge Graphs that achieve 100% compliance on validator.schema.org and pass Google Rich Results tests.
+                  An open-core extraction engine converting unstructured scientific papers, technical reports, and patents into Schema.org JSON-LD, W3C RDF Turtle, and Neo4j Cypher with live ROR, Wikidata, and Crossref authority linking.
                 </p>
 
                 <!-- Key Technical Specifications -->
@@ -451,20 +455,28 @@
                   <table class="tech-specs-table">
                     <tbody>
                       <tr>
+                        <th>Architecture</th>
+                        <td>Dual-Layer (Layer 1: 4-Tier Ingestion &amp; 5-Agent Map-Reduce | Layer 2: Authority Resolvers &amp; Multi-Format Graph Lake)</td>
+                      </tr>
+                      <tr>
                         <th>Parser Pipeline</th>
-                        <td>4-Tier Fallback (LlamaParse &rarr; Unstructured &rarr; PyPDF &rarr; Stateful Table Stitcher)</td>
+                        <td>4-Tier Fallback (PyPDF &rarr; LlamaParse &rarr; Unstructured &rarr; Stateful Cross-Page Table Stitcher)</td>
                       </tr>
                       <tr>
-                        <th>Multi-Agent Core</th>
-                        <td>5-Agent Stepped RAG (Metadata, Outline, Metrics, UniversalTable, Citations)</td>
+                        <th>Authority Resolvers</th>
+                        <td>Live ROR v2 (Research Institutions) + Wikidata QID &amp; MeSH URIs + Crossref &amp; OpenAlex DOI Reconciliation</td>
                       </tr>
                       <tr>
-                        <th>Adversarial KG</th>
-                        <td>Automated conflict detection for antonyms, negations, and numerical boundaries</td>
+                        <th>Unit Ontology</th>
+                        <td>Universal Unit Ontology (Standardized parsing for SI, Biomedical, Energy, and Compound Units)</td>
                       </tr>
                       <tr>
-                        <th>Precision Citations</th>
-                        <td>Dual Page Identity (machine PDF index + human printed page numbers like "Hal. 205")</td>
+                        <th>Semantic Exports</th>
+                        <td>Schema.org JSON-LD, W3C RDF Turtle (.ttl), Neo4j Cypher (.cql), BibTeX (.bib), RIS (.ris), CSL-JSON, Google Scholar Meta</td>
+                      </tr>
+                      <tr>
+                        <th>Security &amp; QA</th>
+                        <td>109 Passed Tests + SSRF Loopback Defense + Filename Path Traversal Protection + 100% Schema.org Validator Pass</td>
                       </tr>
                     </tbody>
                   </table>
@@ -472,11 +484,13 @@
 
                 <!-- Stack Pills -->
                 <div class="tech-pill-list">
-                  <span class="tech-pill">Python</span>
-                  <span class="tech-pill">FastAPI</span>
+                  <span class="tech-pill">Python 3.10+</span>
+                  <span class="tech-pill">FastAPI 3.0</span>
+                  <span class="tech-pill">W3C RDF Turtle</span>
+                  <span class="tech-pill">Neo4j Cypher</span>
+                  <span class="tech-pill">ROR v2 Registry</span>
+                  <span class="tech-pill">Crossref / OpenAlex</span>
                   <span class="tech-pill">Qdrant Vector DB</span>
-                  <span class="tech-pill">IBM Granite Embedding</span>
-                  <span class="tech-pill">Ollama</span>
                   <span class="tech-pill">Schema.org JSON-LD</span>
                 </div>
 
@@ -496,46 +510,46 @@
               <div class="workbench-interactive-preview">
                 <div class="preview-container">
                   <div class="preview-header">
-                    <span class="preview-title">Pipeline Architecture Map</span>
-                    <span class="badge-status-ok">100% Schema.org</span>
+                    <span class="preview-title">Dual-Layer Architecture Map</span>
+                    <span class="badge-status-ok">v3.0 Production</span>
                   </div>
 
                   <div class="pipeline-diagram-flow">
                     <div class="flow-step">
                       <div class="step-num">01</div>
                       <div class="step-box">
-                        <span class="step-name">PDF Ingestion</span>
-                        <span class="step-detail">4-Tier Hybrid Parser</span>
+                        <span class="step-name">4-Tier Ingestion</span>
+                        <span class="step-detail">Header/Footer Stripper &amp; Stitcher</span>
                       </div>
                     </div>
                     <div class="flow-arrow">&darr;</div>
                     <div class="flow-step">
                       <div class="step-num">02</div>
                       <div class="step-box highlight-box">
-                        <span class="step-name">5-Agent Extraction</span>
-                        <span class="step-detail">Stateful Table Stitcher</span>
+                        <span class="step-name">5-Agent Map-Reduce</span>
+                        <span class="step-detail">Universal Unit Ontology</span>
                       </div>
                     </div>
                     <div class="flow-arrow">&darr;</div>
                     <div class="flow-step">
                       <div class="step-num">03</div>
                       <div class="step-box">
-                        <span class="step-name">Adversarial Reasoning</span>
-                        <span class="step-detail">Conflict Detection &amp; Audit</span>
+                        <span class="step-name">Live Authority Linkers</span>
+                        <span class="step-detail">ROR v2 &bull; Crossref &bull; Wikidata</span>
                       </div>
                     </div>
                     <div class="flow-arrow">&darr;</div>
                     <div class="flow-step">
                       <div class="step-num">04</div>
                       <div class="step-box">
-                        <span class="step-name">Schema.org JSON-LD</span>
-                        <span class="step-detail">Google Rich Results Ready</span>
+                        <span class="step-name">Multi-Format Graph Lake</span>
+                        <span class="step-detail">JSON-LD &bull; Turtle &bull; Cypher &bull; BibTeX</span>
                       </div>
                     </div>
                   </div>
 
                   <div class="preview-footer-quote">
-                    <em>"Don't just extract knowledge. Partner with it."</em>
+                    <em>"Bridging unstructured research PDFs to global Linked Open Data standards."</em>
                   </div>
                 </div>
               </div>
@@ -801,7 +815,7 @@
         <div class="lab-tab-nav" role="tablist" aria-label="Engineering Simulator Tabs">
           <button class="lab-tab-btn active" role="tab" aria-selected="true" aria-controls="tab-pane-agent" id="tab-btn-agent">
             <span class="tab-icon">🤖</span>
-            <span>CorpusLD: 5-Agent Pipeline</span>
+            <span>CorpusLD: v3.0 Dual-Layer Engine</span>
           </button>
           <button class="lab-tab-btn" role="tab" aria-selected="false" aria-controls="tab-pane-tinyml" id="tab-btn-tinyml">
             <span class="tab-icon">⚡</span>
@@ -813,11 +827,11 @@
           </button>
         </div>
 
-        <!-- LAB PANE 1: CorpusLD 5-Agent Visualizer -->
+        <!-- LAB PANE 1: CorpusLD Dual-Layer Visualizer -->
         <div class="lab-tab-pane active" id="tab-pane-agent" role="tabpanel" aria-labelledby="tab-btn-agent">
           <div class="lab-workbench-box">
             <div class="workbench-bar">
-              <span class="bar-title">CorpusLD Semantic Engine : Multi-Agent Step Simulator</span>
+              <span class="bar-title">CorpusLD v3.0 Dual-Layer Semantic Engine : Multi-Agent &amp; Authority Simulator</span>
               <span class="bar-status">Agent State Machine : Active</span>
             </div>
 
@@ -828,7 +842,7 @@
                   <div class="step-badge">A1</div>
                   <div class="step-info">
                     <span class="step-title">Cover &amp; Metadata Agent</span>
-                    <span class="step-sub">DOI, Affiliation, Authors, @type</span>
+                    <span class="step-sub">DOI, ROR Affiliation, Authors, @type</span>
                   </div>
                 </button>
 
@@ -843,8 +857,8 @@
                 <button class="agent-step-item" data-agent="3" id="agent-btn-3">
                   <div class="step-badge">A3</div>
                   <div class="step-info">
-                    <span class="step-title">Quantitative Metrics Agent</span>
-                    <span class="step-sub">Unit Text, Values, Page Locators</span>
+                    <span class="step-title">Universal Unit Ontology</span>
+                    <span class="step-sub">SI, Energy &amp; Biomedical Units</span>
                   </div>
                 </button>
 
@@ -859,22 +873,31 @@
                 <button class="agent-step-item" data-agent="5" id="agent-btn-5">
                   <div class="step-badge">A5</div>
                   <div class="step-info">
-                    <span class="step-title">Citation Extractor Agent</span>
-                    <span class="step-sub">IEEE &amp; Harvard Reference State Machine</span>
+                    <span class="step-title">Live Citation &amp; DOI Agent</span>
+                    <span class="step-sub">Crossref &amp; OpenAlex Reconciliation</span>
                   </div>
                 </button>
               </div>
 
-              <!-- Right Live Agent Output & JSON-LD Inspector -->
+              <!-- Right Live Agent Output & Multi-Format Inspector -->
               <div class="agent-output-viewer">
                 <div class="viewer-header">
                   <div class="viewer-meta">
                     <span class="active-agent-label" id="agent-current-label">Agent 1: Cover &amp; Metadata Extractor</span>
                     <span class="exec-time-pill" id="agent-exec-time">Execution: 0.003s</span>
                   </div>
-                  <button class="btn-copy-code" id="copy-jsonld-btn" aria-label="Copy Schema.org JSON-LD">
-                    <span id="copy-text">Copy JSON-LD</span>
-                  </button>
+                  
+                  <div class="viewer-actions-row">
+                    <div class="format-switcher-tabs" role="tablist" aria-label="Export Format Selector" id="format-switcher-tabs">
+                      <button class="format-tab-btn active" data-format="jsonld" type="button">JSON-LD</button>
+                      <button class="format-tab-btn" data-format="ttl" type="button">W3C Turtle</button>
+                      <button class="format-tab-btn" data-format="cypher" type="button">Cypher</button>
+                      <button class="format-tab-btn" data-format="bibtex" type="button">BibTeX</button>
+                    </div>
+                    <button class="btn-copy-code" id="copy-jsonld-btn" aria-label="Copy Code">
+                      <span id="copy-text">Copy</span>
+                    </button>
+                  </div>
                 </div>
 
                 <div class="code-container">
@@ -883,7 +906,7 @@
 
                 <div class="validator-compliance-badge">
                   <span class="check-icon">✓</span>
-                  <span>Schema.org Compliance: <strong>100% Passed</strong> (0 Critical Errors, Google Rich Results Ready)</span>
+                  <span>Semantic Standards: <strong>100% Passed</strong> (W3C RDF, Schema.org 109 Tests, Google Rich Results &amp; Neo4j Ready)</span>
                 </div>
               </div>
             </div>
@@ -1315,10 +1338,10 @@
               <div class="roadmap-date">Q1 - Q3 2026</div>
               <h3 class="roadmap-title">Architecture &amp; End-to-End Pipeline Validation</h3>
               <p class="roadmap-desc">
-                Completed 1D-CNN INT8 pipeline for ESP32-S3, released CorpusLD v2.0 with 100% Schema.org compliance, and built Notebook-LocalLM-Studio sub-2GB RAM workspace.
+                Completed 1D-CNN INT8 pipeline for ESP32-S3, released CorpusLD v3.0.0 with Dual-Layer Knowledge Graph and live ROR authority linking, and built Notebook-LocalLM-Studio sub-2GB RAM workspace.
               </p>
               <div class="roadmap-tags">
-                <span class="tag-done">✓ CorpusLD v2.0</span>
+                <span class="tag-done">✓ CorpusLD v3.0 (Released)</span>
                 <span class="tag-done">✓ INT8 TFLite Micro Pipeline</span>
                 <span class="tag-done">✓ 2-Pass Retrieval Engine</span>
               </div>
@@ -1346,14 +1369,14 @@
             <div class="roadmap-badge">Phase 3</div>
             <div class="roadmap-card">
               <div class="roadmap-date">2027 : Planned</div>
-              <h3 class="roadmap-title">RAG Productionization &amp; CorpusLD v2.1</h3>
+              <h3 class="roadmap-title">GraphRAG Productionization &amp; Journal Integrations</h3>
               <p class="roadmap-desc">
-                Production-grade Docker containerization, automated benchmarking with RAGAS evaluation harness, PyTest suite, and CI/CD pipelines.
+                Institutional Journal OJS plugins, enterprise Neo4j GraphRAG integration, automated benchmarking with RAGAS evaluation harness, and PyPI distribution maintenance.
               </p>
               <div class="roadmap-tags">
-                <span class="tag-future">&bull; Docker Deployment</span>
-                <span class="tag-future">&bull; RAGAS Benchmarking Suite</span>
-                <span class="tag-future">&bull; CorpusLD v2.1</span>
+                <span class="tag-future">&bull; OJS Journal Plugins</span>
+                <span class="tag-future">&bull; Neo4j GraphRAG Integration</span>
+                <span class="tag-future">&bull; Docker CI/CD</span>
               </div>
             </div>
           </div>
@@ -1489,7 +1512,7 @@
                   <label for="sender-topic">Discussion Topic:</label>
                   <select id="sender-topic" class="form-input">
                     <option value="TinyML &amp; Edge Hardware">TinyML &amp; Edge Hardware (ESP32-S3)</option>
-                    <option value="Neural RAG &amp; Knowledge Graphs">Neural RAG &amp; Knowledge Graphs (CorpusLD)</option>
+                    <option value="Dual-Layer Knowledge Graphs &amp; Linked Data">Dual-Layer Knowledge Graphs &amp; Linked Data (CorpusLD v3.0)</option>
                     <option value="Renewable Energy Research Collaboration">Renewable Energy Research Collaboration</option>
                     <option value="Engineering &amp; Career Opportunities">Engineering &amp; Career Opportunities</option>
                     <option value="Other">Other Technical Inquiry</option>
