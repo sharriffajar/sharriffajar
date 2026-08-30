@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    path {
+      fill: #111827; /* Mode terang: hitam pekat */
+    }
+    @media (prefers-color-scheme: dark) {
+      path {
+        fill: #f9fafb; /* Mode gelap: putih bersih */
+      }
+    }
+  </style>
+  <!-- Gemini-style smooth 4-point star sparkle -->
+  <path d="M16 2 C16 9.73 22.27 16 30 16 C22.27 16 16 22.27 16 30 C16 22.27 9.73 16 2 16 C9.73 16 16 9.73 16 2 Z" />
+</svg>

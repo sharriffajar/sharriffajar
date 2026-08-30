@@ -1,0 +1,16 @@
+# Sharrif Fajar
+
+> Software Engineer, Web Developer & Builder
+
+## Summary
+Sharrif Fajar is a software engineer and developer specializing in web technologies, software architecture, intelligent systems, and open-source tooling.
+
+## Key Links & Profiles
+- Website / Portfolio: https://sharriffajar.pages.dev/
+- GitHub: https://github.com/sharriffajar
+- LinkedIn: https://linkedin.com/in/sharriffajar
+- Instagram: https://instagram.com/sharriffajar
+
+## Technical Expertise
+- Frontend: HTML5, CSS3, JavaScript, Modern Web Architecture, Semantic UI, Responsive Layouts.
+- Engineering Practices: Test-Driven Development, Clean Architecture, Security Best Practices (OWASP), System Design.

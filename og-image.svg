@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Dark slate gradient background -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f17" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+
+    <!-- Subtle radial glow behind star -->
+    <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Gemini star shape definition -->
+    <path id="geminiStar" d="M 0,-60 C 0,-15 15,0 60,0 C 15,0 0,15 0,60 C 0,15 -15,0 -60,0 C -15,0 0,-15 0,-60 Z" />
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Subtle grid pattern overlay -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.05" />
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)" />
+
+  <!-- Outer Card Border -->
+  <rect x="24" y="24" width="1152" height="582" rx="20" fill="none" stroke="#1e293b" stroke-width="2" />
+
+  <!-- Star Glow & Gemini Star Icon -->
+  <g transform="translate(190, 315)">
+    <!-- Radial Glow Circle -->
+    <circle cx="0" cy="0" r="130" fill="url(#starGlow)" />
+    <!-- White Gemini Star -->
+    <use href="#geminiStar" fill="#ffffff" />
+    <!-- Inner subtle diamond spark -->
+    <circle cx="0" cy="0" r="4" fill="#0b0f17" />
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="300" y1="200" x2="300" y2="430" stroke="#334155" stroke-width="1.5" stroke-linecap="round" />
+
+  <!-- Typography Content -->
+  <g transform="translate(350, 0)">
+    <!-- Main Name -->
+    <text x="0" y="260" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#ffffff" letter-spacing="-1">Sharrif Fajar</text>
+    
+    <!-- Subtitle / Role -->
+    <text x="0" y="325" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="26" font-weight="400" fill="#94a3b8">Software Engineer • Web Architecture &amp; Systems</text>
+
+    <!-- URL Pill Badge -->
+    <g transform="translate(0, 375)">
+      <!-- Pill Container -->
+      <rect x="0" y="0" width="310" height="46" rx="23" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+      <!-- Online Status Dot -->
+      <circle cx="24" cy="23" r="5" fill="#22c55e" />
+      <!-- Domain Text -->
+      <text x="42" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#e2e8f0">sharriffajar.pages.dev</text>
+    </g>
+  </g>
+</svg>
