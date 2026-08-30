@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  
+  <title>Living Knowledge Graph &amp; Citation Lineage Explorer | Sharrif Fajar</title>
+  <meta name="title" content="Living Knowledge Graph &amp; Citation Lineage Explorer | Sharrif Fajar" />
+  <meta name="description" content="Interactive multi-domain knowledge graph and bidirectional citation lineage visualizer for CorpusLD and Edge AI research by Sharrif Faqih Fajarudin." />
+  <meta name="keywords" content="Living Knowledge Graph, Citation Graph, Research Gaps, OpenAlex, Semantic Web, CorpusLD, TinyML, Ontologies, Sharrif Fajar" />
+  <meta name="author" content="Sharrif Faqih Fajarudin" />
+  <link rel="canonical" href="https://sharriffajar.pages.dev/living-knowledge/" />
+
+  <!-- Adaptive SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- W3C Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CorpusLD Living Knowledge Graph Explorer",
+    "url": "https://sharriffajar.pages.dev/living-knowledge/",
+    "applicationCategory": "EducationalApplication",
+    "creator": {
+      "@type": "Person",
+      "name": "Sharrif Faqih Fajarudin",
+      "url": "https://sharriffajar.pages.dev"
+    },
+    "about": {
+      "@type": "ScholarlyArticle",
+      "@id": "https://doi.org/10.5281/zenodo.22179715",
+      "name": "CorpusLD: A Dual-Layer Semantic Extraction Framework and Deep Knowledge Graph Architecture for Scientific Literature"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg-base: #080b11;
+      --bg-surface: #0f1420;
+      --bg-surface-elevated: #161f30;
+      --bg-card: #131a29;
+      --bg-card-hover: #1c263c;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-emerald: #10b981;
+      --accent-cyan: #06b6d4;
+      --accent-purple: #8b5cf6;
+      --accent-gold: #f59e0b;
+      --accent-rose: #f43f5e;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-heading: 'Space Grotesk', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f1f5f9;
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-strong: rgba(0, 0, 0, 0.15);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Nav */
+    .app-header {
+      background: rgba(8, 11, 17, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      flex-shrink: 0;
+    }
+    [data-theme="light"] .app-header {
+      background: rgba(248, 250, 252, 0.95);
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      min-height: 44px;
+    }
+    .brand-badge-tag {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 99px;
+      display: none;
+    }
+    @media (min-width: 640px) {
+      .brand-badge-tag { display: inline-block; }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-header {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 6px 12px;
+      min-height: 40px;
+      border-radius: var(--radius-sm);
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .btn-header:hover {
+      border-color: var(--accent-emerald);
+      color: var(--accent-emerald);
+    }
+    .btn-simulate {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-gold);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+    .btn-simulate:hover {
+      background: rgba(245, 158, 11, 0.25);
+      border-color: var(--accent-gold);
+      color: #fbbf24;
+    }
+
+    /* Sub-Header Live Telemetry Bar */
+    .telemetry-bar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: var(--text-secondary);
+    }
+    .telemetry-items {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      white-space: nowrap;
+    }
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pulse-green {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-emerald);
+      animation: pulseAnim 1.8s infinite;
+    }
+    @keyframes pulseAnim {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.6; }
+    }
+
+    /* Workspace Body */
+    .workspace-body {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+    }
+
+    /* Canvas Container */
+    #graphCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: grab;
+      touch-action: none;
+    }
+    #graphCanvas:active {
+      cursor: grabbing;
+    }
+
+    /* Floating Graph Controls (Top-Left & Bottom-Left) */
+    .filter-dock {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 10;
+      background: rgba(15, 20, 32, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: min(92vw, 360px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    }
+    [data-theme="light"] .filter-dock {
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .dock-title {
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cluster-filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .filter-chip {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 4px 8px;
+      min-height: 32px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+    }
+    .filter-chip.active {
+      background: var(--accent-emerald);
+      color: #042f2e;
+      border-color: var(--accent-emerald);
+    }
+    .filter-chip.chip-gold.active {
+      background: var(--accent-gold);
+      color: #451a03;
+      border-color: var(--accent-gold);
+    }
+    .filter-chip.chip-cyan.active {
+      background: var(--accent-cyan);
+      color: #083344;
+      border-color: var(--accent-cyan);
+    }
+    .filter-chip.chip-gap.active {
+      background: #f43f5e;
+      color: #ffffff;
+      border-color: #f43f5e;
+    }
+
+    .search-input-box {
+      position: relative;
+      margin-top: 4px;
+    }
+    .search-input {
+      width: 100%;
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 6px 10px 6px 30px;
+      min-height: 36px;
+      color: var(--text-primary);
+      font-size: 0.82rem;
+      font-family: var(--font-sans);
+      outline: none;
+    }
+    .search-input:focus {
+      border-color: var(--accent-emerald);
+    }
+    .search-icon {
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    /* Floating Viewport Actions (Bottom-Left) */
+    .viewport-dock {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      z-index: 10;
+      display: flex;
+      gap: 6px;
+      background: rgba(15, 20, 32, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 6px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+    }
+    .btn-icon-ctl {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      transition: all 0.15s ease;
+    }
+    .btn-icon-ctl:hover {
+      border-color: var(--accent-emerald);
+      color: var(--accent-emerald);
+    }
+
+    /* Slide-Over Node Inspector Panel */
+    .node-drawer {
+      position: absolute;
+      top: 0;
+      right: -420px;
+      width: min(92vw, 400px);
+      height: 100%;
+      background: rgba(15, 20, 32, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-left: 1px solid var(--border-strong);
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.5);
+    }
+    .node-drawer.open {
+      right: 0;
+    }
+    .drawer-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .drawer-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .close-drawer-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 4px;
+      min-width: 36px;
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .close-drawer-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .drawer-content {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      font-size: 0.88rem;
+    }
+
+    .badge-domain {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 99px;
+      text-transform: uppercase;
+    }
+    .domain-nexus { background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.4); }
+    .domain-giant { background: rgba(245, 158, 11, 0.2); color: var(--accent-gold); border: 1px solid rgba(245, 158, 11, 0.4); }
+    .domain-edge { background: rgba(6, 182, 212, 0.2); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.4); }
+    .domain-repo { background: rgba(139, 92, 246, 0.2); color: var(--accent-purple); border: 1px solid rgba(139, 92, 246, 0.4); }
+    .domain-gap { background: rgba(244, 63, 94, 0.2); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.4); }
+    .domain-citation { background: rgba(234, 179, 8, 0.2); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4); }
+
+    .drawer-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+    }
+    .card-label {
+      font-size: 0.74rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .card-val {
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    .relation-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .relation-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      background: var(--bg-base);
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+    }
+    .pred-badge {
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    .cypher-box {
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: #38bdf8;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    /* Modal for Citation Simulation */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-overlay.open {
+      display: flex;
+    }
+    .modal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      width: min(100%, 480px);
+      padding: 24px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .modal-input {
+      width: 100%;
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      min-height: 44px;
+      color: var(--text-primary);
+      font-size: 0.88rem;
+      font-family: var(--font-sans);
+    }
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top App Navigation -->
+  <header class="app-header">
+    <div class="brand-group">
+      <a href="../" class="brand-link" title="Return to Main Portfolio">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" fill="currentColor" />
+        </svg>
+        <span>Sharrif Fajar</span>
+      </a>
+      <span class="brand-badge-tag">Living Knowledge Graph Engine</span>
+    </div>
+
+    <div class="header-actions">
+      <button id="btnIngestPaper" class="btn-header" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.35);" title="Ingest Paper from Web URL, DOI, or CorpusLD JSON-LD">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        <span>+ Ingest from URL / DOI</span>
+      </button>
+      <button id="btnSimulateCitation" class="btn-header btn-simulate" title="Simulate a New Citing Research Work">
+        <span>+ Simulate Citing Paper</span>
+      </button>
+      <a href="../papers/corpusld/" class="btn-header">
+        <span>📄 Paper DOI</span>
+      </a>
+      <button id="themeToggleBtn" class="btn-header" aria-label="Toggle Theme" title="Toggle Light/Dark Theme">
+        <span id="themeIcon">☀️</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Live Telemetry & Federation Bar -->
+  <div class="telemetry-bar" role="status" aria-live="polite">
+    <div class="telemetry-items">
+      <div class="stat-pill" title="Live Connection to OpenAlex Works API">
+        <span class="pulse-green" aria-hidden="true"></span>
+        <span>OpenAlex API: <strong style="color: var(--accent-emerald);">CONNECTED</strong></span>
+      </div>
+      <div class="stat-pill">
+        <span>DOI Target: <strong>10.5281/zenodo.22179715</strong></span>
+      </div>
+      <div class="stat-pill">
+        <span>Total Nodes: <strong id="telemetryNodes">0</strong></span>
+      </div>
+      <div class="stat-pill">
+        <span>Honored Giants: <strong id="telemetryGiants" style="color: var(--accent-gold);">6</strong></span>
+      </div>
+      <div class="stat-pill">
+        <span>Topological Gaps: <strong id="telemetryGaps" style="color: #fb7185;">2</strong></span>
+      </div>
+    </div>
+    <div style="font-size: 0.75rem; color: var(--text-muted);" class="desktop-only">
+      Tip: Drag nodes, scroll to zoom, click to inspect relations.
+    </div>
+  </div>
+
+  <!-- Main Canvas Workspace -->
+  <div class="workspace-body">
+    <canvas id="graphCanvas"></canvas>
+
+    <!-- Filter & Lineage Controller Dock (Top-Left) -->
+    <div class="filter-dock">
+      <div class="dock-title">
+        <span>Citation Lineage &amp; Domains</span>
+        <span style="font-size: 0.72rem; color: var(--text-muted);" id="activeCount">15 Visible</span>
+      </div>
+
+      <div class="cluster-filter-group" role="group" aria-label="Cluster Filters">
+        <button class="filter-chip active" data-filter="all">All Lineage</button>
+        <button class="filter-chip chip-gold" data-filter="giant">🏆 Honored Giants (Cited)</button>
+        <button class="filter-chip" data-filter="nexus">🟢 CorpusLD Core</button>
+        <button class="filter-chip chip-cyan" data-filter="edge">🔵 Edge AI / TinyML</button>
+        <button class="filter-chip chip-gap" data-filter="gap">✨ Research Gaps</button>
+        <button class="filter-chip" data-filter="citation">🟡 Citing Descendants</button>
+      </div>
+
+      <div class="search-input-box">
+        <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="nodeSearch" class="search-input" placeholder="Search node, author, or method..." aria-label="Search knowledge graph nodes" />
+      </div>
+    </div>
+
+    <!-- Viewport Controls (Bottom-Left) -->
+    <div class="viewport-dock">
+      <button class="btn-icon-ctl" id="btnZoomIn" title="Zoom In" aria-label="Zoom In">+</button>
+      <button class="btn-icon-ctl" id="btnZoomOut" title="Zoom Out" aria-label="Zoom Out">−</button>
+      <button class="btn-icon-ctl" id="btnResetView" title="Reset Camera View" aria-label="Reset View">⟲</button>
+      <button class="btn-icon-ctl" id="btnTogglePhysics" title="Pause / Play Physics" aria-label="Pause Physics">⏸</button>
+    </div>
+
+    <!-- Slide-Over Node Inspector Drawer -->
+    <aside class="node-drawer" id="nodeDrawer" aria-label="Node Details Inspector">
+      <div class="drawer-header">
+        <span class="drawer-title" id="drawerTitle">Node Inspector</span>
+        <button class="close-drawer-btn" id="btnCloseDrawer" aria-label="Close Inspector">&times;</button>
+      </div>
+
+      <div class="drawer-content" id="drawerContent">
+        <!-- Injected via JavaScript upon node click -->
+      </div>
+    </aside>
+  </div>
+
+  
+  <!-- Modal for Ingesting Paper via URL, DOI, or JSON-LD -->
+  <div class="modal-overlay" id="ingestModal">
+    <div class="modal-card" style="width: min(100%, 540px);">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.15rem;">
+          🌐 Ingest Paper into Living Graph
+        </h3>
+        <button class="close-drawer-btn" id="btnCloseIngestModal">&times;</button>
+      </div>
+
+      <p style="color: var(--text-secondary); font-size: 0.84rem; line-height: 1.5;">
+        Paste any scholarly Web URL, DOI, or CorpusLD JSON-LD to dynamically extract its metadata, verify its <code>sdPublisher</code> fingerprint, and connect its nodes to the graph.
+      </p>
+
+      <!-- Tabs: URL vs Raw JSON-LD -->
+      <div style="display: flex; gap: 8px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px;">
+        <button class="filter-chip active" id="tabIngestUrlBtn">🔗 Ingest via URL / DOI</button>
+        <button class="filter-chip" id="tabIngestJsonBtn">📄 Paste CorpusLD JSON-LD</button>
+      </div>
+
+      <!-- Pane 1: URL / DOI -->
+      <div id="paneIngestUrl" style="display: flex; flex-direction: column; gap: 10px;">
+        <label style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-muted);">
+          Web URL or DOI (e.g. Zenodo, Paper Landing Page, arXiv):
+        </label>
+        <div style="display: flex; gap: 8px;">
+          <input type="text" id="inputIngestUrl" class="modal-input" placeholder="https://sharriffajar.pages.dev/papers/corpusld/ or 10.5281/zenodo.22179715" />
+          <button class="btn-header btn-simulate" id="btnQuickDemoUrl" style="white-space: nowrap; font-size: 0.75rem;">
+            Test Our Paper
+          </button>
+        </div>
+        <div style="font-size: 0.76rem; color: var(--text-muted);">
+          ✨ Automatically parses <code>&lt;script type="application/ld+json"&gt;</code> and Highwire Press metadata.
+        </div>
+      </div>
+
+      <!-- Pane 2: Raw JSON-LD -->
+      <div id="paneIngestJson" style="display: none; flex-direction: column; gap: 10px;">
+        <label style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-muted);">
+          Paste Raw Schema.org JSON-LD (from CorpusLD CLI or Studio):
+        </label>
+        <textarea id="inputRawJson" class="modal-input" rows="6" style="font-family: var(--font-mono); font-size: 0.78rem;" placeholder='{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "...",
+  "sdPublisher": {"name": "CorpusLD"}
+}'></textarea>
+      </div>
+
+      <!-- Ingest Status Notification -->
+      <div id="ingestFeedback" style="display: none; padding: 10px; border-radius: var(--radius-sm); font-size: 0.82rem;"></div>
+
+      <div class="modal-actions">
+        <button class="btn-header" id="btnCancelIngest">Cancel</button>
+        <button class="btn-header btn-primary" id="btnExecuteIngest" style="background: var(--accent-emerald); color: #042f2e; font-weight: 700;">
+          <span>⚡ Parse &amp; Connect to Graph</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Simulating New Citing Works -->
+  <div class="modal-overlay" id="simulateModal">
+    <div class="modal-card">
+      <h3 style="font-family: var(--font-heading); color: var(--text-primary);">Simulate New Citing Work</h3>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5;">
+        Simulate how the Living Knowledge Graph dynamically reorganizes and bridges domain clusters when a new scientific paper cites CorpusLD (DOI: 10.5281/zenodo.22179715).
+      </p>
+      
+      <div>
+        <label style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-muted);">Paper Title / Topic:</label>
+        <input type="text" id="simTitle" class="modal-input" placeholder="e.g. Autonomous Multimodal Knowledge Graph for Healthcare IoT" />
+      </div>
+
+      <div>
+        <label style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-muted);">Author Name &amp; Affiliation:</label>
+        <input type="text" id="simAuthor" class="modal-input" placeholder="e.g. Dr. Jane Doe (MIT Media Lab)" />
+      </div>
+
+      <div>
+        <label style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-muted);">Bridged Domain:</label>
+        <select id="simDomain" class="modal-input" style="background: var(--bg-base);">
+          <option value="gap">Bridges Topological Void (Research Gap)</option>
+          <option value="edge">Edge AI / Microcontroller Synergy</option>
+          <option value="repo">Semantic Repositories &amp; Linked Data</option>
+        </select>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-header" id="btnCancelSim">Cancel</button>
+        <button class="btn-header btn-simulate" id="btnConfirmSim">+ Add to Live Graph</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Graph Engine Script -->
+  <script>
+    // Initial Knowledge Graph Data Model
+    const INITIAL_NODES = [
+      // 1. Central Nexus
+      {
+        id: "corpusld_core",
+        label: "CorpusLD (Preprint V3.0)",
+        domain: "nexus",
+        author: "Sharrif Faqih Fajarudin",
+        affil: "Universitas Tanjungpura (UNTAN)",
+        orcid: "https://orcid.org/0009-0005-2933-7779",
+        doi: "10.5281/zenodo.22179715",
+        year: 2026,
+        desc: "Dual-Layer Semantic Extraction Framework & Deep Knowledge Graph Architecture (G = (V,E)) for PDF literature.",
+        radius: 26,
+        x: 0, y: 0
+      },
+      // 2. Honored Foundational Giants (Ancestors cited by CorpusLD)
+      {
+        id: "giant_berners_lee",
+        label: "Tim Berners-Lee et al. (2001)",
+        domain: "giant",
+        paper: "The Semantic Web (Scientific American, 284(5), pp. 34-43)",
+        honorReason: "Pioneered the vision of machine-understandable web ontologies that inspired CorpusLD's dual-layer schema.",
+        predicate: "HONORS_AND_CITES",
+        radius: 20,
+        x: -220, y: -140
+      },
+      {
+        id: "giant_bizer",
+        label: "Christian Bizer et al. (2011)",
+        domain: "giant",
+        paper: "Linked Data: The Story So Far",
+        honorReason: "Established the 4 fundamental Linked Data principles adopted in CorpusLD's W3C RDF Turtle & JSON-LD serialization.",
+        predicate: "HONORS_AND_CITES",
+        radius: 19,
+        x: -240, y: 40
+      },
+      {
+        id: "giant_lewis",
+        label: "Patrick Lewis et al. (NeurIPS 2020)",
+        domain: "giant",
+        paper: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+        honorReason: "Introduced dense passage retrieval RAG; CorpusLD resolves its top-K context truncation limitation via section-wise map-reduce.",
+        predicate: "HONORS_AND_CITES",
+        radius: 19,
+        x: -160, y: 160
+      },
+      {
+        id: "giant_huang",
+        label: "Yupan Huang et al. (ACM MM 2022)",
+        domain: "giant",
+        paper: "LayoutLMv3: Pre-training for Document AI with Unified Masking",
+        honorReason: "Pioneered multimodal document layout analysis that inspired CorpusLD's 4-tier hybrid PDF parsing router.",
+        predicate: "HONORS_AND_CITES",
+        radius: 18,
+        x: -120, y: -220
+      },
+      {
+        id: "giant_ror",
+        label: "Research Organization Registry (ROR)",
+        domain: "giant",
+        paper: "ROR: Community-Led Open Identifiers for Research Organizations",
+        honorReason: "Provides universal global persistent IDs (ROR IDs) used by CorpusLD for automated institutional authority linking.",
+        predicate: "HONORS_AND_CITES",
+        radius: 18,
+        x: -300, y: -60
+      },
+      {
+        id: "giant_vrandecic",
+        label: "Denny Vrandečić & Markus Krötzsch (2014)",
+        domain: "giant",
+        paper: "Wikidata: A Free Collaborative Knowledgebase (CACM, 57(10))",
+        honorReason: "Supplies global entity authority QIDs dynamically linked in CorpusLD knowledge graph properties.",
+        predicate: "HONORS_AND_CITES",
+        radius: 18,
+        x: -280, y: 120
+      },
+      // 3. CorpusLD Sub-systems
+      {
+        id: "sys_unit_ontology",
+        label: "Deterministic Unit Ontology",
+        domain: "nexus",
+        desc: "Deterministic SI/energy unit dictionary that eliminates superscript citation collision errors.",
+        radius: 16,
+        x: 120, y: -120
+      },
+      {
+        id: "sys_map_reduce",
+        label: "5-Agent Map-Reduce Router",
+        domain: "nexus",
+        desc: "Section-wise extraction engine guaranteeing 0% context truncation loss across multi-page papers.",
+        radius: 16,
+        x: 140, y: -20
+      },
+      {
+        id: "sys_schema_jsonld",
+        label: "W3C Schema.org JSON-LD",
+        domain: "nexus",
+        desc: "Macro-level scholarly article metadata achieving 100% Google Rich Results compliance.",
+        radius: 16,
+        x: 110, y: 90
+      },
+      // 4. Edge AI & TinyML Lab (Author's synergistic research)
+      {
+        id: "edge_1dcnn",
+        label: "1D-CNN Inverter Anomaly Engine",
+        domain: "edge",
+        paper: "Lightweight 1D-CNN Edge AI for Solar PV Inverter Fault Diagnosis",
+        author: "Sharrif Faqih Fajarudin (UNTAN)",
+        desc: "<200KB deep learning model detecting open-circuit switch faults under severe harmonic noise.",
+        radius: 20,
+        x: 240, y: 150
+      },
+      {
+        id: "edge_esp32",
+        label: "ESP32-S3 INT8 Microcontroller",
+        domain: "edge",
+        desc: "240MHz dual-core Xtensa MCU running INT8 quantized neural inference (<100KB RAM footprint).",
+        radius: 17,
+        x: 320, y: 220
+      },
+      // 5. Topological Voids (Research Gaps - Unfilled intersections)
+      {
+        id: "gap_edge_kg",
+        label: "✨ Gap: On-Device TinyML Graph Reasoning",
+        domain: "gap",
+        gapDesc: "Unexplored Intersection: Executing deterministic sub-graph property traversal directly on microcontrollers (<100KB RAM) without cloud API connectivity.",
+        opportunity: "Ideal for future MSc/PhD research connecting Edge AI and Semantic Web.",
+        radius: 22,
+        x: 260, y: -90
+      },
+      {
+        id: "gap_federated_ror",
+        label: "✨ Gap: P2P Offline Authority Reconciliation",
+        domain: "gap",
+        gapDesc: "Decentralized peer-to-peer schema and ROR authority linking for intermittent rural edge nodes.",
+        opportunity: "Ready for exploration by Semantic Web researchers.",
+        radius: 19,
+        x: 30, y: 220
+      }
+    ];
+
+    const INITIAL_EDGES = [
+      // Connections to Honored Giants
+      { source: "corpusld_core", target: "giant_berners_lee", predicate: "HONORS_AND_CITES", label: "Honors Semantic Web Foundation" },
+      { source: "corpusld_core", target: "giant_bizer", predicate: "HONORS_AND_CITES", label: "Implements Linked Data Principles" },
+      { source: "corpusld_core", target: "giant_lewis", predicate: "RESOLVES_LIMITATION", label: "Eliminates Top-K Truncation" },
+      { source: "corpusld_core", target: "giant_huang", predicate: "EXTENDS_METHOD", label: "4-Tier Hybrid Parser" },
+      { source: "corpusld_core", target: "giant_ror", predicate: "RESOLVES_AUTHORITY", label: "ROR v2 REST Linking" },
+      { source: "corpusld_core", target: "giant_vrandecic", predicate: "RESOLVES_AUTHORITY", label: "Wikidata QID Linking" },
+      
+      // Giant cross-connections
+      { source: "giant_berners_lee", target: "giant_bizer", predicate: "INFLUENCED", label: "Semantic Web to Linked Data" },
+      { source: "giant_ror", target: "giant_vrandecic", predicate: "SAME_AS", label: "Authority Federation" },
+
+      // CorpusLD Subsystems
+      { source: "corpusld_core", target: "sys_unit_ontology", predicate: "HAS_SUBSYSTEM", label: "Deterministic De-Aliasing" },
+      { source: "corpusld_core", target: "sys_map_reduce", predicate: "HAS_SUBSYSTEM", label: "100% Section Recall" },
+      { source: "corpusld_core", target: "sys_schema_jsonld", predicate: "SERIALIZES_TO", label: "W3C Compliance" },
+
+      // Edge AI connections
+      { source: "edge_1dcnn", target: "edge_esp32", predicate: "DEPLOYED_ON", label: "INT8 TFLite Micro" },
+
+      // Bridges to Topological Research Gaps
+      { source: "corpusld_core", target: "gap_edge_kg", predicate: "BRIDGES_GAP", label: "Semantic Knowledge Traversal" },
+      { source: "edge_esp32", target: "gap_edge_kg", predicate: "BRIDGES_GAP", label: "Microcontroller Constraints" },
+      { source: "corpusld_core", target: "gap_federated_ror", predicate: "BRIDGES_GAP", label: "Authority Registry" },
+      { source: "edge_esp32", target: "gap_federated_ror", predicate: "BRIDGES_GAP", label: "Offline Field Edge Nodes" }
+    ];
+
+    // State Variables
+    let nodes = [...INITIAL_NODES];
+    let edges = [...INITIAL_EDGES];
+    let activeFilter = "all";
+    let searchQuery = "";
+    let selectedNode = null;
+    let hoveredNode = null;
+    let isPhysicsRunning = true;
+
+    // Viewport transform
+    let scale = 1.0;
+    let panX = window.innerWidth / 2;
+    let panY = (window.innerHeight - 80) / 2;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let draggedNode = null;
+
+    // Canvas Setup
+    const canvas = document.getElementById('graphCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = canvas.parentElement.clientWidth * dpr;
+      canvas.height = canvas.parentElement.clientHeight * dpr;
+      ctx.scale(dpr, dpr);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Domain Colors Map
+    const DOMAIN_COLORS = {
+      nexus: { fill: "#10b981", stroke: "#34d399", glow: "rgba(16, 185, 129, 0.45)", label: "CorpusLD Core" },
+      giant: { fill: "#f59e0b", stroke: "#fbbf24", glow: "rgba(245, 158, 11, 0.55)", label: "Honored Giant" },
+      edge: { fill: "#06b6d4", stroke: "#38bdf8", glow: "rgba(6, 182, 212, 0.45)", label: "Edge AI / TinyML" },
+      repo: { fill: "#8b5cf6", stroke: "#a78bfa", glow: "rgba(139, 92, 246, 0.45)", label: "Semantic Repositories" },
+      gap: { fill: "#f43f5e", stroke: "#fb7185", glow: "rgba(244, 63, 94, 0.65)", label: "Research Gap (Void)" },
+      citation: { fill: "#eab308", stroke: "#fde047", glow: "rgba(234, 179, 8, 0.5)", label: "Citing Work" }
+    };
+
+    // Update Telemetry Bar
+    function updateTelemetry() {
+      document.getElementById('telemetryNodes').innerText = nodes.length;
+      document.getElementById('telemetryGiants').innerText = nodes.filter(n => n.domain === 'giant').length;
+      document.getElementById('telemetryGaps').innerText = nodes.filter(n => n.domain === 'gap').length;
+      
+      const visible = getVisibleNodes();
+      document.getElementById('activeCount').innerText = `${visible.length} Visible`;
+    }
+
+    function getVisibleNodes() {
+      return nodes.filter(n => {
+        if (activeFilter !== "all" && n.domain !== activeFilter) {
+          // If filtering on giants or gaps, always keep nexus as anchor
+          if (n.domain !== "nexus") return false;
+        }
+        if (searchQuery) {
+          const q = searchQuery.toLowerCase();
+          const matchLabel = n.label.toLowerCase().includes(q);
+          const matchAuthor = (n.author || "").toLowerCase().includes(q);
+          const matchDesc = (n.desc || n.gapDesc || n.honorReason || "").toLowerCase().includes(q);
+          if (!matchLabel && !matchAuthor && !matchDesc) return false;
+        }
+        return true;
+      });
+    }
+
+    // Force-Directed Physics Step
+    function updatePhysics() {
+      if (!isPhysicsRunning) return;
+      const visible = getVisibleNodes();
+      const visibleIds = new Set(visible.map(n => n.id));
+
+      // 1. Coulomb Repulsion
+      for (let i = 0; i < visible.length; i++) {
+        for (let j = i + 1; j < visible.length; j++) {
+          const a = visible[i];
+          const b = visible[j];
+          let dx = b.x - a.x;
+          let dy = b.y - a.y;
+          let dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          let minDistance = (a.radius + b.radius) * 2.8;
+          let force = (minDistance * minDistance * 12) / (dist * dist);
+          force = Math.min(force, 15);
+
+          let fx = (dx / dist) * force;
+          let fy = (dy / dist) * force;
+
+          if (a !== draggedNode) { a.x -= fx * 0.1; a.y -= fy * 0.1; }
+          if (b !== draggedNode) { b.x += fx * 0.1; b.y += fy * 0.1; }
+        }
+      }
+
+      // 2. Hooke's Law (Spring along visible edges)
+      for (const e of edges) {
+        if (!visibleIds.has(e.source) || !visibleIds.has(e.target)) continue;
+        const src = nodes.find(n => n.id === e.source);
+        const tgt = nodes.find(n => n.id === e.target);
+        if (!src || !tgt) continue;
+
+        let dx = tgt.x - src.x;
+        let dy = tgt.y - src.y;
+        let dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        let targetDist = (src.domain === "giant" || tgt.domain === "giant") ? 180 : 130;
+        let diff = dist - targetDist;
+        let force = diff * 0.02;
+
+        let fx = (dx / dist) * force;
+        let fy = (dy / dist) * force;
+
+        if (src !== draggedNode) { src.x += fx; src.y += fy; }
+        if (tgt !== draggedNode) { tgt.x -= fx; tgt.y -= fy; }
+      }
+
+      // 3. Center Gravity
+      for (const n of visible) {
+        if (n === draggedNode) continue;
+        n.x += (0 - n.x) * 0.015;
+        n.y += (0 - n.y) * 0.015;
+      }
+    }
+
+    // Render Function (60 FPS)
+    function render() {
+      updatePhysics();
+
+      const width = canvas.parentElement.clientWidth;
+      const height = canvas.parentElement.clientHeight;
+      ctx.clearRect(0, 0, width, height);
+
+      ctx.save();
+      ctx.translate(panX, panY);
+      ctx.scale(scale, scale);
+
+      const visible = getVisibleNodes();
+      const visibleIds = new Set(visible.map(n => n.id));
+
+      // Draw Edges
+      for (const e of edges) {
+        if (!visibleIds.has(e.source) || !visibleIds.has(e.target)) continue;
+        const src = nodes.find(n => n.id === e.source);
+        const tgt = nodes.find(n => n.id === e.target);
+        if (!src || !tgt) continue;
+
+        const isHighlighted = (selectedNode && (selectedNode.id === src.id || selectedNode.id === tgt.id)) ||
+                              (hoveredNode && (hoveredNode.id === src.id || hoveredNode.id === tgt.id));
+
+        ctx.beginPath();
+        ctx.moveTo(src.x, src.y);
+        ctx.lineTo(tgt.x, tgt.y);
+
+        if (e.predicate === "HONORS_AND_CITES") {
+          ctx.strokeStyle = isHighlighted ? "#f59e0b" : "rgba(245, 158, 11, 0.4)";
+          ctx.lineWidth = isHighlighted ? 2.5 : 1.5;
+          ctx.setLineDash([4, 4]);
+        } else if (e.predicate === "BRIDGES_GAP") {
+          ctx.strokeStyle = isHighlighted ? "#f43f5e" : "rgba(244, 63, 94, 0.35)";
+          ctx.lineWidth = isHighlighted ? 2.5 : 1.5;
+          ctx.setLineDash([3, 5]);
+        } else {
+          ctx.strokeStyle = isHighlighted ? "#10b981" : "rgba(255, 255, 255, 0.15)";
+          ctx.lineWidth = isHighlighted ? 2 : 1;
+          ctx.setLineDash([]);
+        }
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      // Draw Nodes
+      for (const n of visible) {
+        const isSelected = selectedNode && selectedNode.id === n.id;
+        const isHovered = hoveredNode && hoveredNode.id === n.id;
+        const cfg = DOMAIN_COLORS[n.domain] || DOMAIN_COLORS.nexus;
+
+        // Outer Glow / Halo for Honored Giants & Selected Nodes
+        if (isSelected || isHovered || n.domain === "giant" || n.domain === "gap") {
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.radius + (n.domain === "giant" ? 8 : 6), 0, Math.PI * 2);
+          ctx.fillStyle = cfg.glow;
+          ctx.fill();
+        }
+
+        // Main Node Circle
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+        ctx.fillStyle = cfg.fill;
+        ctx.fill();
+        ctx.lineWidth = isSelected ? 3.5 : 2;
+        ctx.strokeStyle = isSelected ? "#ffffff" : cfg.stroke;
+        
+        if (n.domain === "gap") {
+          ctx.setLineDash([3, 3]);
+        }
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Label
+        ctx.font = `${n.domain === 'nexus' ? '600 13px' : '500 11px'} 'Plus Jakarta Sans', sans-serif`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "top";
+        ctx.fillStyle = isSelected ? "#ffffff" : "#e2e8f0";
+        ctx.fillText(n.label, n.x, n.y + n.radius + 6);
+      }
+
+      ctx.restore();
+      requestAnimationFrame(render);
+    }
+
+    // Interactive Coordinates Resolver
+    function getMousePos(e) {
+      const rect = canvas.getBoundingClientRect();
+      const clientX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+      const clientY = e.clientY || (e.touches && e.touches[0].clientY) || 0;
+      return {
+        x: (clientX - rect.left - panX) / scale,
+        y: (clientY - rect.top - panY) / scale
+      };
+    }
+
+    function findNodeAt(x, y) {
+      const visible = getVisibleNodes();
+      for (let i = visible.length - 1; i >= 0; i--) {
+        const n = visible[i];
+        const dx = n.x - x;
+        const dy = n.y - y;
+        if (Math.sqrt(dx * dx + dy * dy) <= n.radius + 6) {
+          return n;
+        }
+      }
+      return null;
+    }
+
+    // Pointer Events (Mouse & Touch)
+    canvas.addEventListener('mousedown', (e) => {
+      const pos = getMousePos(e);
+      const clickedNode = findNodeAt(pos.x, pos.y);
+      if (clickedNode) {
+        draggedNode = clickedNode;
+        selectNode(clickedNode);
+      } else {
+        isDragging = true;
+        dragStartX = e.clientX - panX;
+        dragStartY = e.clientY - panY;
+      }
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (draggedNode) {
+        const pos = getMousePos(e);
+        draggedNode.x = pos.x;
+        draggedNode.y = pos.y;
+      } else if (isDragging) {
+        panX = e.clientX - dragStartX;
+        panY = e.clientY - dragStartY;
+      } else {
+        const pos = getMousePos(e);
+        hoveredNode = findNodeAt(pos.x, pos.y);
+        canvas.style.cursor = hoveredNode ? "pointer" : "grab";
+      }
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+      draggedNode = null;
+    });
+
+    // Touch Support (Pinch & Pan)
+    let lastTouchDist = 0;
+    canvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        const pos = getMousePos(e);
+        const clickedNode = findNodeAt(pos.x, pos.y);
+        if (clickedNode) {
+          draggedNode = clickedNode;
+          selectNode(clickedNode);
+        } else {
+          isDragging = true;
+          dragStartX = e.touches[0].clientX - panX;
+          dragStartY = e.touches[0].clientY - panY;
+        }
+      } else if (e.touches.length === 2) {
+        lastTouchDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+      }
+    });
+
+    canvas.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      if (e.touches.length === 1) {
+        if (draggedNode) {
+          const pos = getMousePos(e);
+          draggedNode.x = pos.x;
+          draggedNode.y = pos.y;
+        } else if (isDragging) {
+          panX = e.touches[0].clientX - dragStartX;
+          panY = e.touches[0].clientY - dragStartY;
+        }
+      } else if (e.touches.length === 2) {
+        const dist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        const factor = dist / (lastTouchDist || dist);
+        scale = Math.min(Math.max(0.4, scale * factor), 2.5);
+        lastTouchDist = dist;
+      }
+    }, { passive: false });
+
+    canvas.addEventListener('touchend', () => {
+      isDragging = false;
+      draggedNode = null;
+    });
+
+    // Zoom with Mouse Wheel
+    canvas.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9;
+      scale = Math.min(Math.max(0.4, scale * zoomFactor), 2.5);
+    }, { passive: false });
+
+    // Select and Inspect Node
+    function selectNode(node) {
+      selectedNode = node;
+      const drawer = document.getElementById('nodeDrawer');
+      const drawerContent = document.getElementById('drawerContent');
+      const drawerTitle = document.getElementById('drawerTitle');
+
+      drawerTitle.innerText = node.label;
+      const domainInfo = DOMAIN_COLORS[node.domain] || DOMAIN_COLORS.nexus;
+
+      // Find incoming & outgoing relations
+      const connectedEdges = edges.filter(e => e.source === node.id || e.target === node.id);
+
+      let html = `
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <span class="badge-domain domain-${node.domain}">${domainInfo.label}</span>
+          ${node.doi ? `<span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan);">DOI: ${node.doi}</span>` : ''}
+        </div>
+      `;
+
+      if (node.author) {
+        html += `
+          <div class="drawer-card">
+            <div class="card-label">Author &amp; Affiliation</div>
+            <div class="card-val"><strong>${node.author}</strong><br><span style="color: var(--text-secondary); font-size: 0.82rem;">${node.affil || ''}</span></div>
+          </div>
+        `;
+      }
+
+      if (node.honorReason) {
+        html += `
+          <div class="drawer-card" style="border-left: 3px solid var(--accent-gold); background: rgba(245, 158, 11, 0.05);">
+            <div class="card-label" style="color: var(--accent-gold);">🏆 Why We Honor &amp; Cite This Giant</div>
+            <div class="card-val" style="font-size: 0.85rem; line-height: 1.6;">${node.honorReason}</div>
+            <div style="margin-top: 8px; font-size: 0.78rem; font-style: italic; color: var(--text-muted);">Seminal Paper: ${node.paper}</div>
+          </div>
+        `;
+      }
+
+      if (node.gapDesc) {
+        html += `
+          <div class="drawer-card" style="border-left: 3px solid #f43f5e; background: rgba(244, 63, 94, 0.05);">
+            <div class="card-label" style="color: #fb7185;">✨ Topological Void (Research Gap)</div>
+            <div class="card-val" style="font-size: 0.85rem; line-height: 1.6;">${node.gapDesc}</div>
+            <div style="margin-top: 8px; font-size: 0.78rem; color: var(--accent-emerald);"><strong>Opportunity:</strong> ${node.opportunity || ''}</div>
+          </div>
+        `;
+      }
+
+      if (node.desc) {
+        html += `
+          <div class="drawer-card">
+            <div class="card-label">Description / Architecture</div>
+            <div class="card-val" style="font-size: 0.85rem;">${node.desc}</div>
+          </div>
+        `;
+      }
+
+      // Semantic Predicate Relations
+      if (connectedEdges.length > 0) {
+        html += `
+          <div class="drawer-card">
+            <div class="card-label">Graph Relations (${connectedEdges.length})</div>
+            <div class="relation-list">
+        `;
+        for (const e of connectedEdges) {
+          const isOut = e.source === node.id;
+          const otherId = isOut ? e.target : e.source;
+          const otherNode = nodes.find(n => n.id === otherId);
+          const otherLabel = otherNode ? otherNode.label : otherId;
+          html += `
+            <div class="relation-item">
+              <span>${isOut ? '→' : '←'}</span>
+              <span class="pred-badge">:${e.predicate}</span>
+              <span style="color: var(--text-secondary);">${otherLabel}</span>
+            </div>
+          `;
+        }
+        html += `</div></div>`;
+      }
+
+      // Cypher Query
+      const safeId = node.id.replace(/[^a-zA-Z0-9_]/g, '_');
+      const cypherQuery = `MATCH (n:${node.domain === 'giant' ? 'FoundationalGiant' : (node.domain === 'gap' ? 'ResearchGap' : 'Concept')} {id: '${safeId}'})-[r]-(target)\nRETURN n, r, target;`;
+      html += `
+        <div class="drawer-card">
+          <div class="card-label">Generated Cypher Query</div>
+          <div class="cypher-box">${cypherQuery}</div>
+        </div>
+      `;
+
+      drawerContent.innerHTML = html;
+      drawer.classList.add('open');
+    }
+
+    document.getElementById('btnCloseDrawer').addEventListener('click', () => {
+      document.getElementById('nodeDrawer').classList.remove('open');
+      selectedNode = null;
+    });
+
+    // Filter Buttons Listener
+    document.querySelectorAll('.filter-chip').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        activeFilter = e.currentTarget.getAttribute('data-filter');
+        updateTelemetry();
+      });
+    });
+
+    // Search Listener
+    document.getElementById('nodeSearch').addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim();
+      updateTelemetry();
+    });
+
+    // Viewport Controls
+    document.getElementById('btnZoomIn').addEventListener('click', () => { scale = Math.min(2.5, scale * 1.2); });
+    document.getElementById('btnZoomOut').addEventListener('click', () => { scale = Math.max(0.4, scale * 0.8); });
+    document.getElementById('btnResetView').addEventListener('click', () => {
+      scale = 1.0;
+      panX = canvas.parentElement.clientWidth / 2;
+      panY = canvas.parentElement.clientHeight / 2;
+    });
+    document.getElementById('btnTogglePhysics').addEventListener('click', (e) => {
+      isPhysicsRunning = !isPhysicsRunning;
+      e.currentTarget.innerText = isPhysicsRunning ? "⏸" : "▶";
+    });
+
+    // Simulate Citing Paper Modal
+    const modal = document.getElementById('simulateModal');
+    document.getElementById('btnSimulateCitation').addEventListener('click', () => {
+      modal.classList.add('open');
+    });
+    document.getElementById('btnCancelSim').addEventListener('click', () => {
+      modal.classList.remove('open');
+    });
+    document.getElementById('btnConfirmSim').addEventListener('click', () => {
+      const title = document.getElementById('simTitle').value.trim() || "Emerging Framework for Edge Linked Data";
+      const author = document.getElementById('simAuthor').value.trim() || "Independent Researcher (Global Lab)";
+      const domainTarget = document.getElementById('simDomain').value;
+      const simId = `cite_${Date.now()}`;
+
+      // Create new Citing Node
+      const newNode = {
+        id: simId,
+        label: title.length > 32 ? title.slice(0, 30) + "..." : title,
+        domain: "citation",
+        author: author,
+        desc: `Cites CorpusLD (DOI: 10.5281/zenodo.22179715) to integrate deterministic unit ontology.`,
+        radius: 18,
+        x: (Math.random() - 0.5) * 200,
+        y: (Math.random() - 0.5) * 200
+      };
+      nodes.push(newNode);
+
+      // Connect to CorpusLD
+      edges.push({
+        source: "corpusld_core",
+        target: simId,
+        predicate: "CITED_BY",
+        label: "Live Citation via OpenAlex"
+      });
+
+      // If domain is gap, also bridge the gap!
+      if (domainTarget === "gap") {
+        edges.push({
+          source: simId,
+          target: "gap_edge_kg",
+          predicate: "BRIDGES_GAP",
+          label: "Fills Edge AI Void"
+        });
+      }
+
+      modal.classList.remove('open');
+      updateTelemetry();
+      selectNode(newNode);
+    });
+
+    // Dark/Light Mode Toggle
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeIcon.innerText = savedTheme === 'dark' ? '☀️' : '🌙';
+
+    themeToggleBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      themeIcon.innerText = next === 'dark' ? '☀️' : '🌙';
+    });
+
+    // Start Engine
+    updateTelemetry();
+    render();
+  </script>
+</body>
+</html>
