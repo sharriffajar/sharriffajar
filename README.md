@@ -1,10 +1,10 @@
 <p align="center">
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:0d1117,100:000000&height=280&section=header&text=%3E_sharrif_fajar&fontSize=58&fontColor=00FF00&animation=blink&fontAlign=left&fontAlignY=42&desc=root@edge-ai-dev:~$+whoami&descSize=17&descColor=00FF00&descAlign=left&descAlignY=72" />
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono:wght@400;700&size=15&pause=600&color=00FF00&background=000000&center=true&vCenter=true&width=750&lines=$+cat+about.txt;%E2%96%B6+Name.....:+Sharrif+Faqih+Fajarudin;%E2%96%B6+Role.....:+Electrical+Engineering+Student+%40+UNTAN;%E2%96%B6+Focus....:+Edge+AI+%26+Deep+Knowledge+Graphs;$+echo+%22Dual-Layer+Linked+Data+%2B+TinyML+on+ESP32-S3%22;$+neofetch" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono:wght@400;700&size=15&pause=600&color=00FF00&background=000000&center=true&vCenter=true&width=750&lines=$+cat+about.txt;%E2%96%B6+Name.....:+Sharrif+Faqih+Fajarudin;%E2%96%B6+Role.....:+Undergraduate+Researcher+%40+UNTAN;%E2%96%B6+Focus....:+TinyML+(ESP32-S3)+%26+Deep+Knowledge+Graphs;$+echo+%22Author+of+CorpusLD+(DOI:+10.5281/zenodo.22179715)%22;$+neofetch" />
 </p>
 
 <p align="center">
-  <a href="https://sharriffajar.pages.dev/"><img src="https://img.shields.io/badge/🌐_Website-sharriffajar.pages.dev-00FF00?style=for-the-badge&logo=googlechrome&logoColor=black" /></a>
+  <a href="https://sharriffajar.pages.dev/"><img src="https://img.shields.io/badge/Website-sharriffajar.pages.dev-00FF00?style=for-the-badge&logo=googlechrome&logoColor=black" /></a>
   <a href="https://orcid.org/0009-0005-2933-7779"><img src="https://img.shields.io/badge/ORCID-0009--0005--2933--7779-A6CE39?style=for-the-badge&logo=orcid&logoColor=white" /></a>
   <a href="https://doi.org/10.5281/zenodo.22179715"><img src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22179715-10B981?style=for-the-badge&logo=zenodo&logoColor=white" /></a>
   <a href="https://github.com/sharriffajar"><img src="https://img.shields.io/badge/GitHub-sharriffajar-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
@@ -23,9 +23,11 @@
 
 ## 👨‍💻 About Me
 
-> 🎓 **Electrical Engineering Student** at [Universitas Tanjungpura (UNTAN)](https://untan.ac.id), Pontianak, West Kalimantan, Indonesia (ROR: `04exz5k48`)
+> 🎓 **Undergraduate Researcher & Electrical Engineering Student** at [Universitas Tanjungpura (UNTAN)](https://untan.ac.id), Pontianak, West Kalimantan, Indonesia (ROR: `04exz5k48`)  
+> 📍 **Location:** Pontianak, West Kalimantan, Indonesia  
+> 💡 **Bio:** *Undergraduate Researcher @ UNTAN | TinyML (ESP32-S3) · Semantic Web Ontologies & GraphRAG | Author of CorpusLD | ORCID: 0009-0005-2933-7779*
 
-Passionate about bridging **Edge AI / TinyML hardware constraints** with **Deep Semantic Web Ontologies & Knowledge Graphs**. Building lightweight machine learning models that run on microcontrollers (<200KB model size, <100KB RAM) alongside deterministic document intelligence systems.
+Passionate about bridging **Edge AI / TinyML hardware constraints** with **Deep Semantic Web Ontologies & Knowledge Graphs**. Building lightweight machine learning models that run on microcontrollers (<200KB model size, <100KB RAM) alongside deterministic document intelligence and linked data architectures.
 
 **Research Focus:**
 - 🔋 **Renewable Energy Reliability:** Lightweight 1D-CNN Open-Circuit Fault Detection for Solar PV Inverters on ESP32-S3.
@@ -164,11 +166,11 @@ Pipeline: generate_dataset.py (128-sample window) → train_model.py (1D-CNN) �
 > 🤝 **Open to academic collaborations** in: Edge AI, TinyML, Knowledge Graphs, Semantic Web Ontologies, and Renewable Energy Reliability.
 
 <p align="center">
-  <a href="https://sharriffajar.pages.dev/"><img src="https://img.shields.io/badge/🌐_Website-sharriffajar.pages.dev-00FF00?style=flat-square&logo=googlechrome&logoColor=black" /></a>
+  <a href="https://sharriffajar.pages.dev/"><img src="https://img.shields.io/badge/Website-sharriffajar.pages.dev-00FF00?style=flat-square&logo=googlechrome&logoColor=black" /></a>
   <a href="https://orcid.org/0009-0005-2933-7779"><img src="https://img.shields.io/badge/ORCID-0009--0005--2933--7779-A6CE39?style=flat-square&logo=orcid&logoColor=white" /></a>
-  <a href="mailto:sharrifff880@gmail.com"><img src="https://img.shields.io/badge/📧_Email-sharrifff880@gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white" /></a>
-  <a href="https://github.com/sharriffajar"><img src="https://img.shields.io/badge/🐙_GitHub-sharriffajar-181717?style=flat-square&logo=github&logoColor=white" /></a>
-  <a href="https://www.linkedin.com/in/sharriffajar"><img src="https://img.shields.io/badge/💼_LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" /></a>
+  <a href="mailto:sharrifff880@gmail.com"><img src="https://img.shields.io/badge/Email-sharrifff880@gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white" /></a>
+  <a href="https://github.com/sharriffajar"><img src="https://img.shields.io/badge/GitHub-sharriffajar-181717?style=flat-square&logo=github&logoColor=white" /></a>
+  <a href="https://www.linkedin.com/in/sharriffajar"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" /></a>
 </p>
 
 <p align="center">
