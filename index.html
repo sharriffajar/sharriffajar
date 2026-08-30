@@ -30,7 +30,14 @@
   <meta name="twitter:description" content="Democratizing AI for resource-constrained edge hardware and grounded semantic intelligence.">
   <meta name="twitter:image" content="https://sharriffajar.pages.dev/og-image.png">
 
-  <!-- Google Fonts: Plus Jakarta Sans, Space Grotesk, JetBrains Mono -->
+  <!-- Discoverability Links for Crawlers & Bots -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://sharriffajar.pages.dev/sitemap.xml">
+  <link rel="help" type="text/plain" title="Robots Policy" href="https://sharriffajar.pages.dev/robots.txt">
+  <link rel="author" type="text/plain" title="LLM Context" href="https://sharriffajar.pages.dev/llms.txt">
+
+  <!-- Optimized Google Fonts with Preconnect, DNS-Prefetch, and display=swap -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -38,198 +45,69 @@
   <link rel="stylesheet" href="style.css">
 
   <!-- Comprehensive Schema.org Linked Data (@graph) -->
-  <script type="application/ld+json" id="portfolio-jsonld-schema">
+  <!-- Primary ProfilePage Schema (Easily readable by simple & advanced parsers) -->
+  <script type="application/ld+json" id="schema-profilepage">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "ProfilePage",
-        "@id": "https://sharriffajar.pages.dev/#profilepage",
-        "url": "https://sharriffajar.pages.dev/",
-        "name": "Sharrif Faqih Fajarudin : Edge AI, TinyML & Semantic Systems Portfolio",
-        "headline": "Sharrif Faqih Fajarudin : Edge AI, TinyML & Semantic Systems Portfolio",
-        "description": "Interactive portfolio and research profile of Sharrif Faqih Fajarudin, focusing on TinyML (ESP32-S3), Local Neural RAG Systems, and Schema.org JSON-LD Knowledge Graphs.",
-        "image": "https://sharriffajar.pages.dev/og-image.png",
-        "inLanguage": ["en-US", "id-ID"],
-        "mainEntity": {
-          "@id": "https://sharriffajar.pages.dev/#person"
-        },
-        "isPartOf": {
-          "@id": "https://sharriffajar.pages.dev/#website"
-        }
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://sharriffajar.pages.dev/#website",
-        "url": "https://sharriffajar.pages.dev/",
-        "name": "Sharrif Fajar : Edge & Semantic Engineering Lab",
-        "publisher": {
-          "@id": "https://sharriffajar.pages.dev/#person"
-        },
-        "inLanguage": "en-US"
-      },
-      {
-        "@type": "Person",
-        "@id": "https://sharriffajar.pages.dev/#person",
-        "name": "Sharrif Faqih Fajarudin",
-        "alternateName": "sharriffajar",
-        "jobTitle": "Electrical Engineering Student & AI Systems Researcher",
-        "description": "Researcher passionate about democratizing AI for resource-constrained edge devices (<200KB models, <100KB RAM) and enterprise Schema.org Knowledge Graphs.",
-        "email": "mailto:sharrifff880@gmail.com",
-        "url": "https://sharriffajar.pages.dev/",
-        "image": "https://sharriffajar.pages.dev/og-image.png",
-        "sameAs": [
-    "https://orcid.org/0009-0005-2933-7779",
-          "https://sharriffajar.pages.dev/",
-          "https://github.com/sharriffajar",
-          "https://www.linkedin.com/in/sharriffajar"
-        ],
-        "affiliation": {
-          "@id": "https://untan.ac.id#organization"
-        },
-        "alumniOf": {
-          "@id": "https://untan.ac.id#organization"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Jl. Prof. Dr. H. Hadari Nawawi",
-          "addressLocality": "Pontianak",
-          "addressRegion": "West Kalimantan",
-          "postalCode": "78124",
-          "addressCountry": "ID"
-        },
-        "knowsAbout": [
-          "TinyML",
-          "ESP32-S3 Microcontroller",
-          "TensorFlow Lite for Microcontrollers",
-          "INT8 Quantization",
-          "Open-Circuit Fault Detection",
-          "Photovoltaic Inverter Reliability",
-          "Neural Retrieval-Augmented Generation (RAG)",
-          "Small Language Models (Qwen 2.5 1.5B)",
-          "Schema.org JSON-LD Knowledge Graphs",
-          "Vector Databases (Qdrant)",
-          "FastAPI",
-          "Python",
-          "C++ Embedded"
-        ]
-      },
-      {
-        "@type": "EducationalOrganization",
-        "@id": "https://untan.ac.id#organization",
+    "@type": "ProfilePage",
+    "@id": "https://sharriffajar.pages.dev/#profilepage",
+    "url": "https://sharriffajar.pages.dev/",
+    "name": "Sharrif Faqih Fajarudin : Edge AI, TinyML & Semantic Systems Portfolio",
+    "headline": "Sharrif Faqih Fajarudin : Edge AI, TinyML & Semantic Systems Portfolio",
+    "description": "Interactive portfolio and research profile of Sharrif Faqih Fajarudin, focusing on TinyML (ESP32-S3), Local Neural RAG Systems, and Schema.org JSON-LD Knowledge Graphs.",
+    "image": "https://sharriffajar.pages.dev/og-image.png",
+    "inLanguage": ["en-US", "id-ID"],
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://sharriffajar.pages.dev/#person",
+      "name": "Sharrif Faqih Fajarudin",
+      "alternateName": ["Sharrif Fajar", "sharriffajar"],
+      "url": "https://sharriffajar.pages.dev/",
+      "image": "https://sharriffajar.pages.dev/og-image.png",
+      "email": "mailto:sharrifff880@gmail.com",
+      "jobTitle": "Undergraduate Researcher & Software Engineer",
+      "worksFor": {
+        "@type": "CollegeOrUniversity",
+        "@id": "https://ror.org/04exz5k48",
         "name": "Universitas Tanjungpura",
         "alternateName": "UNTAN",
-        "url": "https://untan.ac.id",
-        "logo": "https://untan.ac.id",
-        "department": {
-          "@type": "Organization",
-          "name": "Department of Electrical Engineering, Faculty of Engineering"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Jl. Prof. Dr. H. Hadari Nawawi",
-          "addressLocality": "Pontianak",
-          "addressRegion": "West Kalimantan",
-          "postalCode": "78124",
-          "addressCountry": "ID"
-        }
+        "url": "https://untan.ac.id"
       },
-      {
-        "@type": "SoftwareSourceCode",
-        "@id": "https://github.com/sharriffajar/CorpusLD#software",
-        "name": "CorpusLD",
-        "alternateName": "Corpus + Linked Data",
-        "headline": "CorpusLD: Dual-Layer Academic Linked Data Extraction Engine & Knowledge Graph Studio",
-        "description": "Dual-Layer Academic Linked Data Extraction Engine transforming scientific papers, technical reports, and patents into W3C Schema.org JSON-LD, RDF Turtle, Neo4j Cypher, and Google Scholar metadata with live ROR and Crossref authority linking.",
-        "image": "https://sharriffajar.pages.dev/og-image.png",
-        "codeRepository": "https://github.com/sharriffajar/CorpusLD",
-        "programmingLanguage": ["Python", "FastAPI"],
-        "runtimePlatform": "Python 3.10+, FastAPI 3.0, Qdrant Vector DB, Ollama, ROR v2 REST, Crossref, OpenAlex",
-        "license": "https://spdx.org/licenses/Apache-2.0.html",
-        "version": "3.0.0",
-        "author": {
-          "@type": "Person",
-          "@id": "https://sharriffajar.pages.dev/#person",
-          "name": "Sharrif Faqih Fajarudin",
-          "url": "https://sharriffajar.pages.dev/"
-        },
-        "keywords": [
-          "Knowledge Graph",
-          "Schema.org",
-          "JSON-LD",
-          "W3C RDF Turtle",
-          "Neo4j Cypher",
-          "ROR Registry",
-          "Crossref DOI",
-          "OpenAlex",
-          "Universal Unit Ontology",
-          "Multi-Agent RAG"
-        ]
-      },
-      {
-        "@type": "SoftwareSourceCode",
-        "@id": "https://github.com/sharriffajar/Notebook-LocalLM-Studio#software",
-        "name": "Notebook-LocalLM-Studio",
-        "headline": "Notebook-LocalLM-Studio: Privacy-First Local Neural RAG Workspace",
-        "description": "Edge-Optimized and Privacy-First Local RAG System for Multi-Document PDF Intelligence with strict citations and ~2GB RAM target.",
-        "image": "https://sharriffajar.pages.dev/og-image.png",
-        "codeRepository": "https://github.com/sharriffajar/Notebook-LocalLM-Studio",
-        "programmingLanguage": ["Python", "Streamlit"],
-        "runtimePlatform": "Ollama, Qwen 2.5 1.5B Q5_K_M, Qdrant Local Client",
-        "license": "https://spdx.org/licenses/MIT.html",
-        "author": {
-          "@type": "Person",
-          "@id": "https://sharriffajar.pages.dev/#person",
-          "name": "Sharrif Faqih Fajarudin",
-          "url": "https://sharriffajar.pages.dev/"
-        },
-        "keywords": [
-          "Local RAG",
-          "Privacy-First",
-          "Qwen 2.5",
-          "Qdrant",
-          "Streamlit",
-          "Multi-Document Citations"
-        ]
-      },
-      {
-        "@type": ["SoftwareSourceCode", "ScholarlyArticle"],
-        "@id": "https://github.com/sharriffajar/Lightweight-1D-CNN-Edge-AI-for-Inverter-Fault-Diagnosis#thesis",
-        "name": "Lightweight 1D-CNN Edge AI for Inverter Fault Diagnosis",
-        "headline": "Democratizing AIoT for Renewable Energy Reliability: A Lightweight CNN and ESP32-S3-Based Inverter Fault Detection System",
-        "description": "Open-Circuit Fault Detection for Single-Phase Solar PV Inverters using a Lightweight 1D-CNN and TinyML deployed directly to ESP32-S3 microcontroller (<200KB model, <100KB RAM).",
-        "image": "https://sharriffajar.pages.dev/og-image.png",
-        "datePublished": "2026-08-20",
-        "dateModified": "2026-08-28",
-        "mainEntityOfPage": "https://github.com/sharriffajar/Lightweight-1D-CNN-Edge-AI-for-Inverter-Fault-Diagnosis",
-        "codeRepository": "https://github.com/sharriffajar/Lightweight-1D-CNN-Edge-AI-for-Inverter-Fault-Diagnosis",
-        "programmingLanguage": ["C++", "Python", "TensorFlow", "TFLite Micro"],
-        "runtimePlatform": "ESP32-S3 (240MHz Xtensa Dual-Core)",
-        "license": "https://spdx.org/licenses/MIT.html",
-        "publisher": {
-          "@type": "EducationalOrganization",
-          "@id": "https://untan.ac.id#organization",
-          "name": "Universitas Tanjungpura",
-          "url": "https://untan.ac.id"
-        },
-        "author": {
-          "@type": "Person",
-          "@id": "https://sharriffajar.pages.dev/#person",
-          "name": "Sharrif Faqih Fajarudin",
-          "url": "https://sharriffajar.pages.dev/"
-        },
-        "educationalLevel": "Undergraduate Thesis",
-        "keywords": [
-          "TinyML",
-          "ESP32-S3",
-          "1D-CNN",
-          "Inverter Fault Detection",
-          "Renewable Energy",
-          "Solar PV",
-          "INT8 Quantization"
-        ]
-      }
-    ]
+      "sameAs": [
+        "https://orcid.org/0009-0005-2933-7779",
+        "https://github.com/sharriffajar",
+        "https://linkedin.com/in/sharriffajar",
+        "https://instagram.com/sharriffajar",
+        "https://doi.org/10.5281/zenodo.22179715"
+      ]
+    }
+  }
+  </script>
+
+  <!-- Published Scholarly Article Schema -->
+  <script type="application/ld+json" id="schema-scholarlyarticle">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "@id": "https://doi.org/10.5281/zenodo.22179715",
+    "url": "https://sharriffajar.pages.dev/papers/corpusld/",
+    "name": "CorpusLD: A Dual-Layer Semantic Extraction Framework and Knowledge Graph Architecture for Scientific Literature with Deterministic Unit Ontology and Authority Disambiguation",
+    "headline": "CorpusLD: A Dual-Layer Semantic Extraction Framework and Knowledge Graph Architecture for Scientific Literature",
+    "author": {
+      "@type": "Person",
+      "name": "Sharrif Faqih Fajarudin",
+      "url": "https://sharriffajar.pages.dev",
+      "@id": "https://orcid.org/0009-0005-2933-7779"
+    },
+    "datePublished": "2026-08-30",
+    "inLanguage": "en-US",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "sdPublisher": {
+      "@type": "SoftwareApplication",
+      "name": "CorpusLD",
+      "version": "3.0.0",
+      "url": "https://github.com/sharriffajar/CorpusLD"
+    }
   }
   </script>
   <!-- Scholarly Metadata -->
@@ -268,8 +146,8 @@
       <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
         <ul class="nav-list">
           <li><a href="#overview" class="nav-link active">Overview</a></li>
-          <li><a href="#publications" class="nav-link" style="color: var(--accent-emerald); font-weight: 600;">Publications 📄</a></li>
-          <li><a href="./living-knowledge/" class="nav-link" style="color: var(--accent-gold); font-weight: 600;">Living Graph 🕸️</a></li>
+          <li><a href="#publications" class="nav-link nav-link-emerald">Publications 📄</a></li>
+          <li><a href="./living-knowledge/" class="nav-link nav-link-gold">Living Graph 🕸️</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
           <li><a href="#interactive-lab" class="nav-link">Interactive Lab</a></li>
           <li><a href="#tech-stack" class="nav-link">Tech Radar</a></li>
@@ -356,7 +234,7 @@
 
           <!-- Hero Action Buttons -->
           <div class="hero-actions">
-            <a href="./papers/corpusld/" class="btn-primary" style="background: var(--accent-emerald); color: #042f2e; box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);">
+            <a href="./papers/corpusld/" class="btn-primary btn-hero-emerald">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
               <span>Read CorpusLD Preprint (DOI)</span>
             </a>
@@ -431,11 +309,11 @@
 
     
     <!-- Dedicated Publications & Preprints Section -->
-    <section class="section-wrapper" id="publications" aria-labelledby="publications-heading" style="padding-top: 40px;">
+    <section class="section-wrapper" id="publications" aria-labelledby="publications-heading" class="section-pt-40">
       <div class="section-container">
         <div class="section-header">
           <div class="section-eyebrow">
-            <span class="eyebrow-tag" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">Scholarly Preprints &amp; Publications</span>
+            <span class="eyebrow-tag badge-emerald-subtle">Scholarly Preprints &amp; Publications</span>
           </div>
           <h2 id="publications-heading" class="section-title">Academic Publications</h2>
           <p class="section-subtitle">
@@ -443,32 +321,32 @@
           </p>
         </div>
 
-        <article class="project-workbench-card" style="border: 1px solid rgba(16, 185, 129, 0.35); background: linear-gradient(180deg, rgba(16, 185, 129, 0.04) 0%, rgba(15, 20, 32, 0.95) 100%);">
-          <div class="workbench-grid" style="grid-template-columns: 1fr;">
+        <article class="project-workbench-card">
+          <div class="workbench-grid">
             <div class="workbench-details">
               <div class="workbench-meta">
                 <span class="project-category-tag tag-purple">Knowledge Graphs &amp; Semantic Web</span>
-                <span class="project-version-tag" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border-color: rgba(6, 182, 212, 0.3);">Preprint V3.0</span>
-                <span class="project-license-tag" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald);">DOI: 10.5281/zenodo.22179715</span>
+                <span class="project-version-tag badge-cyan-subtle">Preprint V3.0</span>
+                <span class="project-license-tag badge-emerald-subtle">DOI: 10.5281/zenodo.22179715</span>
                 <span class="project-license-tag">Open Access (CC-BY-4.0)</span>
               </div>
 
-              <h3 class="workbench-title" style="font-size: 1.5rem; margin-top: 8px;">
+              <h3 class="workbench-title pub-title-large">
                 <a href="./papers/corpusld/">
                   CorpusLD: A Dual-Layer Semantic Extraction Framework and Deep Knowledge Graph Architecture for Scientific Literature with Deterministic Unit Ontology and Authority Disambiguation
                 </a>
               </h3>
 
-              <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); margin: 8px 0 16px;">
-                <strong>Author:</strong> Sharrif Faqih Fajarudin &bull; <em>Universitas Tanjungpura (UNTAN)</em> &bull; ORCID: <a href="https://orcid.org/0009-0005-2933-7779" target="_blank" rel="noopener noreferrer" style="color: #a6ce39;">0009-0005-2933-7779</a>
+              <div class="pub-meta-author">
+                <strong>Author:</strong> Sharrif Faqih Fajarudin &bull; <em>Universitas Tanjungpura (UNTAN)</em> &bull; ORCID: <a href="https://orcid.org/0009-0005-2933-7779" target="_blank" rel="noopener noreferrer" class="color-orcid">0009-0005-2933-7779</a>
               </div>
 
-              <p class="workbench-desc" style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">
+              <p class="workbench-desc pub-abstract-text">
                 Bridges the semantic isolation of PDF documents by combining macro-level W3C Schema.org ScholarlyArticle JSON-LD serialization with a micro-level Deep Knowledge Graph ($\mathcal{G} = (\mathcal{V}, \mathcal{E})$) across 10 formal semantic predicates. Achieves 100% structural pass on Google Rich Results, 0% context truncation loss, and regularized de-aliasing of superscript citation collisions.
               </p>
 
-              <div class="workbench-actions" style="display: flex; flex-wrap: wrap; gap: 12px;">
-                <a href="./papers/corpusld/" class="btn-card-primary" style="background: var(--accent-emerald); color: #042f2e; font-weight: 700; padding: 10px 20px;">
+              <div class="workbench-actions pub-actions-group">
+                <a href="./papers/corpusld/" class="btn-card-primary btn-pub-emerald">
                   <span>📄 Open Interactive Paper Page</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </a>
@@ -478,7 +356,7 @@
                 <a href="https://doi.org/10.5281/zenodo.22179715" target="_blank" rel="noopener noreferrer" class="btn-card-secondary">
                   <span>🌐 Zenodo DOI Record</span>
                 </a>
-                <a href="./living-knowledge/" class="btn-card-primary" style="background: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); font-weight: 700; padding: 10px 18px;">
+                <a href="./living-knowledge/" class="btn-card-primary btn-pub-gold">
                   <span>🕸️ Explore Living Graph &amp; Lineage</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
@@ -578,7 +456,7 @@
                 <!-- Action Links -->
                                 <!-- Action Links -->
                 <div class="workbench-actions">
-                  <a href="./papers/corpusld/" class="btn-card-primary" style="background: var(--accent-emerald); color: #042f2e;">
+                  <a href="./papers/corpusld/" class="btn-card-primary btn-pub-emerald">
                     <span>📄 Read Preprint Paper (DOI)</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
                   </a>
@@ -722,16 +600,16 @@
 
                   <div class="ram-allocation-chart">
                     <div class="ram-bar-container">
-                      <div class="ram-segment seg-model" style="width: 58%;" title="Qwen 2.5 1.5B (Q5_K_M): ~1.2GB">
+                      <div class="ram-segment seg-model dist-bar dist-class0 bar-w58" title="Qwen 2.5 1.5B (Q5_K_M): ~1.2GB">
                         <span>Model 1.2GB</span>
                       </div>
-                      <div class="ram-segment seg-vectordb" style="width: 15%;" title="Qdrant Local Client: ~250MB">
+                      <div class="ram-segment seg-vectordb dist-bar dist-class1 bar-w15" title="Qdrant Local Client: ~250MB">
                         <span>DB 250MB</span>
                       </div>
-                      <div class="ram-segment seg-app" style="width: 17%;" title="Embedding &amp; App Buffer: ~350MB">
+                      <div class="ram-segment seg-app dist-bar dist-class2 bar-w17" title="Embedding &amp; App Buffer: ~350MB">
                         <span>App 350MB</span>
                       </div>
-                      <div class="ram-segment seg-headroom" style="width: 10%;" title="System Headroom: ~200MB">
+                      <div class="ram-segment seg-headroom dist-bar dist-class3 bar-w10" title="System Headroom: ~200MB">
                         <span>Free</span>
                       </div>
                     </div>
@@ -1067,7 +945,7 @@
                       <span id="prob-0-val" class="prob-val">98.4%</span>
                     </div>
                     <div class="prob-track">
-                      <div class="prob-fill fill-normal" id="prob-0-fill" style="width: 98.4%;"></div>
+                      <div class="prob-fill fill-normal" id="prob-0-fill" class="dist-bar dist-class0 bar-w98"></div>
                     </div>
                   </div>
 
@@ -1077,7 +955,7 @@
                       <span id="prob-1-val" class="prob-val">0.6%</span>
                     </div>
                     <div class="prob-track">
-                      <div class="prob-fill fill-fault" id="prob-1-fill" style="width: 0.6%;"></div>
+                      <div class="prob-fill fill-fault" id="prob-1-fill" class="dist-bar dist-class1 bar-w06"></div>
                     </div>
                   </div>
 
@@ -1087,7 +965,7 @@
                       <span id="prob-2-val" class="prob-val">0.4%</span>
                     </div>
                     <div class="prob-track">
-                      <div class="prob-fill fill-fault" id="prob-2-fill" style="width: 0.4%;"></div>
+                      <div class="prob-fill fill-fault" id="prob-2-fill" class="dist-bar dist-class2 bar-w04"></div>
                     </div>
                   </div>
 
@@ -1097,7 +975,7 @@
                       <span id="prob-3-val" class="prob-val">0.3%</span>
                     </div>
                     <div class="prob-track">
-                      <div class="prob-fill fill-fault" id="prob-3-fill" style="width: 0.3%;"></div>
+                      <div class="prob-fill fill-fault" id="prob-3-fill" class="dist-bar dist-class3 bar-w03"></div>
                     </div>
                   </div>
 
@@ -1107,7 +985,7 @@
                       <span id="prob-4-val" class="prob-val">0.2%</span>
                     </div>
                     <div class="prob-track">
-                      <div class="prob-fill fill-fault" id="prob-4-fill" style="width: 0.2%;"></div>
+                      <div class="prob-fill fill-fault" id="prob-4-fill" class="dist-bar dist-class4 bar-w02"></div>
                     </div>
                   </div>
 
@@ -1117,7 +995,7 @@
                       <span id="prob-5-val" class="prob-val">0.1%</span>
                     </div>
                     <div class="prob-track">
-                      <div class="prob-fill fill-fault" id="prob-5-fill" style="width: 0.1%;"></div>
+                      <div class="prob-fill fill-fault" id="prob-5-fill" class="dist-bar dist-class5 bar-w01"></div>
                     </div>
                   </div>
                 </div>
@@ -1403,6 +1281,20 @@
       </div>
     </section>
 
+    <!-- Semantic Aside: Author Credentials & Live Verification -->
+    <aside class="portfolio-meta-sidebar" aria-label="Author Credentials and Academic Federation Status">
+      <div class="flex-center-gap">
+        <span class="dot-pulse-emerald" aria-hidden="true"></span>
+        <span class="mono-meta-text">
+          Institutional Authority: <strong>Universitas Tanjungpura</strong> (ROR: <a href="https://ror.org/04exz5k48" target="_blank" rel="noopener" class="link-cyan">04exz5k48</a>)
+        </span>
+      </div>
+      <div class="mono-meta-group">
+        <span>ORCID: <a href="https://orcid.org/0009-0005-2933-7779" target="_blank" rel="noopener" class="color-orcid">0009-0005-2933-7779</a></span>
+        <span>Preprint DOI: <a href="https://doi.org/10.5281/zenodo.22179715" target="_blank" rel="noopener" class="link-emerald">10.5281/zenodo.22179715</a></span>
+      </div>
+    </aside>
+
     <!-- Research Roadmap Section -->
     <section class="section-wrapper bg-subtle" id="roadmap" aria-labelledby="roadmap-heading">
       <div class="section-container">
@@ -1419,12 +1311,12 @@
                 <div class="roadmap-timeline">
           <!-- Roadmap Item 1: Completed -->
           <div class="roadmap-item completed">
-            <div class="roadmap-badge" style="background: var(--accent-emerald); color: #042f2e;">Phase 1 ✓</div>
+            <div class="roadmap-badge roadmap-badge-emerald">Phase 1 ✓</div>
             <div class="roadmap-card">
-              <div class="roadmap-date" style="color: var(--accent-emerald);">Q1 - Q3 2026 · Completed</div>
+              <div class="roadmap-date roadmap-date-emerald">Q1 - Q3 2026 · Completed</div>
               <h3 class="roadmap-title">Engine Architecture &amp; Master Preprint Release</h3>
               <p class="roadmap-desc">
-                Released CorpusLD v3.0.0 Dual-Layer Semantic Engine (104 automated tests passed), published official Master Preprint on Zenodo with persistent DOI <a href="https://doi.org/10.5281/zenodo.22179715" target="_blank" rel="noopener" style="color: var(--accent-cyan);">10.5281/zenodo.22179715</a>, and launched interactive Citation Lineage &amp; Living Knowledge Graph at <a href="./living-knowledge/" style="color: var(--accent-gold);">/living-knowledge/</a>.
+                Released CorpusLD v3.0.0 Dual-Layer Semantic Engine (104 automated tests passed), published official Master Preprint on Zenodo with persistent DOI <a href="https://doi.org/10.5281/zenodo.22179715" target="_blank" rel="noopener" class="link-cyan">10.5281/zenodo.22179715</a>, and launched interactive Citation Lineage &amp; Living Knowledge Graph at <a href="./living-knowledge/" class="link-gold">/living-knowledge/</a>.
               </p>
               <div class="roadmap-tags">
                 <span class="tag-done">✓ CorpusLD v3.0 (Released)</span>
@@ -1436,34 +1328,34 @@
 
           <!-- Roadmap Item 2: Current Focus -->
           <div class="roadmap-item active">
-            <div class="roadmap-badge" style="background: var(--accent-cyan); color: #083344;">Phase 2 · Active</div>
-            <div class="roadmap-card" style="border-color: rgba(6, 182, 212, 0.4);">
-              <div class="roadmap-date" style="color: var(--accent-cyan);">Q4 2026 : Current Focus</div>
+            <div class="roadmap-badge roadmap-badge-cyan">Phase 2 · Active</div>
+            <div class="roadmap-card roadmap-card-cyan">
+              <div class="roadmap-date roadmap-date-cyan">Q4 2026 : Current Focus</div>
               <h3 class="roadmap-title">Self-Hosted PoC &amp; Google Scholar Indexation Validation</h3>
               <p class="roadmap-desc">
-                Deploying self-hosted scholarly landing page (<a href="./papers/corpusld/" style="color: var(--accent-emerald);">/papers/corpusld/</a>) with Highwire Press metadata and 100/100 Google Rich Results JSON-LD. Validating real-world indexation proof-of-concept (PoC) where Google Scholar and search engines index the author's primary domain as canonical authority prior to full journal submission.
+                Deploying self-hosted scholarly landing page (<a href="./papers/corpusld/" class="link-emerald">/papers/corpusld/</a>) with Highwire Press metadata and 100/100 Google Rich Results JSON-LD. Validating real-world indexation proof-of-concept (PoC) where Google Scholar and search engines index the author's primary domain as canonical authority prior to full journal submission.
               </p>
               <div class="roadmap-tags">
-                <span class="tag-current" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border-color: rgba(6, 182, 212, 0.35);">&bull; Google Scholar Indexation PoC</span>
-                <span class="tag-current" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border-color: rgba(6, 182, 212, 0.35);">&bull; Empirical Dissemination Proof</span>
-                <span class="tag-current" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border-color: rgba(6, 182, 212, 0.35);">&bull; Scopus Manuscript Finalization</span>
+                <span class="tag-current roadmap-tag-cyan">&bull; Google Scholar Indexation PoC</span>
+                <span class="tag-current roadmap-tag-cyan">&bull; Empirical Dissemination Proof</span>
+                <span class="tag-current roadmap-tag-cyan">&bull; Scopus Manuscript Finalization</span>
               </div>
             </div>
           </div>
 
           <!-- Roadmap Item 3: Next Target -->
           <div class="roadmap-item upcoming">
-            <div class="roadmap-badge" style="background: var(--accent-gold); color: #451a03;">Phase 3</div>
+            <div class="roadmap-badge roadmap-badge-gold">Phase 3</div>
             <div class="roadmap-card">
-              <div class="roadmap-date" style="color: var(--accent-gold);">Q1 - Q2 2027 : Target</div>
+              <div class="roadmap-date roadmap-date-gold">Q1 - Q2 2027 : Target</div>
               <h3 class="roadmap-title">Scopus Q1/Q2 Journal Submission &amp; Thesis Defense</h3>
               <p class="roadmap-desc">
                 Submit CorpusLD Full Research Manuscript to Scopus Q1/Q2 Journal (IEEE Access / Elsevier Journal of Web Semantics) backed by live self-hosted PoC indexation metrics. Concurrently execute laboratory hardware testbed dataset acquisition for 1D-CNN ESP32-S3 undergraduate thesis.
               </p>
               <div class="roadmap-tags">
-                <span class="tag-future" style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">&bull; Scopus Q1/Q2 Submission (IEEE / Elsevier)</span>
-                <span class="tag-future" style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">&bull; Inverter Hardware Lab Acquisition</span>
-                <span class="tag-future" style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">&bull; Thesis Defense</span>
+                <span class="tag-future roadmap-tag-gold">&bull; Scopus Q1/Q2 Submission (IEEE / Elsevier)</span>
+                <span class="tag-future roadmap-tag-gold">&bull; Inverter Hardware Lab Acquisition</span>
+                <span class="tag-future roadmap-tag-gold">&bull; Thesis Defense</span>
               </div>
             </div>
           </div>
