@@ -51,10 +51,51 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "@id": "https://doi.org/10.5281/zenodo.22179715",
+    "@type": [
+      "Article",
+      "ScholarlyArticle"
+    ],
     "headline": "CorpusLD: A Dual-Layer Semantic Extraction Framework and Knowledge Graph Architecture for Scientific Literature with Deterministic Unit Ontology and Authority Disambiguation",
     "name": "CorpusLD: A Dual-Layer Semantic Extraction Framework and Knowledge Graph Architecture for Scientific Literature with Deterministic Unit Ontology and Authority Disambiguation",
+    "description": "Scientiﬁc and technical documents published in
+Portable Document Format (PDF) frequently function as un-
+structured “data graveyards,” creating severe semantic isolation.
+Conventional Retrieval-Augmented Generation (RAG) and large
+language model (LLM) chunking pipelines suffer from three
+fundamental failure modes: top- K context truncation loss, multi-
+page tabular fragmentation, and numeric collisions caused by
+superscript citation markers polluting quantitative parameters
+(e.g., misinterpreting x2 references as numerical quantities). To
+resolve these challenges, we introduce CorpusLD (Corpus +
+Linked Data), a production-grade, dual-layer semantic extrac-
+tion engine and deep knowledge graph architecture. CorpusLD
+combines a macro-level W3C Schema.org ScholarlyArticle JSON-
+LD serialization with a micro-level Deep Knowledge Graph
+(G = ( V, E)) across 10 formal semantic predicates. The system
+incorporates a 4-tier layout-aware parser, a section-wise map-
+reduce extraction orchestrator, and a deterministic scientiﬁc unit
+ontology supporting Base SI, clinical, energy, and compound
+units. Furthermore, CorpusLD integrates a dynamic REST
+authority linker communicating with the Research Organiza-
+tion Registry (ROR v2) and Wikidata/MeSH registries. Evalu-
+ated across an 8-document multi-disciplinary benchmark corpus
+(arXiv, IEEE, SINTA, and Springer), CorpusLD achieves 100%
+structural compliance on the Google Rich Results Test, extracts
+100% of complex multi-page tables without boundary corruption,
+and eliminates superscript citation pollution deterministically.
+CorpusLD is released as an open-source framework and Python
+package.",
+    "inLanguage": "en",
+    "keywords": [
+      "Knowledge Graphs",
+      "Linked Data",
+      "Schema.org",
+      "Semantic Web",
+      "Information Extraction",
+      "Retrieval-Augmented Generation (RAG)",
+      "Scholarly Metadata",
+      "Ontology Engineering"
+    ],
     "author": [
       {
         "@type": "Person",
@@ -68,24 +109,80 @@
         }
       }
     ],
-    "datePublished": "2026-08-31",
-    "sameAs": [
-      "https://doi.org/10.5281/zenodo.22179715",
-      "https://zenodo.org/records/22179715",
-      "https://github.com/sharriffajar/CorpusLD"
+    "hasPart": [
+      {
+        "@type": "CreativeWork",
+        "name": "I. I NTRODUCTION",
+        "description": "Detailed analysis, methodology, and findings presented under section 'I. I NTRODUCTION'."
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "II. R ELATED WORK",
+        "description": "Detailed analysis, methodology, and findings presented under section 'II. R ELATED WORK'."
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "III. S YSTEM ARCHITECTURE AND METHODOLOGY",
+        "description": "Detailed analysis, methodology, and findings presented under section 'III. S YSTEM ARCHITECTURE AND METHODOLOGY'."
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "5. Agent Map-Reduce Engine (Overview→ Sections→ Metrics→ Tables→ Citations)",
+        "description": "Detailed analysis, methodology, and findings presented under section '5. Agent Map-Reduce Engine (Overview→ Sections→ Metrics→ Tables→ Citations)'."
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "IV. E XPERIMENTAL EVALUATION AND RESULTS",
+        "description": "Detailed analysis, methodology, and findings presented under section 'IV. E XPERIMENTAL EVALUATION AND RESULTS'."
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "VI. C ONCLUSION AND REPRODUCIBILITY",
+        "description": "Detailed analysis, methodology, and findings presented under section 'VI. C ONCLUSION AND REPRODUCIBILITY'."
+      }
     ],
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Loopback And Cloud Metadata",
+        "value": 100.0,
+        "unitText": "%",
+        "description": "Page 3"
+      }
+    ],
+    "citation": [
+      "[1] T. Berners-Lee, J. Hendler, and O. Lassila, “The Semantic Web,”Scientific American, vol. 284, no. 5, pp. 34–43, 2001.",
+      "[2] C. Bizer, T. Heath, and T. Berners-Lee, “Linked Data: The story so far,” in Semantic Services, Interoperability and Web Applications: Emerging Concepts, pp. 205–227, 2011.",
+      "[3] Y . Huang et al., “LayoutLMv3: Pre-training for Document AI with Unified Text and Image Masking,” in Proc. ACM Multimedia (MM ’22) , pp. 4083–4091, 2022.",
+      "[4] P. Lewis et al., “Retrieval-Augmented Generation for Knowledge- Intensive NLP Tasks,” in Advances in Neural Information Processing Systems (NeurIPS), vol. 33, pp. 9459–9474, 2020.",
+      "[5] Research Organization Registry (ROR), “ROR: A Community-Led Registry of Open Identifiers for Research Organizations,” https://ror.org.",
+      "[6] D. Vrande ˇci´c and M. Kr ¨otzsch, “Wikidata: A Free Collaborative Knowledgebase,” Communications of the ACM , vol. 57, no. 10, pp. 78–85, 2014."
+    ],
+    "sdPublisher": {
+      "@type": "SoftwareApplication",
+      "name": "CorpusLD",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Desktop",
+      "description": "Your Academic Knowledge Partner & Lossless JSON-LD Semantic Extractor",
+      "url": "https://github.com/sharriffajar/CorpusLD",
+      "softwareVersion": "3.0"
+    },
+    "identifier": [
+      {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.5281/zenodo.22179715"
+      }
+    ],
+    "sameAs": "https://doi.org/10.5281/zenodo.22179715",
+    "publisher": {
+      "@type": "Organization",
+      "name": "IEEE"
+    },
+    "@id": "https://doi.org/10.5281/zenodo.22179715",
     "url": "https://sharriffajar.pages.dev/papers/corpusld/",
+    "datePublished": "2026-08-31",
     "license": "https://creativecommons.org/licenses/by/4.0/",
-    "keywords": [
-      "Knowledge Graphs",
-      "Linked Data",
-      "Schema.org",
-      "Semantic Web",
-      "Information Extraction",
-      "Retrieval-Augmented Generation",
-      "Scholarly Metadata"
-    ],
-    "description": "CorpusLD bridges the semantic gap in PDF scholarly documents via macro W3C Schema.org JSON-LD and micro Deep Knowledge Graph (G = (V,E)) serialization across 10 formal predicates.",
     "encoding": [
       {
         "@type": "MediaObject",
