@@ -1416,53 +1416,71 @@
           </p>
         </div>
 
-        <div class="roadmap-timeline">
-          <!-- Roadmap Item 1 -->
+                <div class="roadmap-timeline">
+          <!-- Roadmap Item 1: Completed -->
           <div class="roadmap-item completed">
-            <div class="roadmap-badge">Phase 1</div>
+            <div class="roadmap-badge" style="background: var(--accent-emerald); color: #042f2e;">Phase 1 ✓</div>
             <div class="roadmap-card">
-              <div class="roadmap-date">Q1 - Q3 2026</div>
-              <h3 class="roadmap-title">Architecture &amp; End-to-End Pipeline Validation</h3>
+              <div class="roadmap-date" style="color: var(--accent-emerald);">Q1 - Q3 2026 · Completed</div>
+              <h3 class="roadmap-title">Engine Architecture &amp; Master Preprint Release</h3>
               <p class="roadmap-desc">
-                Completed 1D-CNN INT8 pipeline for ESP32-S3, released CorpusLD v3.0.0 with Dual-Layer Knowledge Graph and live ROR authority linking, and built Notebook-LocalLM-Studio sub-2GB RAM workspace.
+                Released CorpusLD v3.0.0 Dual-Layer Semantic Engine (104 automated tests passed), published official Master Preprint on Zenodo with persistent DOI <a href="https://doi.org/10.5281/zenodo.22179715" target="_blank" rel="noopener" style="color: var(--accent-cyan);">10.5281/zenodo.22179715</a>, and launched interactive Citation Lineage &amp; Living Knowledge Graph at <a href="./living-knowledge/" style="color: var(--accent-gold);">/living-knowledge/</a>.
               </p>
               <div class="roadmap-tags">
                 <span class="tag-done">✓ CorpusLD v3.0 (Released)</span>
-                <span class="tag-done">✓ INT8 TFLite Micro Pipeline</span>
-                <span class="tag-done">✓ 2-Pass Retrieval Engine</span>
+                <span class="tag-done">✓ DOI: 10.5281/zenodo.22179715</span>
+                <span class="tag-done">✓ Living Knowledge Graph Live</span>
               </div>
             </div>
           </div>
 
-          <!-- Roadmap Item 2 -->
+          <!-- Roadmap Item 2: Current Focus -->
           <div class="roadmap-item active">
-            <div class="roadmap-badge">Phase 2</div>
-            <div class="roadmap-card">
-              <div class="roadmap-date">Q4 2026 : Current Focus</div>
-              <h3 class="roadmap-title">Thesis Completion &amp; Physical Dataset Acquisition</h3>
+            <div class="roadmap-badge" style="background: var(--accent-cyan); color: #083344;">Phase 2 · Active</div>
+            <div class="roadmap-card" style="border-color: rgba(6, 182, 212, 0.4);">
+              <div class="roadmap-date" style="color: var(--accent-cyan);">Q4 2026 : Current Focus</div>
+              <h3 class="roadmap-title">Self-Hosted PoC &amp; Google Scholar Indexation Validation</h3>
               <p class="roadmap-desc">
-                Physical Open-Circuit Fault dataset acquisition on laboratory hardware testbed / physical circuit simulations, robustness validation, and scientific paper submission.
+                Deploying self-hosted scholarly landing page (<a href="./papers/corpusld/" style="color: var(--accent-emerald);">/papers/corpusld/</a>) with Highwire Press metadata and 100/100 Google Rich Results JSON-LD. Validating real-world indexation proof-of-concept (PoC) where Google Scholar and search engines index the author's primary domain as canonical authority prior to full journal submission.
               </p>
               <div class="roadmap-tags">
-                <span class="tag-current">&bull; Hardware Testbed Acquisition</span>
-                <span class="tag-current">&bull; Scientific Paper Finalization</span>
+                <span class="tag-current" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border-color: rgba(6, 182, 212, 0.35);">&bull; Google Scholar Indexation PoC</span>
+                <span class="tag-current" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border-color: rgba(6, 182, 212, 0.35);">&bull; Empirical Dissemination Proof</span>
+                <span class="tag-current" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border-color: rgba(6, 182, 212, 0.35);">&bull; Scopus Manuscript Finalization</span>
               </div>
             </div>
           </div>
 
-          <!-- Roadmap Item 3 -->
+          <!-- Roadmap Item 3: Next Target -->
           <div class="roadmap-item upcoming">
-            <div class="roadmap-badge">Phase 3</div>
+            <div class="roadmap-badge" style="background: var(--accent-gold); color: #451a03;">Phase 3</div>
             <div class="roadmap-card">
-              <div class="roadmap-date">2027 : Planned</div>
-              <h3 class="roadmap-title">GraphRAG Productionization &amp; Journal Integrations</h3>
+              <div class="roadmap-date" style="color: var(--accent-gold);">Q1 - Q2 2027 : Target</div>
+              <h3 class="roadmap-title">Scopus Q1/Q2 Journal Submission &amp; Thesis Defense</h3>
               <p class="roadmap-desc">
-                Institutional Journal OJS plugins, enterprise Neo4j GraphRAG integration, automated benchmarking with RAGAS evaluation harness, and PyPI distribution maintenance.
+                Submit CorpusLD Full Research Manuscript to Scopus Q1/Q2 Journal (IEEE Access / Elsevier Journal of Web Semantics) backed by live self-hosted PoC indexation metrics. Concurrently execute laboratory hardware testbed dataset acquisition for 1D-CNN ESP32-S3 undergraduate thesis.
+              </p>
+              <div class="roadmap-tags">
+                <span class="tag-future" style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">&bull; Scopus Q1/Q2 Submission (IEEE / Elsevier)</span>
+                <span class="tag-future" style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">&bull; Inverter Hardware Lab Acquisition</span>
+                <span class="tag-future" style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">&bull; Thesis Defense</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Roadmap Item 4: Planned Productionization -->
+          <div class="roadmap-item upcoming">
+            <div class="roadmap-badge">Phase 4</div>
+            <div class="roadmap-card">
+              <div class="roadmap-date">Late 2027 : Planned</div>
+              <h3 class="roadmap-title">Productionization, OJS Journal Plugins &amp; Decentralized GraphRAG</h3>
+              <p class="roadmap-desc">
+                Institutional OJS Journal Plugins for automatic W3C JSON-LD serialization, enterprise Neo4j GraphRAG integrations, automated benchmarking with RAGAS evaluation harness, and PyPI distribution.
               </p>
               <div class="roadmap-tags">
                 <span class="tag-future">&bull; OJS Journal Plugins</span>
-                <span class="tag-future">&bull; Neo4j GraphRAG Integration</span>
-                <span class="tag-future">&bull; Docker CI/CD</span>
+                <span class="tag-future">&bull; Decentralized GraphRAG</span>
+                <span class="tag-future">&bull; Community Federation</span>
               </div>
             </div>
           </div>
