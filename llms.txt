@@ -7,6 +7,7 @@ Sharrif Fajar is a software engineer and developer specializing in web technolog
 
 ## Key Links & Profiles
 - Website / Portfolio: https://sharriffajar.pages.dev/
+- ORCID: https://orcid.org/0009-0005-2933-7779
 - GitHub: https://github.com/sharriffajar
 - LinkedIn: https://linkedin.com/in/sharriffajar
 - Instagram: https://instagram.com/sharriffajar
@@ -14,3 +15,10 @@ Sharrif Fajar is a software engineer and developer specializing in web technolog
 ## Technical Expertise
 - Frontend: HTML5, CSS3, JavaScript, Modern Web Architecture, Semantic UI, Responsive Layouts.
 - Engineering Practices: Test-Driven Development, Clean Architecture, Security Best Practices (OWASP), System Design.
+
+## Publications & Preprints
+- **CorpusLD: A Dual-Layer Semantic Extraction Framework and Knowledge Graph Architecture for Scientific Literature with Deterministic Unit Ontology and Authority Disambiguation**
+  - Author: Sharrif Faqih Fajarudin
+  - Preprint DOI: https://doi.org/10.5281/zenodo.22179715
+  - Zenodo Record: https://zenodo.org/records/22179715
+  - GitHub: https://github.com/sharriffajar/CorpusLD

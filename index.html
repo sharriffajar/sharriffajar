@@ -79,6 +79,7 @@
         "url": "https://sharriffajar.pages.dev/",
         "image": "https://sharriffajar.pages.dev/og-image.png",
         "sameAs": [
+    "https://orcid.org/0009-0005-2933-7779",
           "https://sharriffajar.pages.dev/",
           "https://github.com/sharriffajar",
           "https://www.linkedin.com/in/sharriffajar"
@@ -231,6 +232,12 @@
     ]
   }
   </script>
+  <!-- Scholarly Metadata -->
+  <meta name="citation_title" content="CorpusLD: A Dual-Layer Semantic Extraction Framework and Knowledge Graph Architecture for Scientific Literature with Deterministic Unit Ontology and Authority Disambiguation">
+  <meta name="citation_author" content="Fajarudin, Sharrif Faqih">
+  <meta name="citation_publication_date" content="2026/08/31">
+  <meta name="citation_doi" content="10.5281/zenodo.22179715">
+  <meta name="citation_pdf_url" content="https://doi.org/10.5281/zenodo.22179715">
 </head>
 <body>
   <!-- Background Ambient Glow & Grid -->
@@ -261,6 +268,7 @@
       <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
         <ul class="nav-list">
           <li><a href="#overview" class="nav-link active">Overview</a></li>
+          <li><a href="#publications" class="nav-link" style="color: var(--accent-emerald); font-weight: 600;">Publications 📄</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
           <li><a href="#interactive-lab" class="nav-link">Interactive Lab</a></li>
           <li><a href="#tech-stack" class="nav-link">Tech Radar</a></li>
@@ -347,15 +355,15 @@
 
           <!-- Hero Action Buttons -->
           <div class="hero-actions">
-            <a href="#interactive-lab" class="btn-primary">
-              <span>Launch Interactive Lab</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            <a href="./papers/corpusld/" class="btn-primary" style="background: var(--accent-emerald); color: #042f2e; box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+              <span>Read CorpusLD Preprint (DOI)</span>
+            </a>
+            <a href="#interactive-lab" class="btn-secondary">
+              <span>Interactive Lab</span>
             </a>
             <a href="#projects" class="btn-secondary">
-              <span>Explore Projects</span>
-            </a>
-            <a href="mailto:sharrifff880@gmail.com" class="btn-outline">
-              <span>Get in Touch</span>
+              <span>Projects</span>
             </a>
           </div>
         </div>
@@ -417,6 +425,66 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    
+    <!-- Dedicated Publications & Preprints Section -->
+    <section class="section-wrapper" id="publications" aria-labelledby="publications-heading" style="padding-top: 40px;">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-eyebrow">
+            <span class="eyebrow-tag" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">Scholarly Preprints &amp; Publications</span>
+          </div>
+          <h2 id="publications-heading" class="section-title">Academic Publications</h2>
+          <p class="section-subtitle">
+            Peer-reviewed architectures, registered open-access preprints, and reproducible knowledge graph frameworks.
+          </p>
+        </div>
+
+        <article class="project-workbench-card" style="border: 1px solid rgba(16, 185, 129, 0.35); background: linear-gradient(180deg, rgba(16, 185, 129, 0.04) 0%, rgba(15, 20, 32, 0.95) 100%);">
+          <div class="workbench-grid" style="grid-template-columns: 1fr;">
+            <div class="workbench-details">
+              <div class="workbench-meta">
+                <span class="project-category-tag tag-purple">Knowledge Graphs &amp; Semantic Web</span>
+                <span class="project-version-tag" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border-color: rgba(6, 182, 212, 0.3);">Preprint V3.0</span>
+                <span class="project-license-tag" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald);">DOI: 10.5281/zenodo.22179715</span>
+                <span class="project-license-tag">Open Access (CC-BY-4.0)</span>
+              </div>
+
+              <h3 class="workbench-title" style="font-size: 1.5rem; margin-top: 8px;">
+                <a href="./papers/corpusld/">
+                  CorpusLD: A Dual-Layer Semantic Extraction Framework and Deep Knowledge Graph Architecture for Scientific Literature with Deterministic Unit Ontology and Authority Disambiguation
+                </a>
+              </h3>
+
+              <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); margin: 8px 0 16px;">
+                <strong>Author:</strong> Sharrif Faqih Fajarudin &bull; <em>Universitas Tanjungpura (UNTAN)</em> &bull; ORCID: <a href="https://orcid.org/0009-0005-2933-7779" target="_blank" rel="noopener noreferrer" style="color: #a6ce39;">0009-0005-2933-7779</a>
+              </div>
+
+              <p class="workbench-desc" style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">
+                Bridges the semantic isolation of PDF documents by combining macro-level W3C Schema.org ScholarlyArticle JSON-LD serialization with a micro-level Deep Knowledge Graph ($\mathcal{G} = (\mathcal{V}, \mathcal{E})$) across 10 formal semantic predicates. Achieves 100% structural pass on Google Rich Results, 0% context truncation loss, and regularized de-aliasing of superscript citation collisions.
+              </p>
+
+              <div class="workbench-actions" style="display: flex; flex-wrap: wrap; gap: 12px;">
+                <a href="./papers/corpusld/" class="btn-card-primary" style="background: var(--accent-emerald); color: #042f2e; font-weight: 700; padding: 10px 20px;">
+                  <span>📄 Open Interactive Paper Page</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="./papers/corpusld/CorpusLD-Preprint.pdf" download="CorpusLD-Master-Preprint.pdf" class="btn-card-secondary">
+                  <span>📥 Download Preprint PDF</span>
+                </a>
+                <a href="https://doi.org/10.5281/zenodo.22179715" target="_blank" rel="noopener noreferrer" class="btn-card-secondary">
+                  <span>🌐 Zenodo DOI Record</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+                <a href="https://github.com/sharriffajar/CorpusLD" target="_blank" rel="noopener noreferrer" class="btn-card-secondary">
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -503,13 +571,18 @@
                 </div>
 
                 <!-- Action Links -->
+                                <!-- Action Links -->
                 <div class="workbench-actions">
-                  <a href="https://github.com/sharriffajar/CorpusLD" target="_blank" rel="noopener noreferrer" class="btn-card-primary">
-                    <span>View GitHub Repository</span>
+                  <a href="./papers/corpusld/" class="btn-card-primary" style="background: var(--accent-emerald); color: #042f2e;">
+                    <span>📄 Read Preprint Paper (DOI)</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                  </a>
+                  <a href="https://github.com/sharriffajar/CorpusLD" target="_blank" rel="noopener noreferrer" class="btn-card-secondary">
+                    <span>GitHub Repository</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                   </a>
                   <button class="btn-card-secondary" data-jump-lab="corpusld" id="btn-jump-corpusld">
-                    <span>Launch Agent Visualizer</span>
+                    <span>Launch Simulator</span>
                   </button>
                 </div>
               </div>
