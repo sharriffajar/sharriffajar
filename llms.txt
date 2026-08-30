@@ -16,9 +16,16 @@ Sharrif Fajar is a software engineer and developer specializing in web technolog
 - Frontend: HTML5, CSS3, JavaScript, Modern Web Architecture, Semantic UI, Responsive Layouts.
 - Engineering Practices: Test-Driven Development, Clean Architecture, Security Best Practices (OWASP), System Design.
 
-## Publications & Preprints
+## Publications & Research Applications
 - **CorpusLD: A Dual-Layer Semantic Extraction Framework and Knowledge Graph Architecture for Scientific Literature with Deterministic Unit Ontology and Authority Disambiguation**
-  - Author: Sharrif Faqih Fajarudin
+  - Author: Sharrif Faqih Fajarudin (Universitas Tanjungpura)
+  - Author ORCID: https://orcid.org/0009-0005-2933-7779
   - Preprint DOI: https://doi.org/10.5281/zenodo.22179715
+  - Dedicated Interactive Paper Landing Page: https://sharriffajar.pages.dev/papers/corpusld/
+  - Living Knowledge Graph & Lineage Explorer: https://sharriffajar.pages.dev/living-knowledge/
   - Zenodo Record: https://zenodo.org/records/22179715
   - GitHub: https://github.com/sharriffajar/CorpusLD
+  - Key Capabilities: Dual-Layer W3C Schema.org ScholarlyArticle JSON-LD serialization, 10-predicate Deep Knowledge Graph (G = (V,E)), 5-Agent Map-Reduce extraction, Deterministic Scientific Unit Ontology, and Bidirectional Citation Lineage (honoring foundational giants like Tim Berners-Lee, Christian Bizer, LayoutLMv3, and Lewis et al. NeurIPS 2020 alongside topological research gap discovery).
+
+- **Lightweight 1D-CNN Edge AI for Inverter Fault Diagnosis**
+  - Focus: TinyML, INT8 Quantization, ESP32-S3 microcontroller deployment (<200KB model, <100KB RAM) for solar PV inverter reliability.
