@@ -280,6 +280,18 @@
                   <span class="stat-value" id="scope-thd-label">&lt; 2.1%</span>
                 </div>
               </div>
+
+              <!-- Monitor Pause / Freeze Button in Corner -->
+              <button id="scope-pause-btn" class="scope-pause-btn" aria-label="Pause or freeze waveform animation" title="Freeze / Pause Waveform">
+                <svg class="icon-pause" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <rect x="6" y="4" width="4" height="16"></rect>
+                  <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+                <svg class="icon-play" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <span id="scope-pause-text">PAUSE</span>
+              </button>
             </div>
 
             <!-- Oscilloscope Interactive Controls -->

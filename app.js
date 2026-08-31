@@ -16,6 +16,7 @@
     audioEnabled: localStorage.getItem('sf_audio') !== 'false',
     scopeMode: 'normal',
     scopeNoise: 0,
+    scopePaused: false,
     activeAgentStep: 1,
     activeLabTab: 'tab-pane-agent',
     audioCtx: null
@@ -240,13 +241,15 @@
           yVal = Math.sin(tShift);
           if (yVal < 0) yVal *= 0.22;
         } else if (state.scopeMode === 'fault-multi') {
-          // Class 5: Multi_Fault -> 0.5*sin(t) + 0.3*sin(3t) + 0.2*sin(5t) + 0.15*noise
-          yVal = 0.5 * Math.sin(t) + 0.30 * Math.sin(3 * t) + 0.20 * Math.sin(5 * t) + (Math.random() - 0.5) * 0.25;
+          // Class 5: Multi_Fault -> 0.5*sin(t) + 0.3*sin(3t) + 0.2*sin(5t) + deterministic high-freq ripple
+          const noiseRipple = Math.sin((x + time) * 0.73) * Math.cos((x + time) * 0.37) * 0.25;
+          yVal = 0.5 * Math.sin(t) + 0.30 * Math.sin(3 * t) + 0.20 * Math.sin(5 * t) + noiseRipple;
         }
 
-        // Noise slider perturbation
+        // Noise slider perturbation (deterministic per frame / time)
         if (state.scopeNoise > 0) {
-          yVal += ((Math.random() - 0.5) * 0.3) * (state.scopeNoise / 100);
+          const sliderNoise = (Math.sin((x + time) * 1.31) * Math.cos((x + time) * 0.97)) * 0.3 * (state.scopeNoise / 100);
+          yVal += sliderNoise;
         }
 
         const y = centerY - yVal * amplitude;
@@ -261,11 +264,54 @@
       ctx.stroke();
       ctx.shadowBlur = 0;
 
-      time += 1.8;
+      if (!state.scopePaused) {
+        time += 1.8;
+      }
       animationFrameId = requestAnimationFrame(render);
     }
 
     render();
+
+    // Pause / Freeze Button in Monitor Corner
+    const pauseBtn = document.getElementById('scope-pause-btn');
+    const pauseText = document.getElementById('scope-pause-text');
+    const iconPause = pauseBtn ? pauseBtn.querySelector('.icon-pause') : null;
+    const iconPlay = pauseBtn ? pauseBtn.querySelector('.icon-play') : null;
+    const liveIndicator = document.querySelector('.live-indicator');
+
+    function toggleScopePause() {
+      state.scopePaused = !state.scopePaused;
+
+      if (pauseBtn) {
+        if (state.scopePaused) {
+          pauseBtn.classList.add('paused');
+          if (pauseText) pauseText.textContent = 'RESUME';
+          if (iconPause) iconPause.style.display = 'none';
+          if (iconPlay) iconPlay.style.display = 'inline-block';
+          pauseBtn.setAttribute('title', 'Resume Waveform Animation');
+          if (liveIndicator) {
+            liveIndicator.innerHTML = '<span class="paused-dot"></span> FROZEN';
+            liveIndicator.style.color = '#f59e0b';
+          }
+          showToast('Waveform frozen (Paused)', 'info');
+        } else {
+          pauseBtn.classList.remove('paused');
+          if (pauseText) pauseText.textContent = 'PAUSE';
+          if (iconPause) iconPause.style.display = 'inline-block';
+          if (iconPlay) iconPlay.style.display = 'none';
+          pauseBtn.setAttribute('title', 'Freeze / Pause Waveform');
+          if (liveIndicator) {
+            liveIndicator.innerHTML = '<span class="blink-dot"></span> 50 Hz';
+            liveIndicator.style.color = 'var(--accent-emerald)';
+          }
+          showToast('Waveform resumed (Live)', 'success');
+        }
+      }
+    }
+
+    if (pauseBtn) {
+      pauseBtn.addEventListener('click', toggleScopePause);
+    }
 
     // Mode Buttons for all 6 Inverter Operating Conditions
     const modeBtns = document.querySelectorAll('.scope-mode-btn');
