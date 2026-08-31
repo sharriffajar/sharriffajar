@@ -190,6 +190,8 @@
       ctx.stroke();
     }
 
+    const noiseBuffer = new Float32Array(1600);
+
     function render() {
       const w = canvas.getBoundingClientRect().width;
       const h = canvas.getBoundingClientRect().height;
@@ -218,6 +220,11 @@
         const t = (x + time) * frequency;
         let yVal = 0.0;
 
+        if (!state.scopePaused) {
+          noiseBuffer[x] = Math.random() - 0.5;
+        }
+        const currentNoise = noiseBuffer[x] || 0;
+
         // Exact signal generation formulas from generate_dataset.py
         if (state.scopeMode === 'normal') {
           // Class 0: Healthy -> sin(t) + 0.05*sin(3t)
@@ -241,15 +248,13 @@
           yVal = Math.sin(tShift);
           if (yVal < 0) yVal *= 0.22;
         } else if (state.scopeMode === 'fault-multi') {
-          // Class 5: Multi_Fault -> 0.5*sin(t) + 0.3*sin(3t) + 0.2*sin(5t) + deterministic high-freq ripple
-          const noiseRipple = Math.sin((x + time) * 0.73) * Math.cos((x + time) * 0.37) * 0.25;
-          yVal = 0.5 * Math.sin(t) + 0.30 * Math.sin(3 * t) + 0.20 * Math.sin(5 * t) + noiseRipple;
+          // Class 5: Multi_Fault -> 0.5*sin(t) + 0.3*sin(3t) + 0.2*sin(5t) + 0.25*noise
+          yVal = 0.5 * Math.sin(t) + 0.30 * Math.sin(3 * t) + 0.20 * Math.sin(5 * t) + currentNoise * 0.25;
         }
 
-        // Noise slider perturbation (deterministic per frame / time)
+        // Noise slider perturbation
         if (state.scopeNoise > 0) {
-          const sliderNoise = (Math.sin((x + time) * 1.31) * Math.cos((x + time) * 0.97)) * 0.3 * (state.scopeNoise / 100);
-          yVal += sliderNoise;
+          yVal += (currentNoise * 0.3) * (state.scopeNoise / 100);
         }
 
         const y = centerY - yVal * amplitude;
