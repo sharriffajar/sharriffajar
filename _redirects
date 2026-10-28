@@ -1,0 +1,5 @@
+# Cloudflare Pages 301 Permanent Redirects
+# Redirect traffic from default pages.dev subdomain to custom canonical domain
+
+https://sharriffajar.pages.dev/* https://sharriffajar.my.id/:splat 301!
+http://sharriffajar.pages.dev/* https://sharriffajar.my.id/:splat 301!
