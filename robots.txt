@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Peta situs resmi untuk Googlebot dan search engine lainnya
-Sitemap: https://sharriffajar.pages.dev/sitemap.xml
+Sitemap: https://sharriffajar.my.id/sitemap.xml

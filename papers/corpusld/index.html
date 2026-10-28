@@ -11,7 +11,7 @@
   <meta name="keywords" content="CorpusLD, Knowledge Graphs, Linked Data, Schema.org, Semantic Web, Information Extraction, Retrieval-Augmented Generation, RAG, Scholarly Metadata, Ontology Engineering, Document Layout Analysis, Sharrif Fajar" />
   <meta name="author" content="Sharrif Faqih Fajarudin" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://sharriffajar.pages.dev/papers/corpusld/" />
+  <link rel="canonical" href="https://sharriffajar.my.id/papers/corpusld/" />
   
   <!-- Highwire Press Google Scholar Meta Tags -->
   <meta name="citation_title" content="CorpusLD: A Dual-Layer Semantic Extraction Framework and Knowledge Graph Architecture for Scientific Literature with Deterministic Unit Ontology and Authority Disambiguation" />
@@ -20,24 +20,24 @@
   <meta name="citation_author_orcid" content="https://orcid.org/0009-0005-2933-7779" />
   <meta name="citation_publication_date" content="2026/08/31" />
   <meta name="citation_doi" content="10.5281/zenodo.22179715" />
-  <meta name="citation_pdf_url" content="https://sharriffajar.pages.dev/papers/corpusld/CorpusLD-Preprint.pdf" />
+  <meta name="citation_pdf_url" content="https://sharriffajar.my.id/papers/corpusld/CorpusLD-Preprint.pdf" />
   <meta name="citation_keywords" content="Knowledge Graphs; Linked Data; Schema.org; Semantic Web; Information Extraction; Retrieval-Augmented Generation (RAG); Scholarly Metadata; Ontology Engineering; Document Layout Analysis" />
 
   <!-- Open Graph / Social Media Preview -->
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://sharriffajar.pages.dev/papers/corpusld/" />
+  <meta property="og:url" content="https://sharriffajar.my.id/papers/corpusld/" />
   <meta property="og:title" content="CorpusLD: A Dual-Layer Semantic Extraction Framework for Scientific Literature" />
   <meta property="og:description" content="Dual-layer academic linked data extraction engine and deep knowledge graph studio for PDF scientific literature." />
-  <meta property="og:image" content="https://sharriffajar.pages.dev/og-image.png" />
+  <meta property="og:image" content="https://sharriffajar.my.id/og-image.png" />
   <meta property="article:published_time" content="2026-08-31" />
-  <meta property="article:author" content="https://sharriffajar.pages.dev" />
+  <meta property="article:author" content="https://sharriffajar.my.id" />
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://sharriffajar.pages.dev/papers/corpusld/" />
+  <meta property="twitter:url" content="https://sharriffajar.my.id/papers/corpusld/" />
   <meta property="twitter:title" content="CorpusLD: A Dual-Layer Semantic Extraction Framework for Scientific Literature" />
   <meta property="twitter:description" content="Dual-layer academic linked data extraction engine and deep knowledge graph studio for PDF scientific literature." />
-  <meta property="twitter:image" content="https://sharriffajar.pages.dev/og-image.png" />
+  <meta property="twitter:image" content="https://sharriffajar.my.id/og-image.png" />
 
   <!-- Adaptive SVG Favicon -->
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
@@ -854,10 +854,10 @@
             Scientific and technical documents published in Portable Document Format (PDF) frequently function as unstructured <em>"data graveyards,"</em> creating severe semantic isolation. Conventional Retrieval-Augmented Generation (RAG) and large language model (LLM) chunking pipelines suffer from three fundamental failure modes: <strong>top-<em>K</em> context truncation loss</strong>, <strong>multi-page tabular fragmentation</strong>, and <strong>numeric collisions caused by superscript citation markers</strong> polluting quantitative parameters (e.g., misinterpreting reference indices as numerical quantities).
           </p>
           <p>
-            To resolve these challenges, we introduce <strong>CorpusLD</strong> (Corpus + Linked Data), a production-grade, dual-layer semantic extraction engine and deep knowledge graph architecture. CorpusLD combines a macro-level W3C Schema.org <code>ScholarlyArticle</code> JSON-LD serialization with a micro-level Deep Knowledge Graph (<math class="inline-math" aria-label="G = (V, E)"><mrow><mi mathvariant="script">G</mi><mo>=</mo><mo stretchy="false">(</mo><mi mathvariant="script">V</mi><mo>,</mo><mi mathvariant="script">E</mi><mo stretchy="false">)</mo></mrow></math>) spanning 10 formal semantic predicates. The system incorporates a 4-tier layout-aware parser, a section-wise map-reduce orchestrator, and a deterministic scientific unit ontology supporting Base SI, clinical, energy, and compound units. Furthermore, CorpusLD integrates a dynamic REST authority linker communicating with the Research Organization Registry (ROR v2) and Wikidata/MeSH registries.
+            To explore these challenges, we introduce <strong>CorpusLD</strong> (Corpus + Linked Data), an experimental dual-layer semantic extraction pipeline and knowledge graph framework. CorpusLD combines a macro-level W3C Schema.org <code>ScholarlyArticle</code> JSON-LD serialization with a micro-level Deep Knowledge Graph (<math class="inline-math" aria-label="G = (V, E)"><mrow><mi mathvariant="script">G</mi><mo>=</mo><mo stretchy="false">(</mo><mi mathvariant="script">V</mi><mo>,</mo><mi mathvariant="script">E</mi><mo stretchy="false">)</mo></mrow></math>) spanning 10 formal semantic predicates. The system incorporates a 4-tier layout-aware parser, a section-wise map-reduce orchestrator, and a deterministic scientific unit ontology supporting Base SI, clinical, energy, and compound units. Furthermore, CorpusLD integrates a dynamic REST authority linker communicating with the Research Organization Registry (ROR v2) and Wikidata/MeSH registries.
           </p>
           <p>
-            Evaluated across an 8-document multi-disciplinary benchmark corpus (arXiv, IEEE, SINTA, and Springer), CorpusLD achieves <strong>100% structural compliance</strong> on the Google Rich Results Test, extracts <strong>100% of complex multi-page tables</strong> without boundary corruption, and eliminates superscript citation pollution deterministically. CorpusLD is released as an open-source framework and Python package.
+            Evaluated across an 8-document multi-disciplinary benchmark corpus (arXiv, IEEE, SINTA, and Springer), CorpusLD validates structured Schema.org compliance, extracts multi-page tabular data, and mitigates superscript citation collisions. CorpusLD is released as an open-source experimental framework and research prototype.
           </p>
         </div>
 
@@ -885,7 +885,7 @@
         <div class="tab-nav" role="tablist" aria-label="Architecture and Benchmark Tabs">
           <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-arch" onclick="switchTab(event, 'tab-arch')">1. Pipeline Architecture</button>
           <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-cypher" onclick="switchTab(event, 'tab-cypher')">2. Graph Traversal &amp; Cypher</button>
-          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-bench" onclick="switchTab(event, 'tab-bench')">3. Empirical Benchmarks</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-bench" onclick="switchTab(event, 'tab-bench')">3. Benchmark Evaluation</button>
           <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-living" onclick="switchTab(event, 'tab-living')">4. Living Graph &amp; Research Gaps</button>
         </div>
 
@@ -947,51 +947,100 @@ RETURN p1.title AS PaperA, m1.name AS MethodA,
         <!-- Tab 3: Benchmarks -->
         <div id="tab-bench" class="tab-pane" role="tabpanel">
           <p style="color: var(--text-secondary); margin-bottom: 14px;">
-            Empirical comparative performance across 8 multi-disciplinary ground-truth benchmark documents:
+            Observable extraction yield evaluated across 8 multi-disciplinary benchmark documents (arXiv, IEEE, SINTA, Springer):
           </p>
           <div class="table-wrapper">
             <table>
               <thead>
                 <tr>
-                  <th>Evaluation Metric</th>
-                  <th>Naive Vector RAG Baseline</th>
-                  <th>CorpusLD (Proposed)</th>
+                  <th>Evaluated Document</th>
+                  <th>Domain</th>
+                  <th>Authors</th>
+                  <th>Sections</th>
+                  <th>Tables</th>
+                  <th>Citations</th>
+                  <th>Metrics</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Section Extraction Recall</td>
-                  <td>54.2%</td>
-                  <td class="highlight-cell">100.0%</td>
+                  <td><code>Al-Amin et al.</code></td>
+                  <td>Higher Ed (SINTA)</td>
+                  <td class="highlight-cell">6</td>
+                  <td class="highlight-cell">4</td>
+                  <td class="highlight-cell">1</td>
+                  <td class="highlight-cell">6</td>
+                  <td class="highlight-cell">8</td>
                 </tr>
                 <tr>
-                  <td>Table Structure Preservation</td>
-                  <td>37.6%</td>
-                  <td class="highlight-cell">100.0%</td>
+                  <td><code>Mamba (arXiv)</code></td>
+                  <td>CS / Deep Learning</td>
+                  <td class="highlight-cell">2</td>
+                  <td class="highlight-cell">34</td>
+                  <td class="highlight-cell">7</td>
+                  <td class="highlight-cell">116</td>
+                  <td class="highlight-cell">13</td>
                 </tr>
                 <tr>
-                  <td>Quantitative Metric Recall</td>
-                  <td>51.3%</td>
-                  <td class="highlight-cell">98.5%</td>
+                  <td><code>E-Methanol (v1)</code></td>
+                  <td>Chemical Eng</td>
+                  <td class="highlight-cell">6</td>
+                  <td class="highlight-cell">18</td>
+                  <td class="highlight-cell">5</td>
+                  <td class="highlight-cell">19</td>
+                  <td class="highlight-cell">31</td>
                 </tr>
                 <tr>
-                  <td>Superscript Citation Error Rate</td>
-                  <td>43.1%</td>
-                  <td class="highlight-cell">0.0% (Zero Collision)</td>
+                  <td><code>ESBMC Arduino</code></td>
+                  <td>Formal Verification</td>
+                  <td class="highlight-cell">4</td>
+                  <td class="highlight-cell">37</td>
+                  <td class="highlight-cell">9</td>
+                  <td class="highlight-cell">4</td>
+                  <td class="highlight-cell">3</td>
                 </tr>
                 <tr>
-                  <td>Context Truncation Loss Rate</td>
-                  <td>48.7%</td>
-                  <td class="highlight-cell">0.0% (Zero Loss)</td>
+                  <td><code>Biowaste Energy</code></td>
+                  <td>Environmental Sci</td>
+                  <td class="highlight-cell">4</td>
+                  <td class="highlight-cell">10</td>
+                  <td class="highlight-cell">2</td>
+                  <td class="highlight-cell">15</td>
+                  <td class="highlight-cell">10</td>
                 </tr>
                 <tr>
-                  <td>Google Rich Results Structural Pass</td>
-                  <td>0.0%</td>
-                  <td class="highlight-cell">100.0%</td>
+                  <td><code>IEEE Market BESS</code></td>
+                  <td>Electrical Eng</td>
+                  <td class="highlight-cell">3</td>
+                  <td class="highlight-cell">5</td>
+                  <td class="highlight-cell">1</td>
+                  <td class="highlight-cell">19</td>
+                  <td class="highlight-cell">5</td>
+                </tr>
+                <tr>
+                  <td><code>Simplex Arch</code></td>
+                  <td>Information Theory</td>
+                  <td class="highlight-cell">3</td>
+                  <td class="highlight-cell">16</td>
+                  <td class="highlight-cell">8</td>
+                  <td class="highlight-cell">20</td>
+                  <td class="highlight-cell">19</td>
+                </tr>
+                <tr>
+                  <td><code>Peatland (IJSDP)</code></td>
+                  <td>Sustainability</td>
+                  <td class="highlight-cell">8</td>
+                  <td class="highlight-cell">28</td>
+                  <td class="highlight-cell">3</td>
+                  <td class="highlight-cell">38</td>
+                  <td class="highlight-cell">42</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 8px;">
+            * Evaluated with CorpusLD benchmark harness (<code>benchmark_runner.py</code>) testing section delineation, table stitching, and entity resolution.
+          </p>
         </div>
 
         <!-- Tab 4: Living Graph -->

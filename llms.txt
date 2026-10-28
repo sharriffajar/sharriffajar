@@ -6,7 +6,8 @@
 Sharrif Fajar is a software engineer and developer specializing in web technologies, software architecture, intelligent systems, and open-source tooling.
 
 ## Key Links & Profiles
-- Website / Portfolio: https://sharriffajar.pages.dev/
+- Website / Portfolio: https://sharriffajar.my.id/
+- Mind Garden (Digital Garden): https://nvm.web.id/
 - ORCID: https://orcid.org/0009-0005-2933-7779
 - GitHub: https://github.com/sharriffajar
 - LinkedIn: https://linkedin.com/in/sharriffajar
@@ -21,11 +22,11 @@ Sharrif Fajar is a software engineer and developer specializing in web technolog
   - Author: Sharrif Faqih Fajarudin (Universitas Tanjungpura)
   - Author ORCID: https://orcid.org/0009-0005-2933-7779
   - Preprint DOI: https://doi.org/10.5281/zenodo.22179715
-  - Dedicated Interactive Paper Landing Page: https://sharriffajar.pages.dev/papers/corpusld/
-  - Living Knowledge Graph & Lineage Explorer: https://sharriffajar.pages.dev/living-knowledge/
+  - Dedicated Interactive Paper Landing Page: https://sharriffajar.my.id/papers/corpusld/
+  - Living Knowledge Graph & Lineage Explorer: https://sharriffajar.my.id/living-knowledge/
   - Zenodo Record: https://zenodo.org/records/22179715
   - GitHub: https://github.com/sharriffajar/CorpusLD
-  - Key Capabilities: Dual-Layer W3C Schema.org ScholarlyArticle JSON-LD serialization, 10-predicate Deep Knowledge Graph (G = (V,E)), 5-Agent Map-Reduce extraction, Deterministic Scientific Unit Ontology, and Bidirectional Citation Lineage (honoring foundational giants like Tim Berners-Lee, Christian Bizer, LayoutLMv3, and Lewis et al. NeurIPS 2020 alongside topological research gap discovery).
+  - Key Capabilities: Dual-Layer W3C Schema.org ScholarlyArticle JSON-LD serialization, 10-predicate Knowledge Graph mapping, multi-step extraction pipeline, scientific unit standardization, and citation graph generation.
 
 - **Lightweight 1D-CNN Edge AI for Inverter Fault Diagnosis**
   - Focus: TinyML, INT8 Quantization, ESP32-S3 microcontroller deployment (<200KB model, <100KB RAM) for solar PV inverter reliability.

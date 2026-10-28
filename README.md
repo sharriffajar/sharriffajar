@@ -4,7 +4,8 @@
 </p>
 
 <p align="center">
-  <a href="https://sharriffajar.pages.dev/"><img src="https://img.shields.io/badge/Website-sharriffajar.pages.dev-00FF00?style=for-the-badge&logo=googlechrome&logoColor=black" /></a>
+  <a href="https://sharriffajar.my.id/"><img src="https://img.shields.io/badge/Website-sharriffajar.my.id-00FF00?style=for-the-badge&logo=googlechrome&logoColor=black" /></a>
+  <a href="https://nvm.web.id/"><img src="https://img.shields.io/badge/Mind_Garden-nvm.web.id-38BDF8?style=for-the-badge&logo=obsidian&logoColor=white" /></a>
   <a href="https://orcid.org/0009-0005-2933-7779"><img src="https://img.shields.io/badge/ORCID-0009--0005--2933--7779-A6CE39?style=for-the-badge&logo=orcid&logoColor=white" /></a>
   <a href="https://doi.org/10.5281/zenodo.22179715"><img src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22179715-10B981?style=for-the-badge&logo=zenodo&logoColor=white" /></a>
   <a href="https://github.com/sharriffajar"><img src="https://img.shields.io/badge/GitHub-sharriffajar-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
@@ -32,31 +33,31 @@ Passionate about bridging **Edge AI / TinyML hardware constraints** with **Deep 
 **Research Focus:**
 - 🔋 **Renewable Energy Reliability:** Lightweight 1D-CNN Open-Circuit Fault Detection for Solar PV Inverters on ESP32-S3.
 - 🕸️ **Knowledge Graph Engineering:** Dual-Layer Semantic Web Extraction, W3C Schema.org JSON-LD, Deterministic Unit Ontologies, and Bidirectional Citation Graphs.
-- 🔒 **Privacy-First Local RAG Systems:** Section-wise Map-Reduce extraction with zero token truncation loss.
+- 🔒 **Privacy-First Local RAG Systems:** Multi-pass local retrieval pipelines engineered for memory-constrained commodity hardware.
 
 ---
 
 ## 📄 Academic Publications & Preprints
 
-### 🏆 [CorpusLD Master Preprint V3.0](https://sharriffajar.pages.dev/papers/corpusld/)
+### 🏆 [CorpusLD Master Preprint V3.0](https://sharriffajar.my.id/papers/corpusld/)
 > **"CorpusLD: A Dual-Layer Semantic Extraction Framework and Deep Knowledge Graph Architecture for Scientific Literature with Deterministic Unit Ontology and Authority Disambiguation"**
 
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22179715-blue.svg?style=flat-square&logo=doi)](https://doi.org/10.5281/zenodo.22179715)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg?style=flat-square)](https://creativecommons.org/licenses/by/4.0/)
-[![Google Rich Results](https://img.shields.io/badge/Google_Rich_Results-100%2F100-success.svg?style=flat-square&logo=google)](https://sharriffajar.pages.dev/papers/corpusld/)
-[![Living Knowledge Graph](https://img.shields.io/badge/Living_Graph-Interactive_60FPS-orange.svg?style=flat-square)](https://sharriffajar.pages.dev/living-knowledge/)
+[![Schema.org](https://img.shields.io/badge/Schema.org-Structured_Data-success.svg?style=flat-square&logo=schema.org)](https://sharriffajar.my.id/papers/corpusld/)
+[![Living Knowledge Graph](https://img.shields.io/badge/Living_Graph-Interactive_60FPS-orange.svg?style=flat-square)](https://sharriffajar.my.id/living-knowledge/)
 
 * **Author:** Sharrif Faqih Fajarudin (Universitas Tanjungpura)
 * **Persistent DOI:** [`10.5281/zenodo.22179715`](https://doi.org/10.5281/zenodo.22179715)
-* **Interactive Paper Hub:** [https://sharriffajar.pages.dev/papers/corpusld/](https://sharriffajar.pages.dev/papers/corpusld/)
-* **Living Knowledge Graph:** [https://sharriffajar.pages.dev/living-knowledge/](https://sharriffajar.pages.dev/living-knowledge/)
+* **Interactive Paper Hub:** [https://sharriffajar.my.id/papers/corpusld/](https://sharriffajar.my.id/papers/corpusld/)
+* **Living Knowledge Graph:** [https://sharriffajar.my.id/living-knowledge/](https://sharriffajar.my.id/living-knowledge/)
 * **Citation Formats:** Full 1-click export for **IEEE Standard**, **BibTeX**, **APA 7th Edition**, and **RIS (EndNote/Zotero)**.
 
 ---
 
 ## 🌟 Featured Engineering Projects
 
-### 🛠️ [CorpusLD](https://github.com/sharriffajar/CorpusLD) — *Dual-Layer Academic Linked Data & Knowledge Graph Engine*
+### 🛠️ [CorpusLD](https://github.com/sharriffajar/CorpusLD) — *Experimental Academic Linked Data & Knowledge Graph Pipeline*
 
 [![PyPI](https://img.shields.io/badge/PyPI-v3.0.0-blue.svg?style=flat-square&logo=pypi)](https://github.com/sharriffajar/CorpusLD)
 [![Tests](https://img.shields.io/badge/Unit%20Tests-104%20Passed-success.svg?style=flat-square)](https://github.com/sharriffajar/CorpusLD)
@@ -67,7 +68,7 @@ Passionate about bridging **Edge AI / TinyML hardware constraints** with **Deep 
 
 | **Aspect** | **Details** |
 |---|---|
-| **Type** | Dual-Layer Academic Linked Data Extraction Engine & Deep Knowledge Graph Studio |
+| **Type** | Experimental Dual-Layer Linked Data Extraction Pipeline & Knowledge Graph Framework |
 | **Target** | Unstructured Scientific Papers, Technical Reports & Patents → Schema.org JSON-LD, RDF Turtle, Neo4j Cypher |
 | **Innovation** | 4-Tier Hybrid Parser + 5-Agent Map-Reduce + Live Authority Resolvers (ROR v2 / Wikidata / MeSH / Crossref) |
 
@@ -84,11 +85,11 @@ Layer 2 (Semantic Graph & Linked Data Layer):
 ```
 
 **Key Features:**
-- 🤖 **5-Agent Map-Reduce Pipeline:** Guaranteed 0% context truncation loss across arbitrarily long papers.
+- 🤖 **Multi-Step Extraction Pipeline:** Section-wise parsing workflow designed to minimize context fragmentation in complex research papers.
 - 🏛️ **Live Domain Authority Linker:** Dynamic ROR v2 REST lookup for global institutions + canonical Wikidata QIDs.
 - 🔬 **Deterministic Unit Ontology:** 8 standard scientific dimensions eliminating superscript footnote collisions ($W/m^2$ vs $[2]$).
 - 🕸️ **Bidirectional Citation Lineage:** Honors foundational ancestors (Berners-Lee, Bizer, LayoutLMv3, Lewis et al.) alongside topological research gap discovery.
-- 🛡️ **Enterprise Security Hardened:** SSRF loopback defense, strict path traversal validation, and DOM sanitization.
+- 🛡️ **Security Hardened Input:** SSRF loopback defense, strict path traversal checks, and input sanitization.
 
 ---
 
@@ -145,7 +146,7 @@ Pipeline: generate_dataset.py (128-sample window) → train_model.py (1D-CNN) �
 ├────────────────────────────────────────────────────────────────────────────┤
 │ Phase 2: Active / Current Focus 🎯 (Q4 2026)                               │
 │   • Self-Hosted Empirical PoC & Google Scholar Indexation Validation       │
-│   • Highwire Press Metadata & 100/100 Google Rich Results Verification     │
+│   • Highwire Press Metadata & Structured Schema.org Verification           │
 │   • Scopus Q1/Q2 Manuscript Finalization (IMRAD standard)                  │
 ├────────────────────────────────────────────────────────────────────────────┤
 │ Phase 3: Next Milestone 🏆 (Q1 - Q2 2027)                                  │
@@ -161,14 +162,22 @@ Pipeline: generate_dataset.py (128-sample window) → train_model.py (1D-CNN) �
 
 ---
 
+## 🪴 Digital Garden / Diary
+
+> 💭 **[No Void Mind (NVM)](https://nvm.web.id/)** — *"nevermind, just my mind"*  
+> An open, interconnected digital notebook and thought stream covering TinyML experiments, hardware debugging, and unpolished engineering reflections.
+
+---
+
 ## 📬 Connect & Collaborate
 
 > 🤝 **Open to academic collaborations** in: Edge AI, TinyML, Knowledge Graphs, Semantic Web Ontologies, and Renewable Energy Reliability.
 
 <p align="center">
-  <a href="https://sharriffajar.pages.dev/"><img src="https://img.shields.io/badge/Website-sharriffajar.pages.dev-00FF00?style=flat-square&logo=googlechrome&logoColor=black" /></a>
+  <a href="https://sharriffajar.my.id/"><img src="https://img.shields.io/badge/Website-sharriffajar.my.id-00FF00?style=flat-square&logo=googlechrome&logoColor=black" /></a>
+  <a href="https://nvm.web.id/"><img src="https://img.shields.io/badge/Mind_Garden-nvm.web.id-38BDF8?style=flat-square&logo=obsidian&logoColor=white" /></a>
   <a href="https://orcid.org/0009-0005-2933-7779"><img src="https://img.shields.io/badge/ORCID-0009--0005--2933--7779-A6CE39?style=flat-square&logo=orcid&logoColor=white" /></a>
-  <a href="mailto:sharrifff880@gmail.com"><img src="https://img.shields.io/badge/Email-sharrifff880@gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white" /></a>
+  <a href="mailto:contact@sharriffajar.my.id"><img src="https://img.shields.io/badge/Email-contact@sharriffajar.my.id-D14836?style=flat-square&logo=gmail&logoColor=white" /></a>
   <a href="https://github.com/sharriffajar"><img src="https://img.shields.io/badge/GitHub-sharriffajar-181717?style=flat-square&logo=github&logoColor=white" /></a>
   <a href="https://www.linkedin.com/in/sharriffajar"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" /></a>
 </p>
